@@ -149,12 +149,42 @@ document.addEventListener("mouseup", function(e){
     disengage(e);
   }
 });
+
 // Set up touch events for mobile, etc
 document.addEventListener("touchstart", function(e){
   if (e.target && e.target.id == "canvas"){
     putPoint(e);
     e.preventDefault();
     engage(e);
+  }
+}, false);
+// Move finger to draw
+document.addEventListener("touchmove", function(e){
+  if (e.target && e.target.id == "canvas"){
+    if (!e)
+        var e = event;
+    if (e.touches) {
+        if (e.touches.length == 1) { // Only deal with one finger
+            var touch = e.touches[0]; // Get the information for finger #1
+            touchX=touch.pageX-touch.target.offsetLeft;
+            touchY=touch.pageY-touch.target.offsetTop;
+        }
+    }
+    context.lineWidth = radius*2;
+    context.lineTo(touchX, touchY);
+    context.stroke();
+    context.beginPath();
+    context.arc(touchX, touchY, radius, 0, Math.PI*2);
+    context.fill();
+    context.beginPath();
+    context.moveTo(touchX, touchY);
+    e.preventDefault();
+  }
+}, false);
+//removing finger from screen - disable touch
+document.addEventListener("touchend", function(){
+  if (e.target && e.target.id == "canvas"){
+    disengage(e);
   }
 }, false);
 

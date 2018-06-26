@@ -54,7 +54,9 @@ function pencilThickness () {
     thickness += 2;
   }
 }
-
+menu.addEventListener("click", function(){
+  alert("hello");
+})
 //document Event Delegator
 document.addEventListener("click", function(e){
   if ((e.target && e.target.className == "outer--container") || (e.target && e.target.className == "inner--container") || (e.target && e.target.className == "curve1") || (e.target && e.target.className == "curve2")) {

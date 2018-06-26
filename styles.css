@@ -1,0 +1,419 @@
+/**
+ * @package IcoFont by ThemeHunt - https://themehunt.com
+ * @version 1.0.0 Beta
+ * @author IcoFont http://icofont.com
+ * @copyright Copyright (c) 2018 IcoFont
+ * @license - http://icofont.com/license/
+*/
+
+@font-face {
+    font-family: 'icofont';
+    src: url('fonts/icofont.eot?v=1.0.0-beta');
+    src: url('fonts/icofont.eot?v=1.0.0-beta#iefix') format('embedded-opentype'),
+    url('fonts/icofont.ttf?v=1.0.0-beta') format('truetype'),
+    url('fonts/icofont.woff?v=1.0.0-beta') format('woff'),
+    url('fonts/icofont.svg?v=1.0.0-beta#icofont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icofont {
+    font-family: 'IcoFont' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*Font size*/
+.icofont-lg {
+    font-size: 1.33333333em;
+    line-height: .75em;
+    vertical-align: -15%
+}
+
+.icofont-2x {
+    font-size: 2em
+}
+
+.icofont-3x {
+    font-size: 3em
+}
+
+.icofont-4x {
+    font-size: 4em
+}
+
+.icofont-5x {
+    font-size: 5em
+}
+
+.icofont-fw {
+    display: inline-block;
+    width: 1.28571429em;
+    text-align: center
+}
+
+/*Fixed Width Icons*/
+.icofont-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+
+/*Custom list icons*/
+.icofont-ul {
+    padding-left: 0;
+    margin-left: 2.14285714em;
+    list-style-type: none;
+}
+.icofont-ul>li {
+    position: relative;
+}
+.icofont-li {
+    position: absolute;
+    left: -2.14285714em;
+    width: 2.14285714em;
+    top: .14285714em;
+    text-align: center;
+}
+
+.icofont-navigation-menu {
+
+}
+
+.icofont-navigation-menu:before {
+	content: "\f080";
+}
+.icofont-social-facebook:before {
+	content: "\ee08";
+}
+.icofont-social-twitter:before {
+	content: "\ee34";
+}
+.icofont-social-whatsapp:before {
+	content: "\f135";
+}
+.icofont-share{
+  color:red;
+}
+
+.icofont-share:before {
+	content: "\f0ca";
+}
+.icofont-delete-alt:before {
+	content: "\eea9";
+}
+
+.icofont-edit-alt {
+  color: #5fc7ea;
+}
+
+.icofont-edit-alt:before {
+	content: "\eeaa";
+}
+.icofont-email{
+  color:#000;
+}
+.icofont-email:before{
+  content:"\efe4";
+}
+.icofont-eraser-alt{
+  color: #68e6ac;
+}
+
+.icofont-eraser-alt:before {
+	content: "\eeab";
+}
+
+.icofont-color-bucket {
+  color: #e6d068;
+}
+
+.icofont-color-bucket:before {
+	content: "\eea4";
+}
+
+.icofont-color-picker{
+    color:#e68568;
+}
+
+.icofont-color-picker:before {
+	content: "\eea5";
+}
+
+.icofont-arrow-up:before {
+	content: "\eb1c";
+}
+
+.icofont-delete-alt {
+  color:#666;
+}
+
+.icofont-delete-alt:before {
+	content: "\eea9";
+}
+
+/*Animation*/
+.icofont-rotate {
+    display: inline-block;
+    -webkit-animation: icofont-rotate 2s infinite linear;
+    animation: icofont-rotate 2s infinite linear
+}
+
+@-webkit-keyframes icofont-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes icofont-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+body {
+  margin:0;
+  background-color:#000;
+}
+nav {
+  position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 10%;
+  min-width:65px;
+	backface-visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav--move{
+  left:218px;
+}
+.toolbox {
+  list-style-type:none;
+  display:flex;
+  flex-flow:column wrap;
+  flex-direction:column;
+  height:85vh;
+  padding:0;
+  margin:0;
+  transform: translate(0, -100%);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toolbox--active {
+	transform: translate(0, 0);
+}
+
+li {
+  position:relative;
+  flex-grow:1;
+}
+
+button{
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	text-decoration: none;
+	font-size: 24px;
+	background: #2b3033;
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border:0;
+}
+
+.button--active {
+  background-color: #272b2e;
+}
+button:hover{
+  	background: #272b2e;
+}
+
+.menu {
+	height: 15vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	background: #2b3033;
+	cursor: pointer;
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu:hover {
+	background: #272b2e;
+}
+
+.menu-icon {
+	position: relative;
+	height: 2px;
+	width: 40px;
+	background: white;
+}
+
+.menu-icon:before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.menu-icon:after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background: white;
+}
+
+.menu-icon, .menu-icon:before, .menu-icon:after {
+	will-change: transform;
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu--active .menu-icon {
+	transform: rotate(90deg);
+}
+
+.menu--active .menu-icon:before {
+	transform: rotate(-45deg) translate(-7px, -7px) scaleX(0.7);
+}
+
+.menu--active .menu-icon:after {
+	transform: rotate(45deg) translate(-7px, 7px) scaleX(0.7);
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.icofont-navigation-menu, .icofont-delete-alt, .icofont-share:before, .icofont-edit-alt:before, .icofont-trash:before, .icofont-eraser-alt:before, .icofont-color-bucket:before, .icofont-color-picker:before, .icofont-file-alt:before {
+  padding-right:4%;
+  font-size:36px;
+}
+
+.pallette {
+  background-color:#272b2e;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 0;
+  backface-visibility: hidden;
+  height:100vh;
+  transition: 0.1s ease;
+}
+
+.pallette--active {
+  width:218px;
+  color:#999;
+}
+
+::-webkit-scrollbar {
+  background: #272b2e;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#444;
+}
+
+.colourList, .pencilList, .shareList {
+  list-style-type: none;
+  height:100vh;
+  width:100%;
+  overflow-y: scroll;
+  display:block;
+  flex-direction: column;
+  padding:0;
+  margin-top:0;
+}
+
+.colourList li, .shareList li{
+    display:block;
+    margin:0;
+    width:80%;
+    height:90px;
+    margin:10% auto;
+}
+
+.outer--container, .pencilList li:first-child, .colourList li:first-child {
+  margin-top:10%;
+}
+
+.colourList button {
+    height:100%;
+}
+
+.outer--container {height:90px; background-color: #b2b4b6;  width:80%; margin:10% auto;}
+.inner--container {width:80%; height:100%; margin:0 auto; overflow:hidden; }
+.curve1{
+  float:left;
+  margin-top: 35%;
+  margin-left:10%;
+  width:40%; height:40%;
+  border:solid 1px #000;
+  border-color:transparent #000 #000 transparent;
+  border-radius: 0px 0px 350px 350px;
+  box-sizing:border-box;
+}
+.curve2{
+  float:left;
+  margin-top:5%;
+  margin-left:-1px;
+  width:40%; height:40%;
+  border:solid 1px #000;
+  border-color:#000 transparent transparent #000;
+  border-radius: 350px 450px 0px 0px;
+}
+
+canvas {
+  width:100%;
+  height:100%;
+}
+.eraseButton{
+  position:absolute;
+  right:0;
+  top:0;
+  width:110px;
+  height:110px;
+}
+#endErase {
+  left:auto;
+  background-color:#999;
+  position:relative;
+  width:100px;
+  right:10px;
+  top:10px;
+  height:40px;
+  font-size:12px;
+}

@@ -1,8 +1,9 @@
-var express = require('express');
-var app = express();
+var http = require('http');
+var fs = require('fs');
 
-app.use('/', express.static(__dirname + '/public'));
+var html = fs.readFileSync('index.html');
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + 'index.html');
-});
+http.createServer(function (req, res){
+  res.writeHead(200, {'Content-type': 'text/html'});
+  res.end(html);
+}).listen(8000);

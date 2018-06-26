@@ -210,7 +210,7 @@ nav {
   display:flex;
   flex-flow:column wrap;
   flex-direction:column;
-  height:85vh;
+  height:85%;
   padding:0;
   margin:0;
   transform: translate(0, -100%);
@@ -250,7 +250,7 @@ button:hover{
 }
 
 .menu {
-	height: 15vh;
+	height: 15%;
 	position: relative;
 	display: flex;
 	justify-content: center;

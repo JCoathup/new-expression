@@ -1,9 +1,4 @@
-var http = require('http');
-var fs = require('fs');
-
-var html = fs.readFileSync('index.html');
-
-http.createServer(function (req, res){
-  res.writeHead(200, {'Content-type': 'text/html'});
-  res.end(html);
-}).listen(8000);
+var express = require('express');
+var app = express();
+app.use(express.static(__dirname + '/public'));
+app.listen(process.env.PORT || 3000);

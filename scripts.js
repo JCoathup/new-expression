@@ -294,12 +294,14 @@ window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
   var tmpCanvas = document.createElement("canvas");
+tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
+
   tmpCtx = tempCanvas.getContext("2d");
   tempCanvas.drawImage(canvas, 0, 0);
-  canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
   ctx = canvas.getContext("2d");
   ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
 }

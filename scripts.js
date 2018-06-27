@@ -289,3 +289,10 @@ function erase (){
  	return imageData;
 
  }
+window.addEventListener("resize", resizeCanvas, false);
+window.addEventListener("orientationchange", resizeCanvas, false);
+
+function resizeCanvas(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}

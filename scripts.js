@@ -290,7 +290,7 @@ function erase (){
 
  }
 window.addEventListener("resize", resizeCanvas, false);
-window.addEventListener("orientationchange", resizeCanvas, false);
+window.addEventListener("deviceorientation", resizeCanvas, false);
 
 function resizeCanvas(){
   let tmpCanvas = document.createElement("canvas");

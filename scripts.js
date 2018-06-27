@@ -293,6 +293,8 @@ window.addEventListener("resize", resizeCanvas, false);
 window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
+  let imgData = ctx.getImageData(0,0, canvas.width, canvas.height);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  ctx.putImageData(imgData, 0, 0);
 }

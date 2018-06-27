@@ -12,6 +12,6 @@ app.listen(process.env.PORT || 3000);
 
 var T = new Twit(config);
 
-T.post('statuses/update', { status: 'Look, I am tweeting!' }, function(err, data, response) {
+T.post('statuses/update', { status: 'woo whoooo' }, function(err, data, response) {
   console.log(data)
 });

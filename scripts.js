@@ -161,6 +161,7 @@ document.addEventListener("touchstart", function(e){
 // Move finger to draw
 document.addEventListener("touchmove", function(e){
   if (e.target && e.target.id == "canvas"){
+    e.preventDefault();
     if (!e)
         var e = event;
     if (e.touches) {

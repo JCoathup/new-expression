@@ -153,6 +153,7 @@ document.addEventListener("mouseup", function(e){
 // Set up touch events for mobile, etc
 document.addEventListener("touchstart", function(e){
   if (e.target && e.target.id == "canvas"){
+    document.body.style.overflow = "hidden";
     putPoint(e);
     e.preventDefault();
     engage(e);
@@ -185,6 +186,7 @@ document.addEventListener("touchmove", function(e){
 //removing finger from screen - disable touch
 document.addEventListener("touchend", function(){
   if (e.target && e.target.id == "canvas"){
+    document.body.style.overflow = "auto";
     disengage(e);
   }
 }, false);

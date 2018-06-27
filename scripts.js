@@ -289,19 +289,3 @@ function erase (){
  	return imageData;
 
  }
-window.addEventListener("resize", resizeCanvas, false);
-window.addEventListener("orientationchange", resizeCanvas, false);
-
-function resizeCanvas(){
-  var tmpCanvas = document.createElement("canvas");
-tempCanvas.height = canvas.height;
-  tempCanvas.width = canvas.width;
-
-  tmpCtx = tempCanvas.getContext("2d");
-  tempCanvas.drawImage(canvas, 0, 0);
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  ctx = canvas.getContext("2d");
-  ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
-}

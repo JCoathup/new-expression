@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     Twit = require('twit'),
-    config = require(path.join(__dirname, 'config.js')),
+    config = require(path.join(__dirname, 'twitter_config.js')),
     express = require('express'),
     app = express();
 app.use(express.static(__dirname + '/'));

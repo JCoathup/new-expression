@@ -120,6 +120,8 @@ document.addEventListener("click", function(e){
     let bgd = canvas.style.backgroundColor;
     variable = canvasToImage(bgd);
     console.log(variable);
+    let lightbox = document.querySelector(".lightbox");
+    lightbox.classList.toggle("lightbox-target");
   }
 });
 

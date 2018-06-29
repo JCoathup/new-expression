@@ -118,7 +118,8 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
-    canvasToImage(bgd);
+    variable = canvasToImage(bgd);
+    console.log(variable);
   }
 });
 

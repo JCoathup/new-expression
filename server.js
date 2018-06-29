@@ -11,7 +11,8 @@ app.get('/', function (req, res){
 app.listen(process.env.PORT || 3000);
 
 var T = new Twit(config);
-
+/*
 T.post('statuses/update', { status: 'woo whoooop!!!!!!' }, function(err, data, response) {
   console.log(data)
 });
+*/

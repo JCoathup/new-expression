@@ -448,3 +448,9 @@ canvas {
 	/** Unhide lightbox **/
 	display: block;
 }
+.lightbox-inner {
+  background-color:#fff;
+  width:90%;
+  height:90%;
+  margin: auto;
+}

@@ -122,6 +122,7 @@ document.addEventListener("click", function(e){
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
+    lightbox.innerHTML =`<div class = "lightbox-inner"><img src=${variable}></div>`
   }
 });
 

@@ -302,7 +302,7 @@ function resizeCanvas(){
   tempCanvas.width = canvas.width;
 
   tmpCtx = tempCanvas.getContext("2d");
-  tempCtx.drawImage(canvas, 0, 0);
+  tmpCtx.drawImage(canvas, 0, 0);
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
 

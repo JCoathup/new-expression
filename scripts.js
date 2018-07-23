@@ -293,8 +293,8 @@ function erase (){
  	return imageData;
 
  }
-window.addEventListener("resize", resizeCanvas, false);
-window.addEventListener("orientationchange", resizeCanvas, false);
+//window.addEventListener("resize", resizeCanvas, false);
+//window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
   var tempCanvas = document.createElement("canvas");

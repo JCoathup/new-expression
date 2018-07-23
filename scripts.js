@@ -297,8 +297,8 @@ window.addEventListener("resize", resizeCanvas, false);
 window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-  var tmpCanvas = document.createElement("canvas");
-tempCanvas.height = canvas.height;
+  var tempCanvas = document.createElement("canvas");
+  tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
 
   tmpCtx = tempCanvas.getContext("2d");

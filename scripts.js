@@ -296,7 +296,7 @@ function erase (){
 window.addEventListener("resize", function(){
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
-  console.log(canvas.height);
+  console.log(canvas.width);
 }, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 

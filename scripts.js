@@ -297,6 +297,7 @@ window.addEventListener("resize", function(){
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   console.log(canvas.width);
+  resizeCanvas();
 }, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 

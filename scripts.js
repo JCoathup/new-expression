@@ -294,8 +294,8 @@ function erase (){
 
  }
 window.addEventListener("resize", function(){
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
+  canvas.height = window.offsetHeight;
+  canvas.width = window.offsetWidth;
   console.log(canvas.width);
   resizeCanvas();
 }, false);

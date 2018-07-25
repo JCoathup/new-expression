@@ -307,5 +307,5 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
 
   ctx = canvas.getContext("2d");
-  ctx.drawImage(tempCanvas, 0, 0, tempCanvas.height, tempCanvas.width, 0, 0, canvas.height, canvas.width);
+  ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
 }

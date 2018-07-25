@@ -298,7 +298,7 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   //get DPI
-let dpi = window.devicePixelRatio;
+
   let ink = context.fillStyle;
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
@@ -322,7 +322,7 @@ function fix_dpi() {
 //get CSS height
 //the + prefix casts it to an integer
 //the slice method gets rid of "px"
-
+let dpi = window.devicePixelRatio;
 let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
 
 //get CSS width

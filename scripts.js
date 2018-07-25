@@ -308,8 +308,7 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
 
   //ctx = canvas.getContext("2d");
-  context.webkitImageSmoothingEnabled = false;
-context.mozImageSmoothingEnabled = false;
+
 context.imageSmoothingEnabled = false; /// future
   context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
   context.fillStyle = ink;

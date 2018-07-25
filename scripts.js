@@ -310,4 +310,5 @@ function resizeCanvas(){
   //ctx = canvas.getContext("2d");
   context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
   context.fillStyle = ink;
+  context.strokeStyle = ink;
 }

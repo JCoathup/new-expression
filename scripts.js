@@ -297,6 +297,7 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
+  let ink = context.fillStyle;
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
@@ -306,6 +307,7 @@ function resizeCanvas(){
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
 
-  ctx = canvas.getContext("2d");
-  ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+  //ctx = canvas.getContext("2d");
+  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+  context.fillStyle = ink;
 }

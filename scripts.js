@@ -304,7 +304,7 @@ function resizeCanvas(){
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-
+console.log(dpi);
   tmpCtx = tempCanvas.getContext("2d");
   tmpCtx.drawImage(canvas, 0, 0);
   canvas.height = window.innerHeight;

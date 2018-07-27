@@ -300,6 +300,7 @@ function resizeCanvas(){
   //get DPI
 
   let ink = context.fillStyle;
+  let dpi = window.devicePixelRatio;
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
@@ -312,7 +313,7 @@ function resizeCanvas(){
 
 //context.imageSmoothingEnabled = true; /// future
 
-  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width*dpi, canvas.height*dpi);
 
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;

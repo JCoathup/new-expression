@@ -2,11 +2,7 @@
   "short-name": "Expressions",
   "name": "Expressions",
   "icons": [
-    {
-      "src": "images/icon192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
+
     {
       "src": "images/icon256.png",
       "sizes": "256x256",

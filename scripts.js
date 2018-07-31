@@ -158,8 +158,9 @@ document.addEventListener("mouseup", function(e){
 document.addEventListener("touchstart", function(e){
   if (e.target && e.target.id == "canvas"){
     document.body.style.overflow = "hidden";
-    putPoint(e);
     e.preventDefault();
+    putPoint(e);
+
     engage(e);
   }
 }, false);
@@ -299,21 +300,21 @@ window.addEventListener("resize", resizeCanvas, false);
 function resizeCanvas(){
   //get DPI
 
-  let ink = context.fillStyle;
-  let dpi = window.devicePixelRatio;
+  let ink = context.fillStyle; //to remember current stroke colour
+  //let dpi = window.devicePixelRatio;
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-console.log(dpi);
+//console.log(dpi);
   tmpCtx = tempCanvas.getContext("2d");
-  tmpCtx.drawImage(canvas, 0, 0);
+  //tmpCtx.drawImage(canvas, 0, 0);
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   //ctx = canvas.getContext("2d");
 
 //context.imageSmoothingEnabled = true; /// future
 
-  context.drawImage(tempCanvas, 0, 0, tempCanvas.width*dpi, tempCanvas.height*dpi, 0, 0, canvas.width*dpi, canvas.height*dpi);
+  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
 
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;

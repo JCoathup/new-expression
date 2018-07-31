@@ -307,14 +307,14 @@ function resizeCanvas(){
   tempCanvas.width = canvas.width;
 //console.log(dpi);
   tmpCtx = tempCanvas.getContext("2d");
-  //tmpCtx.drawImage(canvas, 0, 0);
+  tmpCtx.drawImage(canvas, 0, 0,);
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
   //ctx = canvas.getContext("2d");
 
 //context.imageSmoothingEnabled = true; /// future
 
-  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+  context.drawImage(tempCtx, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
 
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;

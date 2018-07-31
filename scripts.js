@@ -165,6 +165,7 @@ document.addEventListener("touchstart", function(e){
     engage(e);
   }
 }, false);
+window.addEventListener("touchstart", function(e) {    e.preventDefault();}, false);window.addEventListener("touchmove", function(e) {    e.preventDefault();}, false);
 // Move finger to draw
 document.addEventListener("touchmove", function(e){
   e.preventDefault();

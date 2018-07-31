@@ -314,7 +314,7 @@ function resizeCanvas(){
   canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
 //context.imageSmoothingEnabled = true; /// future
 
-  context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+  //context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
 
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;

@@ -318,11 +318,12 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   //get DPI
+  console.log(context.fillStyle);
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
  let ink = context.fillStyle;
- console.log(context.fillStyle); //to remember current stroke colour
+  //to remember current stroke colour
   //let dpi = window.devicePixelRatio;
   /* var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;

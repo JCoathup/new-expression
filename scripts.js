@@ -122,7 +122,9 @@ document.addEventListener("click", function(e){
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
-    lightbox.innerHTML += `<div class = "lightbox-inner" style="margin-top:2%;"><img src=${variable}><br><input type="text"><button style="display:inline-block; height:50px; width:200px; background-color:#0084B4;color:#ffffff; margin:2%; position:relative;">TWEET</button><button style="display:inline-block; height:50px; width:200px; position:relative; margin: 2%; color:#0084B4; border: 1px solid #0084B4; background-color:#fff;">CANCEL</button></div>`
+    lightbox.innerHTML += `<div class = "lightbox-inner" style="margin:2%; padding:2%;"><img src=${variable}><br><input type="text"><br>
+                          <button style="display:inline-block; height:50px; width:200px; background-color:#0084B4;color:#ffffff; margin:2%; position:relative;">TWEET</button>
+                          <button style="display:inline-block; height:50px; width:200px; position:relative; margin: 2%; color:#0084B4; border: 1px solid #0084B4; background-color:#fff;">CANCEL</button></div>`
   }
 });
 

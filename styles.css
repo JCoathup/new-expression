@@ -433,7 +433,7 @@ canvas {
 .lightbox {
 	/** Default lightbox to hidden */
 	display: none;
-
+  padding:1%;
 	/** Position and style */
 	position: absolute;
 	z-index: 999;

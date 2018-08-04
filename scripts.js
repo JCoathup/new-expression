@@ -130,6 +130,7 @@ document.addEventListener("click", function(e){
                           </div>`
   }
   if (e.target && e.target.id == "cancelTweet"){
+    let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
   }
 });

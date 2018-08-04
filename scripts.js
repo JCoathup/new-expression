@@ -338,7 +338,7 @@ img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 context.globalCompositeOperation = "source-over";
 console.log(img.width, img.height);
-  context.drawImage(img, 0, 0t);
+  context.drawImage(img, 0, 0,);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(1,1);

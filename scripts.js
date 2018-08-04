@@ -318,8 +318,10 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   //get DPI
-  heighty = window.innerHeight;
-  widthy = window.innerWidth;
+  let widthy = canvas.width;
+  let heighty  =  canvas.height;
+  //heighty = window.innerHeight;
+  //widthy = window.innerWidth;
   console.log(context.fillStyle);
   let ink = context.fillStyle;
   let bgd = canvas.style.backgroundColor;

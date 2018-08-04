@@ -447,15 +447,15 @@ canvas {
 
 .lightbox img {
 	/** Pad the lightbox image */
-	max-width: 90%;
-	max-height: 80%;
+	width: 90%;
+	height:auto;
 	margin-top: 2%;
   margin-bottom:2%;
 }
 .lightbox input {
-  max-width:90%;
-  padding:2%;
-  margin:2%;
+  width:88%;
+  padding:1%;
+  margin:1%;
   border:1px solid #0084B4;
 }
 .lightbox-target {

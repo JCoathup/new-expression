@@ -328,27 +328,21 @@ function resizeCanvas(){
   let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
-
  console.log("ink is" + ink);
   /*
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
   tmpCtx = tempCanvas.getContext("2d");
   tmpCtx.drawImage(canvas, 0, 0,); */
-
-  //
-  //
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
-console.log(img.width, img.height);
 let ctx = canvas.getContext("2d");
-ctx.drawImage(img, 0, 0);
+ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, widthy/img.width, heighty/img.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   ctx.scale(widthy/img.width, heighty/img.height);
-  //ctx.translate(img.width/widthy, img.width/heighty);
   ctx.fillStyle = ink;
   ctx.strokeStyle = ink;
 }

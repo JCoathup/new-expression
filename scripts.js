@@ -132,7 +132,7 @@ document.addEventListener("click", function(e){
   if (e.target && e.target.id == "cancelTweet"){
     let bgd = canvas.style.backgroundColor;
     let img = new Image();
-    let img.src = canvasToImage(bgd);
+    img.src = canvasToImage(bgd);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
     context.drawImage(img,0,0);

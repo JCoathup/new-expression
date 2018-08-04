@@ -341,6 +341,7 @@ function resizeCanvas(){
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;
+  console.log(context.fillStyle);
   //redraw();
   //fix_dpi();
 }

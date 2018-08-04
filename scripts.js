@@ -347,7 +347,8 @@ let ctx = canvas.getContext("2d");
 ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0,canvas.width/ widthy,canvas.height/ heighty);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-
+canvas.width = window.innerWidth;
+canvas.height = window.innerWidth;
   ctx.scale(widthy/img.width, heighty/img.height);
   //ctx.translate(img.width/widthy, img.width/heighty);
   ctx.fillStyle = ink;

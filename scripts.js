@@ -344,7 +344,7 @@ let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
 console.log(img.width, img.height);
 let ctx = canvas.getContext("2d");
-ctx.drawImage(img, 0, 0, widthy, heighty, 0, 0, canvas.width, canvas.height);
+ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, widthy, heighty);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   ctx.scale(widthy/img.width, heighty/img.height);

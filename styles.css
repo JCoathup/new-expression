@@ -456,6 +456,7 @@ canvas {
   max-width:90%;
   padding:2%;
   margin:2%;
+  border:1px solid #0084B4;
 }
 .lightbox-target {
 	/** Remove default browser outline */

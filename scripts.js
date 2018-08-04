@@ -337,12 +337,13 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   //context.drawImage(variable, 0, 0);
   //ctx = canvas.getContext("2d");
-
+img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 console.log(img.width, img.height);
   context.drawImage(img, 0, 0, canvas.height, canvas.width, 0,0, img.width, img.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
+}
   context.fillStyle = ink;
   context.strokeStyle = ink;
   console.log(context.fillStyle);

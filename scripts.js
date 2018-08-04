@@ -333,15 +333,15 @@ function resizeCanvas(){
   tmpCtx.drawImage(canvas, 0, 0,); */
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
-let canvas = document.createElement("canvas");
+//let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
-let ctx = canvas.getContext("2d");
-ctx.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width,canvas.height);
+//let ctx = canvas.getContext("2d");
+context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width,canvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //ctx.scale(widthy/img.width, heighty/img.height);
-  ctx.scale(tempCanvas.width/canvas.width, tempCanvas.height/canvas.height);
-  ctx.fillStyle = ink;
-  ctx.strokeStyle = ink;
+  contexc.scale(tempCanvas.width/canvas.width, tempCanvas.height/canvas.height);
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
 }
 }

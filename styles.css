@@ -470,3 +470,22 @@ canvas {
   margin: auto;
   overflow:auto;
 }
+.lightbox button {
+  display:inline-block;
+  min-width:150px;
+  max-height:50px;
+  max-width:200px;
+  width:33%;
+  position:relative;
+  margin: 1%;
+}
+#cancelTweet{
+  color:#0084B4;
+  border: 1px solid #0084B4;
+  background-color:#fff;
+}
+
+#sendTweet{
+  background-color:#0084B4;
+  color:#ffffff;
+}

@@ -318,7 +318,7 @@ window.addEventListener("resize", resizeCanvas, false);
 function resizeCanvas(){
   //get DPI
   let bgd = canvas.style.backgroundColor;
-  let newvariable = canvasToImage(bgd);
+  let newvariable.src = canvasToImage(bgd);
  let ink = context.fillStyle; //to remember current stroke colour
   //let dpi = window.devicePixelRatio;
   /* var tempCanvas = document.createElement("canvas");

@@ -318,6 +318,8 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   //get DPI
+  heighty = window.innerHeight;
+  widthy = window.innerWidth;
   console.log(context.fillStyle);
   let ink = context.fillStyle;
   let bgd = canvas.style.backgroundColor;
@@ -330,8 +332,7 @@ function resizeCanvas(){
   tempCanvas.width = canvas.width;
   tmpCtx = tempCanvas.getContext("2d");
   tmpCtx.drawImage(canvas, 0, 0,); */
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
+
   //context.drawImage(variable, 0, 0);
   //ctx = canvas.getContext("2d");
 img.onload = function() {
@@ -341,7 +342,7 @@ console.log(img.width, img.height);
   context.drawImage(img, 0, 0);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(canvas.width/img.width, canvas.height/img.height);
+  context.scale(img.width/widthy, img.height/heighty);
 }
   context.fillStyle = ink;
   context.strokeStyle = ink;

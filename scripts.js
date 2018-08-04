@@ -321,7 +321,8 @@ function resizeCanvas(){
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
- let ink = context.fillStyle; //to remember current stroke colour
+ let ink = context.fillStyle;
+ console.log(context.fillStyle); //to remember current stroke colour
   //let dpi = window.devicePixelRatio;
   /* var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;

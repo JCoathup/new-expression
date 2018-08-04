@@ -317,19 +317,19 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-  //get DPI
-  let widthy = canvas.width;
-  let heighty  =  canvas.height;
+  var tempCanvas = document.createElement("canvas");
+  let widthy = tempCanvas.width;
+  let heighty  =  tempCanvas.height;
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
   console.log(context.fillStyle);
   let ink = context.fillStyle;
-  let bgd = canvas.style.backgroundColor;
+  let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
 
  console.log("ink is" + ink);
-  /* var tempCanvas = document.createElement("canvas");
+  /*
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
   tmpCtx = tempCanvas.getContext("2d");

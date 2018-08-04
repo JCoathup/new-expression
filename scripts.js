@@ -325,12 +325,9 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
 
  console.log("ink is" + ink);
-  //to remember current stroke colour
-  //let dpi = window.devicePixelRatio;
   /* var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-//console.log(dpi);
   tmpCtx = tempCanvas.getContext("2d");
   tmpCtx.drawImage(canvas, 0, 0,); */
   canvas.height = window.innerHeight;
@@ -345,7 +342,7 @@ console.log(img.width, img.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(1,1);
-context.strokeRect(0,0,0,0);
+context.strokeRect(0,0,img.width, img.height);
 }
   context.fillStyle = ink;
   context.strokeStyle = ink;

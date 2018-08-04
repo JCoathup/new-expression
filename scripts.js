@@ -122,7 +122,7 @@ document.addEventListener("click", function(e){
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
-    lightbox.innerHTML += `<div class = "lightbox-inner" style="padding:1%;">
+    lightbox.innerHTML = `<div class = "lightbox-inner" style="padding:1%;">
                           <img src=${variable}><br>
                           <input type="text"><br>
                           <button id="sendTweet">TWEET</button>
@@ -317,17 +317,19 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   //get DPI
-
-  let ink = context.fillStyle; //to remember current stroke colour
+  let bgd = canvas.style.backgroundColor;
+  let variable = canvasToImage(bgd);
+/*  let ink = context.fillStyle; //to remember current stroke colour
   //let dpi = window.devicePixelRatio;
   var tempCanvas = document.createElement("canvas");
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
 //console.log(dpi);
   tmpCtx = tempCanvas.getContext("2d");
-  tmpCtx.drawImage(canvas, 0, 0,);
+  tmpCtx.drawImage(canvas, 0, 0,); */
   canvas.height = window.innerHeight;
   canvas.width = window.innerWidth;
+  context.drawImage(variable, 0, 0);
   //ctx = canvas.getContext("2d");
 
 //context.imageSmoothingEnabled = true; /// future

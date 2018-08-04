@@ -339,7 +339,7 @@ function resizeCanvas(){
   //ctx = canvas.getContext("2d");
 
 //context.imageSmoothingEnabled = true; /// future
-
+console.log(ing.width, img.height);
   context.drawImage(img, 0, 0, canvas.height, canvas.width, 0,0, img.width, img.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);

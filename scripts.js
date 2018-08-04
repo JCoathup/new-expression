@@ -336,7 +336,7 @@ img.onload = function() {
 let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
 let ctx = canvas.getContext("2d");
-ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, canvas.width/widthy,canvas.height/heighty);
+ctx.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width,canvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   ctx.scale(widthy/img.width, heighty/img.height);

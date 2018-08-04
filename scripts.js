@@ -118,7 +118,7 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
-    variable = canvasToImage(bgd);
+    let variable = canvasToImage(bgd);
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
@@ -130,8 +130,10 @@ document.addEventListener("click", function(e){
                           </div>`
   }
   if (e.target && e.target.id == "cancelTweet"){
+    let variable = canvasToImage(bgd);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
+    context.drawImage(variable,0,0); 
   }
 });
 

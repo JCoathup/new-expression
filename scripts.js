@@ -336,19 +336,19 @@ function resizeCanvas(){
   tmpCtx.drawImage(canvas, 0, 0,); */
 
   //context.drawImage(variable, 0, 0);
-  //ctx = canvas.getContext("2d");
+  //
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 context.globalCompositeOperation = "source-over";
 console.log(img.width, img.height);
-  context.drawImage(img, 0, 0);
+let ctx = canvas.getContext("2d");
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(widthy/img.width, heighty/img.height);
+  ctx.scale(widthy/img.width, heighty/img.height);
 }
-  context.fillStyle = ink;
-  context.strokeStyle = ink;
-  console.log(context.fillStyle);
+  ctx.fillStyle = ink;
+  ctx.strokeStyle = ink;
+  ctx.log(context.fillStyle);
   //redraw();
   //fix_dpi();
 }

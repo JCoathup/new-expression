@@ -349,7 +349,7 @@ ctx.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0,canvas.width/ widthy,
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
 
   ctx.scale(widthy/img.width, heighty/img.height);
-  ctx.translate(img.width/widthy, img.width/heighty);
+  //ctx.translate(img.width/widthy, img.width/heighty);
   ctx.fillStyle = ink;
   ctx.strokeStyle = ink;
 }

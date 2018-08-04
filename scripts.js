@@ -318,6 +318,7 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   var tempCanvas = document.createElement("canvas");
+  let tempContext =tempCanvas.getContext("2d");
   let widthy = tempCanvas.width;
   let heighty  =  tempCanvas.height;
   //heighty = window.innerHeight;
@@ -339,8 +340,10 @@ function resizeCanvas(){
   //
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
+let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
 console.log(img.width, img.height);
+let canvas
 let ctx = canvas.getContext("2d");
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
@@ -351,21 +354,4 @@ let ctx = canvas.getContext("2d");
   ctx.log(context.fillStyle);
   //redraw();
   //fix_dpi();
-}
-
-function fix_dpi() {
-//get CSS height
-//the + prefix casts it to an integer
-//the slice method gets rid of "px"
-let dpi = window.devicePixelRatio;
-let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
-
-//get CSS width
-let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
-
-//scale the canvas
-
-canvas.setAttribute('height', style_height * dpi);
-canvas.setAttribute('width', style_width * dpi);
-
 }

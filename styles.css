@@ -449,8 +449,6 @@ canvas {
 	/** Pad the lightbox image */
 	width: 90%;
 	height:auto;
-	margin-top: 2%;
-  margin-bottom:2%;
 }
 .lightbox input {
   width:88%;
@@ -467,7 +465,7 @@ canvas {
 }
 .lightbox-inner {
   background-color:#fff;
-  width:90%;
+  width:60%;
   height:90%;
   margin: auto;
   overflow:auto;

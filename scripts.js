@@ -122,10 +122,11 @@ document.addEventListener("click", function(e){
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
-    lightbox.innerHTML += `<div class = "lightbox-inner" style="padding:1%;"><img src=${variable}><br>
+    lightbox.innerHTML += `<div class = "lightbox-inner" style="padding:1%;">
+                          <img src=${variable}><br>
                           <input type="text"><br>
-                          <button style="display:inline-block; max-height:50px; max-width:200px; width:33%; background-color:#0084B4;color:#ffffff; margin:1%; position:relative;">TWEET</button>
-                          <button style="display:inline-block; max-height:50px; max-width:200px; width:33%; position:relative; margin: 1%; color:#0084B4; border: 1px solid #0084B4; background-color:#fff;">CANCEL</button></div>`
+                          <button style="display:inline-block; min-width:150px; max-height:50px; max-width:200px; width:33%; background-color:#0084B4;color:#ffffff; margin:1%; position:relative;">TWEET</button>
+                          <button style="display:inline-block; min-width:150px; max-height:50px; max-width:200px; width:33%; position:relative; margin: 1%; color:#0084B4; border: 1px solid #0084B4; background-color:#fff;">CANCEL</button></div>`
   }
 });
 

@@ -343,14 +343,14 @@ img.onload = function() {
 let canvas = document.createElement("canvas");
 context.globalCompositeOperation = "source-over";
 console.log(img.width, img.height);
-context = canvas.getContext("2d");
-context.drawImage(img, 0, 0);
+let ctx = canvas.getContext("2d");
+ctx.drawImage(img, 0, 0);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(widthy/img.width, heighty/img.height);
+  ctx.scale(widthy/img.width, heighty/img.height);
   //ctx.translate(img.width/widthy, img.width/heighty);
-  context.fillStyle = ink;
-  context.strokeStyle = ink;
+  ctx.fillStyle = ink;
+  ctx.strokeStyle = ink;
 }
 
 

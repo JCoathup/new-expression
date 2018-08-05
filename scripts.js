@@ -330,21 +330,18 @@ function resizeCanvas(){
   let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
-  /* tempCanvas.height = canvas.height;
+  tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-  tmpCtx = tempCanvas.getContext("2d");*/
-
+  /* ttmpCtx = tempCanvas.getContext("2d");*/
 img.onload = function() {
   tempContext.drawImage(img, 0, 0,);
 //context.imageSmoothingEnabled = true; /// future
 let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-context.drawImage(tempCanvas, 0, 0, widthy, heighty, 0, 0, widthy/canvas.width, heighty/canvas.height);
+context.drawImage(tempCanvas, 0, 0, canvas.height, canvas.height, 0, 0, tempCanvas.width, tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //ctx.scale(widthy/img.width, heighty/img.height);
-  canvas.width = canvas.wudth/tempCanvas.width;
-  canvas.height = canvas.height/tempCanvas.height;
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;

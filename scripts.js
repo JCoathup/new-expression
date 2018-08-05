@@ -323,7 +323,7 @@ function resizeCanvas(){
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
   let widthy = window.innerWidth;
-  let heighty  =  window.innerHeight.height;
+  let heighty  =  window.innerHeight;
   tempCanvas.width = widthy;
   tempCanvas.height = heighty;
 
@@ -336,7 +336,7 @@ function resizeCanvas(){
 img.onload = function() {
   let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-context.drawImage(img, 0, 0, window.innerWidth, window.innerHeight, 0, 0, tempCanvas.width, tempCanvas.height);
+context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, tempCanvas.width, tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);

@@ -337,7 +337,7 @@ function resizeCanvas(){
   }
   if (tempCanvas.width < img.width){
   console.log("smaller");
-  canvas.height = window.innerWidth;
+  //canvas.height = window.innerWidth;
   }
 
   //context.globalCompositeOperation = "source-over";

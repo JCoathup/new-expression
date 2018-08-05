@@ -323,7 +323,7 @@ function resizeCanvas(){
   let widthy = canvas.width;
   let heighty  =  canvas.height;
   tempCanvas.width = widthy;
-  tempCnavas.height = heighty;
+  tempCanvas.height = heighty;
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
   let ink = context.fillStyle;
@@ -334,7 +334,6 @@ function resizeCanvas(){
   tempCanvas.width = canvas.width;
 img.onload = function() {
   tempContext.drawImage(img, 0, 0);
-//context.imageSmoothingEnabled = true; /// future
 let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
 context.drawImage(tempCanvas, 0, 0, canvas.height, canvas.height, 0, 0, tempCanvas.width, tempCanvas.height);

@@ -339,10 +339,12 @@ img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
+context.drawImage(tempCanvas, 0, 0, widthy, heighty, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //ctx.scale(widthy/img.width, heighty/img.height);
+  canvas.width = canvas.wudth/tempCanvas.width;
+  canvas.height = canvas.height/tempCanvas.height;
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;

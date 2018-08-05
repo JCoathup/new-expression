@@ -315,40 +315,35 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-  let canvas = document.createElement("canvas");
-  var tempCanvas = document.createElement("canvas");
-  let tempContext =tempCanvas.getContext("2d");
-  //heighty = window.innerHeight;
-  //widthy = window.innerWidth;
-  tempCanvas.width  = window.innerWidth;
-  tempCanvas.height  =  window.innerHeight;
-  let ink = context.fillStyle;
-  let bgd = tempCanvas.style.backgroundColor;
-  let img = new Image();
-  img.src = canvasToImage(bgd);
-  //tempCanvas.height = canvas.height;
-  //tempCanvas.width = canvas.width;
-img.onload = function() {
-  console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
-  let check = tempContext.drawImage(img, 0, 0, img.width, img.height);
-if (tempCanvas.width > img.width){
-  console.log("bigger");
-}
-if (tempCanvas.width < img.width){
-  console.log("smaller");
-  canvas.height = window.innerWidth;
-}
-  let context = canvas.getContext("2d");
-context.globalCompositeOperation = "source-over";
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-console.log(canvas.width);
-context.drawImage(tempContext, 0, 0, img.width, img.height, 0, 0, tempCanvas.width, tempCanvas.height);
-//canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
-  //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(tempCanvas.width, tempCanvas.height);
-  context.fillStyle = ink;
-  context.strokeStyle = ink;
+  var myCanvas=document.getElementById("canvas");
+var ctx=myCanvas.getContext("2d");
+var cw=canvas.width;
+var ch=canvas.height;
+var tempCanvas=document.createElement("canvas");
+var tctx=tempCanvas.getContext("2d");
+let ink = context.fillStyle;
+let bgd = tempCanvas.style.backgroundColor;
+var img=new Image();
+img.crossOrigin='anonymous';
+img.onload=start;
+img.src = canvasToImage(bgd);
 
+function start(){
+  myCanvas.width=img.width;
+  myCanvas.height=img.height;
+  ctx.drawImage(img,0,0);
+  resizeTo(myCanvas,0.50);
+}
+
+function resizeTo(canvas,pct){
+  var cw=canvas.width;
+  var ch=canvas.height;
+  tempCanvas.width=cw;
+  tempCanvas.height=ch;
+  tctx.drawImage(canvas,0,0);
+  canvas.width*=pct;
+  canvas.height*=pct;
+  var ctx=canvas.getContext('2d');
+  ctx.drawImage(tempCanvas,0,0,cw,ch,0,0,cw*pct,ch*pct);
 }
 }

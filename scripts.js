@@ -333,12 +333,13 @@ function resizeCanvas(){
   /* tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
   tmpCtx = tempCanvas.getContext("2d");*/
-  tempContext.drawImage(canvas, 0, 0,);
+
 img.onload = function() {
+  tempContext.drawImage(img, 0, 0,);
 //context.imageSmoothingEnabled = true; /// future
 let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
+context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //ctx.scale(widthy/img.width, heighty/img.height);

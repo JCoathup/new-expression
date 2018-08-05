@@ -333,7 +333,6 @@ function resizeCanvas(){
   tmpCtx.drawImage(canvas, 0, 0,); */
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
-let canvas = document.createElement("canvas");
 let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
 context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);

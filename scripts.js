@@ -338,8 +338,6 @@ if (tempCanvas.width < img.width){
 }
   let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-canvas.style.width = "100%";
-canvas.style.width = "100%";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width/tempCanvas.width, img.height/tempCanvas.height);

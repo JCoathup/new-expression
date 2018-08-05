@@ -157,8 +157,6 @@ document.addEventListener("mousedown", function(e){
 // moving mouse to draw
 document.addEventListener("mousemove", function(e){
   if(e.target && e.target.id == "canvas"){
-    mousePos.x = e.offsetX;
-    mousePos.y = e.offsetY;
     putPoint(e);
   }
 });

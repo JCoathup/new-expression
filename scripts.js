@@ -328,7 +328,7 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
-  console.log(tempCanvas.width, img.width);
+  console.log(tempCanvas.width, img.width, canvas.width);
 img.onload = function() {
 
   let context = canvas.getContext("2d");

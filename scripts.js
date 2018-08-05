@@ -329,6 +329,7 @@ function resizeCanvas(){
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
 img.onload = function() {
+  console.log(canvas.width, tempCanvas.width, ing.width);
 if (tempCanvas.width > img.width){
   console.log("bigger");
 }
@@ -347,25 +348,6 @@ context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width/tempCanvas.w
   context.scale(tempCanvas.width/img.width, tempCanvas.height/img.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;
-  var element = this.canvas, offsetX = 0, offsetY = 0, mx, my;
 
-  // Compute the total offset
-  if (element.offsetParent !== undefined) {
-    do {
-      offsetX += element.offsetLeft;
-      offsetY += element.offsetTop;
-    } while ((element = element.offsetParent));
-  }
-
-  // Add padding and border style widths to offset
-  // Also add the <html> offsets in case there's a position:fixed bar
-  offsetX += this.stylePaddingLeft + this.styleBorderLeft + this.htmlLeft;
-  offsetY += this.stylePaddingTop + this.styleBorderTop + this.htmlTop;
-
-  mx = e.pageX - offsetX;
-  my = e.pageY - offsetY;
-
-  // We return a simple javascript object (a hash) with x and y defined
-  return {x: mx, y: my};
 }
 }

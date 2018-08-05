@@ -322,11 +322,8 @@ function resizeCanvas(){
   let tempContext =tempCanvas.getContext("2d");
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
-  let widthy = window.innerWidth;
-  let heighty  =  window.innerHeight;
-  tempCanvas.width = widthy;
-  tempCanvas.height = heighty;
-
+  tempCanvas.width  = window.innerWidth;
+  tempCanvas.height  =  window.innerHeight;
   let ink = context.fillStyle;
   let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();

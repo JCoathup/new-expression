@@ -344,7 +344,7 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, tempCanvas.width/img.width, tempCanvas.height/img.height);
+  context.drawImage(img, 0, 0, img.width, img.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);
@@ -352,4 +352,26 @@ function resizeCanvas(){
   context.strokeStyle = ink;
 
   }
+}
+
+saveEventState = function(e){
+  // Save the initial event details and container state
+  event_state.container_width = $container.width();
+  event_state.container_height = $container.height();
+  event_state.container_left = $container.offset().left;
+  event_state.container_top = $container.offset().top;
+  event_state.mouse_x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + $(window).scrollLeft();
+  event_state.mouse_y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + $(window).scrollTop();
+
+  // This is a fix for mobile safari
+  // For some reason it does not allow a direct copy of the touches property
+  if(typeof e.originalEvent.touches !== 'undefined'){
+	event_state.touches = [];
+	$.each(e.originalEvent.touches, function(i, ob){
+	  event_state.touches[i] = {};
+	  event_state.touches[i].clientX = 0+ob.clientX;
+	  event_state.touches[i].clientY = 0+ob.clientY;
+	});
+  }
+  event_state.evnt = e;
 }

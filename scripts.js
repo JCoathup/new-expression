@@ -344,10 +344,10 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(img, 0, 0, img.width, img.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 50, 50, canvas.width, canvas.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);
+  //context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 

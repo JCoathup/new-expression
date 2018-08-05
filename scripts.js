@@ -330,13 +330,14 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-img.onload = function() {
   if (window.innerWidth < tempCanvas.width){
     console.log("smaller");
   }
   if (window.innerWidth > tempCanvas.width){
     console.log("bigger");
   }
+img.onload = function() {
+
   let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
 canvas.style.width = "100%";

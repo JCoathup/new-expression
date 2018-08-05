@@ -332,7 +332,6 @@ function resizeCanvas(){
     let canvas = document.createElement("canvas");
     let context = canvas.getContext("2d");
   console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
-  let check = tempContext.drawImage(img, 0, 0, img.width, img.height);
   if (tempCanvas.width > img.width){
   console.log("bigger");
   }
@@ -345,10 +344,10 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(tempContext, 0, 0, img.width, img.height, 0, 0, tempCanvas.width, tempCanvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, tempCanvas.width, tempCanvas.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
+  context.scale(canvas.width/tempCanvas.width, canvas.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 

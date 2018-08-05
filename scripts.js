@@ -317,10 +317,13 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
+  let canvas = document.createElement("canvas");
   var tempCanvas = document.createElement("canvas");
   let tempContext =tempCanvas.getContext("2d");
-  let widthy = tempCanvas.width;
-  let heighty  =  tempCanvas.height;
+  let widthy = canvas.width;
+  let heighty  =  canvas.height;
+  tempCanvas.width = widthy;
+  tempCnavas.height = heighty;
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
   let ink = context.fillStyle;
@@ -329,8 +332,8 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   /* tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-  tmpCtx = tempCanvas.getContext("2d");
-  tmpCtx.drawImage(canvas, 0, 0,); */
+  tmpCtx = tempCanvas.getContext("2d");*/
+  tempContext.drawImage(canvas, 0, 0,);
 img.onload = function() {
 //context.imageSmoothingEnabled = true; /// future
 let context = canvas.getContext("2d");

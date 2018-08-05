@@ -333,10 +333,9 @@ function resizeCanvas(){
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
 img.onload = function() {
-  tempContext.drawImage(img, 0, 0);
-let context = canvas.getContext("2d");
+  let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
-context.drawImage(tempCanvas, 0, 0, window.innerWidth, window.innerHeight, 0, 0, tempCanvas.width, tempCanvas.height);
+context.drawImage(img, 0, 0, window.innerWidth, window.innerHeight, 0, 0, tempCanvas.width, tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //ctx.scale(widthy/img.width, heighty/img.height);

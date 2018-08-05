@@ -316,22 +316,23 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
 
-  var tempCanvas = document.createElement("canvas");
+  /*var tempCanvas = document.createElement("canvas");
   let tempContext =tempCanvas.getContext("2d");
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
   tempCanvas.width  = window.innerWidth;
   tempCanvas.height  =  window.innerHeight;
-  let ink = context.fillStyle;
-  let bgd = tempCanvas.style.backgroundColor;
-  let img = new Image();
-  img.src = canvasToImage(bgd);
+*/
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
+  let ink = context.fillStyle;
+  let bgd = tempCanvas.style.backgroundColor;
+  let img = new Image(); */
+  img.src = canvasToImage(bgd);
   img.onload = function() {
     let canvas = document.createElement("canvas");
     let context = canvas.getContext("2d");
-  console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
+/*  console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
   if (tempCanvas.width > img.width){
   console.log("bigger");
   }
@@ -339,12 +340,12 @@ function resizeCanvas(){
   console.log("smaller");
   //canvas.height = window.innerWidth;
   }
-
+*/
   //context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(img, 0, 0, img.width, img.height, 50, 50, canvas.width, canvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);

@@ -344,7 +344,7 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, tempCanvas.width, tempCanvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, tempCanvas.width/img.width, tempCanvas.height/img.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   //context.scale(img.width/tempCanvas.width, img.height/window.innerHeight);

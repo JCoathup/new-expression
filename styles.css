@@ -404,8 +404,6 @@ main {
 }
 
 canvas {
-  left:0;
-  top:0;
   width:100%!important;
   height:100%!important;
   image-rendering: crisp-edges;

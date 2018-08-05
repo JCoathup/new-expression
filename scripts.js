@@ -328,8 +328,8 @@ function resizeCanvas(){
   let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
-  tempCanvas.height = canvas.height;
-  tempCanvas.width = canvas.width;
+  //tempCanvas.height = canvas.height;
+  //tempCanvas.width = canvas.width;
   console.log(tempCanvas.width, innerWidth);
   if (window.innerWidth < tempCanvas.width){
     console.log("smaller");

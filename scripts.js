@@ -328,7 +328,6 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
-  console.log(tempCanvas.width, img.width, canvas.width);
 img.onload = function() {
 if (tempCanvas.width > img.width){
   console.log("bigger");
@@ -340,6 +339,7 @@ if (tempCanvas.width < img.width){
 context.globalCompositeOperation = "source-over";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+console.log(canvas.width);
 context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width/tempCanvas.width, img.height/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);

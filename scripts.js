@@ -333,6 +333,8 @@ function resizeCanvas(){
 img.onload = function() {
   let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";
+canvas.style.width = "100%";
+canvas.style.width = "100%";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);

@@ -334,6 +334,7 @@ if (tempCanvas.width > img.width){
 }
 if (tempCanvas.width < img.width){
   console.log("smaller");
+  canvas.height = window.innerWidth;
 }
   let context = canvas.getContext("2d");
 context.globalCompositeOperation = "source-over";

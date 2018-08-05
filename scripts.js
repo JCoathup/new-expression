@@ -336,6 +336,8 @@ context.globalCompositeOperation = "source-over";
 context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;

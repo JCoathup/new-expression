@@ -320,12 +320,13 @@ function resizeCanvas(){
   let canvas = document.createElement("canvas");
   var tempCanvas = document.createElement("canvas");
   let tempContext =tempCanvas.getContext("2d");
-  let widthy = canvas.width;
-  let heighty  =  canvas.height;
-  tempCanvas.width = widthy;
-  tempCanvas.height = heighty;
   //heighty = window.innerHeight;
   //widthy = window.innerWidth;
+  let widthy = window.innerWidth;
+  let heighty  =  window.innerHeight.height;
+  tempCanvas.width = widthy;
+  tempCanvas.height = heighty;
+
   let ink = context.fillStyle;
   let bgd = tempCanvas.style.backgroundColor;
   let img = new Image();
@@ -338,7 +339,6 @@ context.globalCompositeOperation = "source-over";
 context.drawImage(img, 0, 0, window.innerWidth, window.innerHeight, 0, 0, tempCanvas.width, tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  //ctx.scale(widthy/img.width, heighty/img.height);
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;

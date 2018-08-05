@@ -327,7 +327,7 @@ function resizeCanvas(){
   //tempCanvas.width = canvas.width;
   let ink = context.fillStyle;
   let bgd = tempCanvas.style.backgroundColor;
-  let img = new Image(); */
+  let img = new Image(); 
   img.src = canvasToImage(bgd);
   img.onload = function() {
     let canvas = document.createElement("canvas");

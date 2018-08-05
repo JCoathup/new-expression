@@ -340,7 +340,7 @@ canvas.height = window.innerHeight;
 context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, -500, -500, canvas.width/tempCanvas.width, canvas.width/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
+  context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 

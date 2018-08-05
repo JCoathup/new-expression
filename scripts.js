@@ -342,6 +342,6 @@ context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.w
   //ctx.scale(widthy/img.width, heighty/img.height);
   context.scale(tempCanvas.width/canvas.width, tempCanvas.height/canvas.height);
   context.fillStyle = ink;
-  ccontex.strokeStyle = ink;
+  context.strokeStyle = ink;
 }
 }

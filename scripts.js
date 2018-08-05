@@ -329,7 +329,7 @@ function resizeCanvas(){
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
 img.onload = function() {
-  console.log(canvas.width, tempCanvas.width, img.width);
+  console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
 if (tempCanvas.width > img.width){
   console.log("bigger");
 }

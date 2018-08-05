@@ -316,6 +316,7 @@ window.addEventListener("resize", resizeCanvas, false);
 
 function resizeCanvas(){
   let canvas = document.createElement("canvas");
+  let context = canvas.getContext("2d");
   var tempCanvas = document.createElement("canvas");
   let tempContext =tempCanvas.getContext("2d");
   //heighty = window.innerHeight;
@@ -338,7 +339,7 @@ function resizeCanvas(){
   console.log("smaller");
   canvas.height = window.innerWidth;
   }
-  let context = canvas.getContext("2d");
+
   //context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;

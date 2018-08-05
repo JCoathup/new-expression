@@ -332,7 +332,6 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   tempCanvas.height = canvas.height;
   tempCanvas.width = canvas.width;
-  /* ttmpCtx = tempCanvas.getContext("2d");*/
 img.onload = function() {
   tempContext.drawImage(img, 0, 0);
 //context.imageSmoothingEnabled = true; /// future

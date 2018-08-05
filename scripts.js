@@ -337,7 +337,7 @@ canvas.style.width = "100%";
 canvas.style.width = "100%";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width/tempCanvas.width, canvas.width/tempCanvas.height);
+context.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height, tempCanvas.width - img.width, tempCanvas.height - img.height, canvas.width/tempCanvas.width, canvas.width/tempCanvas.height);
 //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);

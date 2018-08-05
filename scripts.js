@@ -309,9 +309,7 @@ function erase (){
  		context.globalCompositeOperation = compositeOperation;
  	}
  	//return the Base64 encoded data url string
-  console.log("your image is:" + imageData);
  	return imageData;
-
  }
 window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
@@ -330,7 +328,7 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
-  console.log(tempCanvas.width, window.innerWidth);
+  console.log(tempCanvas.width, img.width);
 img.onload = function() {
 
   let context = canvas.getContext("2d");

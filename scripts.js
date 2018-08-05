@@ -330,13 +330,7 @@ function resizeCanvas(){
   img.src = canvasToImage(bgd);
   //tempCanvas.height = canvas.height;
   //tempCanvas.width = canvas.width;
-  console.log(tempCanvas.width, innerWidth);
-  if (window.innerWidth < tempCanvas.width){
-    console.log("smaller");
-  }
-  if (window.innerWidth > tempCanvas.width){
-    console.log("bigger");
-  }
+  console.log(tempCanvas.width, window.innerWidth);
 img.onload = function() {
 
   let context = canvas.getContext("2d");

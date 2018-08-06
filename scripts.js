@@ -328,7 +328,7 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  if (img.width < window.innerWidth || img.height < window.innerhtml){
+  if (img.width < window.innerWidth || img.height < window.innerHeight){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     canvas.height = canvas.clientWidth;

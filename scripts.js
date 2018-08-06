@@ -315,6 +315,8 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
+  let body = document.getElementsByTagName("body");
+  body.style.backgroundColor = "black";
   let ink = context.fillStyle;
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
@@ -326,6 +328,10 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
+  if (img.width < window.innerWidth){
+    let body = document.getElementsByTagName("body");
+    body.style.backgroundColor = "red";
+  }
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;

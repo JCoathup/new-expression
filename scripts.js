@@ -328,11 +328,11 @@ function resizeCanvas(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  if (img.width < window.innerWidth){
+  if (img.width < window.innerWidth || img.height < window.innerhtml){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
   }
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, gl.canvas.clientWidth, gl.canvas.clientHeight);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;

@@ -348,7 +348,7 @@ function resizeCanvas(){
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  //context.scale(img.width/tempCanvas.width, img.height/tempCanvas.height);
+  context.scale(tempCanvas.width/img.width, tempCanvas.height/img.height);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 

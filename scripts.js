@@ -331,8 +331,8 @@ function resizeCanvas(){
   if (img.width < window.innerWidth || img.height < window.innerhtml){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
-    canvas.height = gl.canvas.clientWidth;
-    canvas.height = gl.canvas.clientHeight;
+    canvas.height = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
     context.drawImage(img, 0, 0, img.width, img.height);
     return;
   }

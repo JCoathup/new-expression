@@ -349,7 +349,6 @@ console.log(canvas.width, img.width, window.innerWidth);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
-  getMouse(e);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 

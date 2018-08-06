@@ -351,7 +351,8 @@ console.log(canvas.width, img.width, window.innerWidth);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;
-
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   }
 }
 

@@ -333,7 +333,8 @@ function resizeCanvas(){
     main.style.backgroundColor = "red";
     canvas.height = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-    context.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
+    context.drawImage(img, 0, 0, img.width, img.height);
+    context.scale(canvas.width/canvas.height)
     return;
   }
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);

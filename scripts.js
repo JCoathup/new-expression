@@ -332,7 +332,7 @@ function resizeCanvas(){
   img.onload = function() {
     let canvas = document.createElement("canvas");
     let context = canvas.getContext("2d");
-console.log(canvas.width, tempCanvas.width, img.width, window.innerWidth);
+console.log(canvas.width, img.width, window.innerWidth);
   /* if (tempCanvas.width > img.width){
   console.log("bigger");
   }

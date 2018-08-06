@@ -345,14 +345,20 @@ console.log(canvas.width, img.width, window.innerWidth);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
-  context.drawImage(img, 0, 0, canvas.width, canvas.height, 0, 0, img.width, img.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
   //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
-  context.scale(window.innerWidth/img.width, window.innerHeight/img.height);
+  context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
+  getMouse(e);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 
   }
+}
+
+function getMouse(e){
+  mx = e.clientX - canvas.offsetLeft;
+  my = e.clientY - canvas.offsetTop;
 }
 
 saveEventState = function(e){

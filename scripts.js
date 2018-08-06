@@ -341,7 +341,7 @@ function resizeCanvas(){
   //canvas.height = window.innerWidth;
   }
 */
-  //context.globalCompositeOperation = "source-over";
+  context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);

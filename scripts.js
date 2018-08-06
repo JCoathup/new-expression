@@ -356,7 +356,7 @@ console.log(canvas.width, img.width, window.innerWidth);
   }
 }
 
-function getMouse(e){
+function getMouse(){
   mx = e.clientX - canvas.offsetLeft;
   my = e.clientY - canvas.offsetTop;
 }

@@ -315,67 +315,22 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-
-  /*var tempCanvas = document.createElement("canvas");
-  let tempContext =tempCanvas.getContext("2d");
-  //heighty = window.innerHeight;
-  //widthy = window.innerWidth;
-  tempCanvas.width  = window.innerWidth;
-  tempCanvas.height  =  window.innerHeight;
-*/
-  //tempCanvas.height = canvas.height;
-  //tempCanvas.width = canvas.width;
   let ink = context.fillStyle;
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
   img.onload = function() {
-    let canvas = document.createElement("canvas");
-    let context = canvas.getContext("2d");
-console.log(canvas.width, img.width, window.innerWidth);
-  /* if (tempCanvas.width > img.width){
-  console.log("bigger");
-  }
-  if (tempCanvas.width < img.width){
-  console.log("smaller");
-  //canvas.height = window.innerWidth;
-  }
-*/
+  let canvas = document.createElement("canvas");
+  let context = canvas.getContext("2d");
   context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   console.log(canvas.width);
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
-  //canvas.scale(tempCanvas.width/window.innerWidth, tempCanvas.height/window.innerHeight);
-  //context.scale(canvas.width/tempCanvas.width, canvas.height/tempCanvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   }
-}
-
-
-
-saveEventState = function(e){
-  // Save the initial event details and container state
-  event_state.container_width = $container.width();
-  event_state.container_height = $container.height();
-  event_state.container_left = $container.offset().left;
-  event_state.container_top = $container.offset().top;
-  event_state.mouse_x = (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) + $(window).scrollLeft();
-  event_state.mouse_y = (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) + $(window).scrollTop();
-
-  // This is a fix for mobile safari
-  // For some reason it does not allow a direct copy of the touches property
-  if(typeof e.originalEvent.touches !== 'undefined'){
-	event_state.touches = [];
-	$.each(e.originalEvent.touches, function(i, ob){
-	  event_state.touches[i] = {};
-	  event_state.touches[i].clientX = 0+ob.clientX;
-	  event_state.touches[i].clientY = 0+ob.clientY;
-	});
-  }
-  event_state.evnt = e;
 }

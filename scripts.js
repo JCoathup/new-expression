@@ -315,7 +315,7 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-  let main = document.getElementsByTagName("main");
+  let main = document.getElementById("main");
   main.style.backgroundColor = "black";
   let ink = context.fillStyle;
   let bgd = canvas.style.backgroundColor;
@@ -329,7 +329,7 @@ function resizeCanvas(){
   canvas.height = window.innerHeight;
   console.log(canvas.width);
   if (img.width < window.innerWidth){
-    let main = document.getElementsByTagName("main");
+    let main = document.getElementById("main");
     main.style.backgroundColor = "red";
   }
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);

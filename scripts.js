@@ -332,7 +332,7 @@ function resizeCanvas(){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
   }
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, gl.canvas.clientWidth, gl.canvas.clientHeight);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;

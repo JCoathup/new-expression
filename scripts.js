@@ -356,10 +356,7 @@ console.log(canvas.width, img.width, window.innerWidth);
   }
 }
 
-function getMouse(){
-  mx = e.clientX - canvas.offsetLeft;
-  my = e.clientY - canvas.offsetTop;
-}
+
 
 saveEventState = function(e){
   // Save the initial event details and container state

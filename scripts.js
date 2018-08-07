@@ -62,7 +62,7 @@ document.addEventListener("click", function(e){
     radius = e.target.getAttribute("data-thickness");
   }
   if (e.target && e.target.classList.contains("menu")){
-    resetErase(lastColour);
+    //resetErase(lastColour);
     if (pallette.classList.contains("pallette--active")){
       pallette.classList.remove("pallette--active");
       navigation.classList.remove("nav--move");

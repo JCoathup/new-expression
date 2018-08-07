@@ -331,12 +331,10 @@ function resizeCanvas(){
   if (img.width < window.innerWidth || img.height < window.innerHeight){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
-    canvas.height = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
-    context.drawImage(img, 0, 0, img.width, img.height);
-    context.scale(window.innerWidth, window.innerHeight)
+    console.log("this one...");
     return;
   }
+  console.log("not this one");
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;

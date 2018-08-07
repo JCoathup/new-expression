@@ -333,6 +333,7 @@ function resizeCanvas(){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     console.log("this one...");
+    canvas.setAttribute("width", window.innerWidth);
     //return;
   }
   console.log("not this one");

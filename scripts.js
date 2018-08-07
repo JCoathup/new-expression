@@ -334,14 +334,14 @@ function resizeCanvas(){
   canvas.style.height ="100&";
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
-  if (img.width < canvas.width || img.height < canvas.height){
+  /*if (img.width < canvas.width || img.height < canvas.height){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     //canvas.setAttribute("width", canvas.width);
     context.drawImage(img, 0, 0, img.width, img.height);
     context.scale(canvas.width, canvas.height);
     return;
-  }
+  }*/
   console.log("not this one");
   context.drawImage(img, 0, 0, img.width, img.height);
   context.scale(img.width/canvas.width, img.height/canvas.height);

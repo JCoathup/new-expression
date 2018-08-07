@@ -326,10 +326,14 @@ function resizeCanvas(){
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
   //context.globalCompositeOperation = "source-over";
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  canvas.setAttribute("width", canvas.width);
-  canvas.setAttribute("height", canvas.height);
+  //canvas.width = window.innerWidth;
+  //canvas.height = window.innerHeight;
+  //canvas.setAttribute("width", canvas.width);
+  //canvas.setAttribute("height", canvas.height);
+  canvas.style.width = "100%";
+  canvas.style.height ="100&";
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
   if (img.width < canvas.width || img.height < canvas.height){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";

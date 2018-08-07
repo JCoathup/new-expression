@@ -328,14 +328,12 @@ function resizeCanvas(){
   context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  console.log(canvas.width);
-   if (img.width < window.innerWidth || img.height < window.innerHeight){
+  if (img.width < window.innerWidth || img.height < window.innerHeight){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
-    console.log("this one...");
     canvas.setAttribute("width", canvas.width);
-    console.log("extended canvas");
     context.drawImage(img, 0, 0, img.width, img.height);
+    context.scale(canvas.width, canvas.height);
     return;
   }
   console.log("not this one");

@@ -328,6 +328,8 @@ function resizeCanvas(){
   context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  canvas.setAttribute("width", canvas.width);
+  canvas.setAttribute("height", canvas.height);
   if (img.width < window.innerWidth || img.height < window.innerHeight){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
@@ -337,7 +339,7 @@ function resizeCanvas(){
     return;
   }
   console.log("not this one");
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.clientWidth, canvas.clientHeight);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
 
 

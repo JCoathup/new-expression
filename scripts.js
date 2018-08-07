@@ -334,6 +334,7 @@ function resizeCanvas(){
     main.style.backgroundColor = "red";
     console.log("this one...");
     canvas.setAttribute("width", canvas.width);
+    console.log("extended canvas");
     return;
   }
   console.log("not this one");

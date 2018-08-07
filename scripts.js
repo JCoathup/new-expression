@@ -335,6 +335,7 @@ function resizeCanvas(){
     console.log("this one...");
     canvas.setAttribute("width", canvas.width);
     console.log("extended canvas");
+    context.drawImage(img, 0, 0, img.width, img.height);
     return;
   }
   console.log("not this one");

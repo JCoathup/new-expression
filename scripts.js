@@ -328,19 +328,19 @@ function resizeCanvas(){
   context.globalCompositeOperation = "source-over";
   //canvas.width = window.innerWidth;
   //canvas.height = window.innerHeight;
-  canvas.setAttribute("width", window.innerWidth);
-  canvas.setAttribute("height", window.innerHeight);
-  if (img.width < window.innerWidth || img.height < window.innerHeight){
+  canvas.setAttribute("width", canvas.width);
+  canvas.setAttribute("height", canvas.height);
+  if (img.width < canvas.width || img.height < canvas.height){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     //canvas.setAttribute("width", canvas.width);
     context.drawImage(img, 0, 0, img.width, img.height);
-    context.scale(window.innerWidth, window.innerHeight);
+    context.scale(canvas.width, canvas.height);
     return;
   }
   console.log("not this one");
   context.drawImage(img, 0, 0, img.width, img.height);
-  context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
+  context.scale(img.width/canvas.width, img.height/canvas.height);
 
 
   context.fillStyle = ink;

@@ -339,7 +339,7 @@ function resizeCanvas(){
     return;
   }
   console.log("not this one");
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
 
 

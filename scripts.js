@@ -332,7 +332,7 @@ function resizeCanvas(){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     console.log("this one...");
-    return;
+    //return;
   }
   console.log("not this one");
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, window.innerWidth, window.inner.Height);

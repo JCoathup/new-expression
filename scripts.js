@@ -334,10 +334,10 @@ function resizeCanvas(){
     main.style.backgroundColor = "red";
     console.log("this one...");
     canvas.setAttribute("width", canvas.width);
-    //return;
+    return;
   }
   console.log("not this one");
-  context.drawImage(img, 0, 0, img.width, img.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
 
 

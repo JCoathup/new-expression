@@ -335,9 +335,9 @@ function resizeCanvas(){
     console.log("this one...");
     canvas.setAttribute("width", canvas.width);
     return;
-  } 
+  }
   console.log("not this one");
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.clientWidth, canvas.clientHeight);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
 
 

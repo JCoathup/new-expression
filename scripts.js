@@ -328,8 +328,8 @@ function resizeCanvas(){
   context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  canvas.setAttribute("width", canvas.width);
-  canvas.setAttribute("height", canvas.height);
+  canvas.setAttribute("width", window.innerWidth);
+  canvas.setAttribute("height", window.innerHeight);
   if (img.width < window.innerWidth || img.height < window.innerHeight){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";

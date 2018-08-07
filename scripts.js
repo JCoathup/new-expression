@@ -335,7 +335,7 @@ function resizeCanvas(){
     //return;
   }
   console.log("not this one");
-  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, window.innerWidth, window.inner.Height);
+  context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
   context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
   context.fillStyle = ink;
   context.strokeStyle = ink;

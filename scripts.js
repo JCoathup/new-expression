@@ -334,17 +334,12 @@ function resizeCanvas(){
     main.style.backgroundColor = "red";
     console.log("this one...");
     canvas.setAttribute("width", window.innerWidth);
-    //return;
+    return;
   }
   console.log("not this one");
   context.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
-  if (img.width < window.innerWidth || img.height < window.innerHeight){
-    canvas.setAttribute("width", window.innerWidth);
-    context.scale(window.innerWidth/img.width, window.innerHeight/img.height);
-  }
-  else {
-    context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
-  }
+  context.scale(img.width/window.innerWidth, img.height/window.innerHeight);
+
 
   context.fillStyle = ink;
   context.strokeStyle = ink;

@@ -336,6 +336,7 @@ function resizeCanvas(){
   canvas.style.height = window.innerHeight + "px";
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
+  console.log(canvas.width;)
   if (img.width < canvas.width || img.height < canvas.height){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
@@ -348,7 +349,7 @@ function resizeCanvas(){
   context.drawImage(img, 0, 0, img.width, img.height);
   context.scale(canvas.width/img.width, canvas.height/img.height);
 
-
+  console.log(canvas.width;)
   context.fillStyle = ink;
   context.strokeStyle = ink;
   //canvas.width = window.innerWidth;

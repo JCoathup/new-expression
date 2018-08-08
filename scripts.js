@@ -320,8 +320,8 @@ window.addEventListener("resize", resizeCanvas, false);
 function resizeCanvas(){
   /*let main = document.getElementById("main");
   main.style.backgroundColor = "black";
-  let ink = context.fillStyle;
-  let bgd = canvas.style.backgroundColor;*/
+  let ink = context.fillStyle;*/
+  let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
   img.onload = function() {

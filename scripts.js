@@ -324,7 +324,7 @@ function resizeCanvas(){
   let bgd = canvas.style.backgroundColor;*/
   let img = new Image();
   img.src = canvasToImage(bgd);
-  /*img.onload = function() {
+  img.onload = function() {
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
   context.globalCompositeOperation = "source-over";
@@ -355,5 +355,5 @@ function resizeCanvas(){
   context.strokeStyle = ink;
   //canvas.width = window.innerWidth;
   //canvas.height = window.innerHeight;
-}*/
+  }
 }

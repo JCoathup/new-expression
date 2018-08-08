@@ -63,8 +63,6 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.classList.contains("menu")){
     //check if erase functionality running
-    if (document.querySelector(".eraseButton").innerHTML == null){
-      document.querySelector(".eraseButton").innerHTML = "";
       resetErase(lastColour);
     }
     //resetErase(lastColour);

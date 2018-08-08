@@ -348,7 +348,7 @@ function resizeCanvas(){
   }
   console.log("canvas is" + canvas.width);
   context.drawImage(img, 0, 0, img.width, img.height);
-  context.scale(canvas.width/img.width, canvas.height/img.height);
+  //context.scale(canvas.width/img.width, canvas.height/img.height);
 
   console.log("canvas is" + canvas.width);
   context.fillStyle = ink;

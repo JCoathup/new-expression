@@ -330,10 +330,10 @@ function resizeCanvas(){
   context.globalCompositeOperation = "source-over";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  //canvas.setAttribute("width", canvas.width);
-  //canvas.setAttribute("height", canvas.height);
-  canvas.style.width = window.innerWidth;
-  canvas.style.height = window.innerHeight;
+  canvas.setAttribute("width", canvas.width);
+  canvas.setAttribute("height", canvas.height);
+  //canvas.style.width = window.innerWidth;
+  //canvas.style.height = window.innerHeight;
   console.log("canvas is" + canvas.width);
   //canvas.width = canvas.offsetWidth;
   //canvas.height = canvas.offsetHeight;

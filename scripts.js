@@ -344,7 +344,7 @@ function resizeCanvas(){
     //canvas.setAttribute("width", canvas.width);
     //context.drawImage(img, 0, 0, img.width, img.height);
     //context.scale(canvas.width, canvas.height);
-    return;
+    //return;
   }
   console.log("canvas is" + canvas.width);
   context.drawImage(img, 0, 0, img.width, img.height);

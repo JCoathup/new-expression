@@ -332,8 +332,8 @@ function resizeCanvas(){
   canvas.height = window.innerHeight;
   //canvas.setAttribute("width", canvas.width);
   //canvas.setAttribute("height", canvas.height);
-  canvas.style.width = "100%";
-  canvas.style.height ="100%";
+  canvas.style.width = window.innerWidth;
+  canvas.style.height = window.innerHeight;
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
   if (img.width < canvas.width || img.height < canvas.height){

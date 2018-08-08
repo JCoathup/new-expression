@@ -62,6 +62,10 @@ document.addEventListener("click", function(e){
     radius = e.target.getAttribute("data-thickness");
   }
   if (e.target && e.target.classList.contains("menu")){
+    //check if erase functionality running
+    if (document.querySelector(".eraseButton").innerHTML == null){
+      document.querySelector(".eraseButton").innerHTML = "";
+    }
     //resetErase(lastColour);
     if (pallette.classList.contains("pallette--active")){
       pallette.classList.remove("pallette--active");

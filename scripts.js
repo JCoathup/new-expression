@@ -65,6 +65,7 @@ document.addEventListener("click", function(e){
     //check if erase functionality running
     if (document.querySelector(".eraseButton").innerHTML == null){
       document.querySelector(".eraseButton").innerHTML = "";
+      resetErase(lastColour);
     }
     //resetErase(lastColour);
     if (pallette.classList.contains("pallette--active")){

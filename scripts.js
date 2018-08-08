@@ -318,13 +318,13 @@ window.addEventListener("resize", resizeCanvas, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizeCanvas(){
-  let main = document.getElementById("main");
+  /*let main = document.getElementById("main");
   main.style.backgroundColor = "black";
   let ink = context.fillStyle;
-  let bgd = canvas.style.backgroundColor;
+  let bgd = canvas.style.backgroundColor;*/
   let img = new Image();
   img.src = canvasToImage(bgd);
-  img.onload = function() {
+  /*img.onload = function() {
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
   context.globalCompositeOperation = "source-over";
@@ -355,5 +355,5 @@ function resizeCanvas(){
   context.strokeStyle = ink;
   //canvas.width = window.innerWidth;
   //canvas.height = window.innerHeight;
-  }
+}*/
 }

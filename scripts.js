@@ -332,8 +332,8 @@ function resizeCanvas(){
   canvas.height = window.innerHeight;
   //canvas.setAttribute("width", canvas.width);
   //canvas.setAttribute("height", canvas.height);
-  canvas.style.width = window.innerWidth + "px";
-  canvas.style.height = window.innerHeight + "px";
+  canvas.style.width = window.innerWidth;
+  canvas.style.height = window.innerHeight;
   console.log("canvas is" + canvas.width);
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;

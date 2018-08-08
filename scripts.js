@@ -359,4 +359,5 @@ function resizeCanvas(){
   //canvas.width = window.innerWidth;
   //canvas.height = window.innerHeight;
   }
+    context.drawImage(img, 0, 0, img.width, img.height);
 }

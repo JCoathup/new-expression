@@ -328,8 +328,8 @@ function resizeCanvas(){
   let canvas = document.createElement("canvas");
   let context = canvas.getContext("2d");
   context.globalCompositeOperation = "source-over";
-  //canvas.width = window.innerWidth;
-  //canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   //canvas.setAttribute("width", canvas.width);
   //canvas.setAttribute("height", canvas.height);
   canvas.style.width = "100%";

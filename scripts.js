@@ -342,7 +342,7 @@ function resizeCanvas(){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
     let imageData = context.getImageData(0, 0, img.width, img.height);
-    context.putImageData(imageData, 0, 0,);
+    context.putImageData(imageData, 0, 0);
     //context.putImageData(img.src, 0, 0, 0, 0, img.width, img.height);
     //canvas.setAttribute("width", canvas.width);
     //context.drawImage(img, 0, 0, img.width, img.height);

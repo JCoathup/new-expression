@@ -341,7 +341,7 @@ function resizeCanvas(){
   if (img.width < canvas.width || img.height < canvas.height){
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";
-    context.putImageData(img.data, 0, 0, 0, 0, img.width, img.height);
+    context.putImageData(img.src, 0, 0, 0, 0, img.width, img.height);
     //canvas.setAttribute("width", canvas.width);
     //context.drawImage(img, 0, 0, img.width, img.height);
     //context.scale(canvas.width, canvas.height);

@@ -220,8 +220,8 @@ document.addEventListener("touchend", function(){
 
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.style.width = window.innerWidth;
+canvas.style.height = window.innerHeight;
 canvas.style.backgroundColor = "#000000";
 context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';
@@ -328,7 +328,7 @@ function resizingCanvas(){
     scaleToFill(this);
   }
   function scaleToFill(){
-    let scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+    let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
     let x = (canvas.width / 2) - (img.width / 2) * scale;
     let y = (canvas.height / 2) - (img.height / 2) * scale;
     context.drawImage(img, x, y, img.width * scale, img.height * scale);

@@ -333,7 +333,7 @@ function resizingCanvas(){
   }
   function scaleToFill(img){
     if (img.width >= canvas.width){
-      let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+      context.drawImage(img,0,0);
     }
     else {
       let scale = Math.min(canvas.width / img.width, canvas.height / img.height);

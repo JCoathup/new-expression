@@ -326,8 +326,8 @@ function resizingCanvas(){
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
-  canvas.setAttribute("width", window.innerWidth);
-  canvas.setAttribute("height", window.innerHeight);
+  //canvas.setAttribute("width", window.innerWidth);
+  //canvas.setAttribute("height", window.innerHeight);
   img.onload = function() {
     scaleToFill(this);
   }

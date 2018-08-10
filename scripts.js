@@ -331,7 +331,7 @@ function resizingCanvas(){
   img.onload = function() {
     scaleToFill(this);
   }
-  function scaleToFill(){
+  function scaleToFill(img){
 
     let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
     let x = (canvas.width / 2) - (img.width / 2) * scale;

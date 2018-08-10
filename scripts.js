@@ -220,8 +220,10 @@ document.addEventListener("touchend", function(){
 
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
-canvas.style.width = window.innerWidth;
-canvas.style.height = window.innerHeight;
+canvas.setAttribute("width", canvas.width);
+canvas.setAttribute("height", canvas.height);
+//canvas.style.width = window.innerWidth;
+//canvas.style.height = window.innerHeight;
 canvas.style.backgroundColor = "#000000";
 context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';

@@ -326,12 +326,13 @@ function resizingCanvas(){
   let bgd = canvas.style.backgroundColor;
   let img = new Image();
   img.src = canvasToImage(bgd);
+  canvas.setAttribute("width", window.innerWidth);
+  canvas.setAttribute("height", window.innerHeight);
   img.onload = function() {
     scaleToFill(this);
   }
   function scaleToFill(){
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
+
     let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
     let x = (canvas.width / 2) - (img.width / 2) * scale;
     let y = (canvas.height / 2) - (img.height / 2) * scale;

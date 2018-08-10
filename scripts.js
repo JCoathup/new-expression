@@ -334,10 +334,11 @@ function resizingCanvas(){
   function scaleToFill(img){
     if (img.width >= canvas.width){
       context.drawImage(img,0,0);
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
+      return;
     }
-    else {
       let scale = Math.min(canvas.width / img.width, canvas.height / img.height);
-    }
     let x = (canvas.width / 2) - (img.width / 2) * scale;
     let y = (canvas.height / 2) - (img.height / 2) * scale;
     context.drawImage(img, x, y, img.width * scale, img.height * scale);

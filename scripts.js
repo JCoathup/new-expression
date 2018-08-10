@@ -338,7 +338,7 @@ function resizingCanvas(){
       context.strokeStyle = ink;
       return;
     }
-      let scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+      let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
     let x = (canvas.width / 2) - (img.width / 2) * scale;
     let y = (canvas.height / 2) - (img.height / 2) * scale;
     context.drawImage(img, x, y, img.width * scale, img.height * scale);

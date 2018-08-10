@@ -333,7 +333,7 @@ function resizingCanvas(){
   }
   function scaleToFill(img){
     if (img.width >= canvas.width || img.height >= canvas.height){
-      context.drawImage(img,0,0);
+      context.drawImage(img,0,0, img.width, img.height);
       context.fillStyle = ink;
       context.strokeStyle = ink;
       return;

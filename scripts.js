@@ -332,7 +332,7 @@ function resizingCanvas(){
     scaleToFill(this);
   }
   function scaleToFill(img){
-    if (img.width > canvas.width){
+    if (img.width < canvas.width){
       let scale = Math.max(canvas.width / img.width, canvas.height / img.height);
     }
     else {

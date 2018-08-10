@@ -339,7 +339,7 @@ function resizingCanvas(){
     if (img.width > canvas.width || img.height > canvas.height){
       console.log("bigger image");
       let scale = Math.max(1,1);
-      context.drawImage(img, x,y, img.width, img.height, x, y, canvas.width, canvas.height);
+      context.drawImage(img, x,y, img.width, img.height);
       context.fillStyle = ink;
       context.strokeStyle = ink;
       return;

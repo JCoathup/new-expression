@@ -316,9 +316,9 @@ function erase (){
  	//return the Base64 encoded data url string
  	return imageData;
  }
-if (canvas.width <= window.innerWidth || canvas.width <= window.innerHeight){
+
   window.addEventListener("resize", canvasResize, false);
-}
+
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizingCanvas(){
@@ -358,12 +358,14 @@ function canvasResize(){
     if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
       tempCanvas.width = canvas.width;
       tempCanvas.height = canvas.height;
+      console.log("SMALLER");
     let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
+     return;
      /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");
        scale = (1, 1);
@@ -372,7 +374,7 @@ function canvasResize(){
        context.strokeStyle = ink;
        return;
      }*/
-     console.log("wont see this");
+     console.log("BIGGER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 
     }

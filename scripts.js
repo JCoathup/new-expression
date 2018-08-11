@@ -356,7 +356,7 @@ function canvasResize(){
     var tempCanvas = document.createElement('canvas');
     canvas.setAttribute("width", window.innerWidth);
     canvas.setAttribute("height", window.innerHeight);
-    if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
+    if (tempCanvas.width < canvas.width || tempCanvas.width < canvas.height){
       tempCanvas.width = canvas.width;
       tempCanvas.height = canvas.height;
       console.log("SMALLER");

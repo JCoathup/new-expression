@@ -351,8 +351,9 @@ function resizingCanvas(){
 }
 function canvasResize(){
     let ink = context.fillStyle;
+          let tempCanvas = document.createElement('canvas');
     if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
-      var tempCanvas = document.createElement('canvas');
+
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
     let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);

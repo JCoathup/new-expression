@@ -316,7 +316,9 @@ function erase (){
  	//return the Base64 encoded data url string
  	return imageData;
  }
-window.addEventListener("resize", canvasResize, false);
+if (canvas.width > window.innerWidth || canvas.width > window.innerHeight){
+  window.addEventListener("resize", canvasResize, false);
+}
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizingCanvas(){

@@ -354,7 +354,8 @@ function resizingCanvas(){
 function canvasResize(){
     let ink = context.fillStyle;
     var tempCanvas = document.createElement('canvas');
-
+    canvas.setAttribute("width", window.innerWidth);
+    canvas.setAttribute("height", window.innerHeight);
     if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
       tempCanvas.width = canvas.width;
       tempCanvas.height = canvas.height;
@@ -363,8 +364,7 @@ function canvasResize(){
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-     canvas.setAttribute("width", window.innerWidth);
-     canvas.setAttribute("height", window.innerHeight);
+
 
      /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");

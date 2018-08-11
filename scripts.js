@@ -350,6 +350,7 @@ function resizingCanvas(){
   }
 }
 function canvasResize(){
+    let ink = context.fillStyle;
   var tempCanvas = document.createElement('canvas');
 tempCanvas.width = canvas.width;
 tempCanvas.height = canvas.height;
@@ -357,6 +358,8 @@ tempCanvas.height = canvas.height;
  canvas.setAttribute("width", window.innerWidth);
  canvas.setAttribute("height", window.innerHeight);
  canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+ context.fillStyle = ink;
+ context.strokeStyle = ink;
 }
 function resizeCanvas(){
   /*let main = document.getElementById("main");

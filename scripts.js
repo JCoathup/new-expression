@@ -362,7 +362,7 @@ let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
  canvas.setAttribute("height", window.innerHeight);
  if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
    console.log("BIGGER");
-   canvas.getContext('2d').drawImage(tempCanvas, canvas.width, canvas.height, tempCanvas.width, tempCanvas.height);
+   context.drawImage(tempCanvas, tempCanvas.width, tempCanvas.height, canvas.width, canvas.height);
    context.fillStyle = ink;
    context.strokeStyle = ink;
    return;

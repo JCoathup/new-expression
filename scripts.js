@@ -365,7 +365,7 @@ function canvasResize(){
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
-     return;
+
      /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");
        scale = (1, 1);
@@ -374,10 +374,11 @@ function canvasResize(){
        context.strokeStyle = ink;
        return;
      }*/
-     console.log("BIGGER");
-     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 
+     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+return;
     }
+         console.log("BIGGER");
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

@@ -372,8 +372,9 @@ let tempCanvas = document.createElement('canvas');
      }*/
      console.log("wont see this");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-
+return;
     }
+    console.log("BIgger");
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

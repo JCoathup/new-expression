@@ -371,7 +371,6 @@ let tempCanvas = document.createElement('canvas');
      }
      console.log("SMALLER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-return;
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

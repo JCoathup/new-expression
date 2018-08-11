@@ -360,6 +360,11 @@ let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
  tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
  canvas.setAttribute("width", window.innerWidth);
  canvas.setAttribute("height", window.innerHeight);
+ if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
+   console.log("BIGGER");
+   return;
+ }
+ console.log("wont see this");
  canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
  context.fillStyle = ink;
  context.strokeStyle = ink;

@@ -352,10 +352,10 @@ function resizingCanvas(){
 function canvasResize(){
     let ink = context.fillStyle;
     var tempCanvas = document.createElement('canvas');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
-    if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
 
+    if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
     let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;

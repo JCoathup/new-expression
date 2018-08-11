@@ -363,7 +363,7 @@ let tempCanvas = document.createElement('canvas');
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");
-       let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
+       let scale = Math.min(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        context.drawImage(tempCanvas, 0, 0);
        context.fillStyle = ink;
        context.strokeStyle = ink;

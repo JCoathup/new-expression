@@ -316,7 +316,7 @@ function erase (){
  	//return the Base64 encoded data url string
  	return imageData;
  }
-window.addEventListener("resize", resizingCanvas, false);
+window.addEventListener("resize", canvasResize, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizingCanvas(){
@@ -349,7 +349,15 @@ function resizingCanvas(){
     context.strokeStyle = ink;
   }
 }
-
+function canvasResize(){
+  var tempCanvas = document.createElement('canvas');
+tempCanvas.width = canvas.width;
+tempCanvas.height = canvas.height;
+ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+ canvas.setAttribute("width", window.innerWidth);
+ canvas.setAttribute("height", window.innerHeight);
+ myCanvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+}
 function resizeCanvas(){
   /*let main = document.getElementById("main");
   main.style.backgroundColor = "black";*/

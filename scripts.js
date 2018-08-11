@@ -350,6 +350,9 @@ function resizingCanvas(){
   }
 }
 function canvasResize(){
+  let scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+let x = (canvas.width / 2) - (img.width / 2) * scale;
+let y = (canvas.height / 2) - (img.height / 2) * scale;
     let ink = context.fillStyle;
   var tempCanvas = document.createElement('canvas');
 tempCanvas.width = canvas.width;
@@ -357,7 +360,7 @@ tempCanvas.height = canvas.height;
  tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
  canvas.setAttribute("width", window.innerWidth);
  canvas.setAttribute("height", window.innerHeight);
- canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+ canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
  context.fillStyle = ink;
  context.strokeStyle = ink;
 }

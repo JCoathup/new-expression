@@ -316,9 +316,7 @@ function erase (){
  	//return the Base64 encoded data url string
  	return imageData;
  }
-
-  window.addEventListener("resize", canvasResize, false);
-
+window.addEventListener("resize", canvasResize, false);
 //window.addEventListener("orientationchange", resizeCanvas, false);
 
 function resizingCanvas(){
@@ -353,20 +351,16 @@ function resizingCanvas(){
 }
 function canvasResize(){
     let ink = context.fillStyle;
-    let tempCanvas = document.createElement('canvas');
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
-    if (tempCanvas.width < canvas.width || tempCanvas.width < canvas.height){
-      tempCanvas.width = canvas.width;
-      tempCanvas.height = canvas.height;
-      console.log("SMALLER");
+    if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
+      var tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
     let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-     context.fillStyle = ink;
-      context.strokeStyle = ink;
-
+     canvas.setAttribute("width", window.innerWidth);
+     canvas.setAttribute("height", window.innerHeight);
      /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");
        scale = (1, 1);
@@ -375,11 +369,10 @@ function canvasResize(){
        context.strokeStyle = ink;
        return;
      }*/
-
+     console.log("wont see this");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-return;
+
     }
-         console.log("BIGGER");
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

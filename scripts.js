@@ -362,7 +362,7 @@ let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
  canvas.setAttribute("height", window.innerHeight);
  if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
    console.log("BIGGER");
-   scale = Math.max(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
+   scale = Math.min(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
    context.drawImage(tempCanvas, x, y, tempCanvas.width,  tempCanvas.height, 0, 0, canvas.width,canvas.height);
    context.fillStyle = ink;
    context.strokeStyle = ink;

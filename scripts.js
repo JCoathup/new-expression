@@ -351,26 +351,29 @@ function resizingCanvas(){
 }
 function canvasResize(){
     let ink = context.fillStyle;
-  var tempCanvas = document.createElement('canvas');
-tempCanvas.width = canvas.width;
-tempCanvas.height = canvas.height;
-let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
-let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
-let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
- tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
- canvas.setAttribute("width", window.innerWidth);
- canvas.setAttribute("height", window.innerHeight);
- if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-   console.log("BIGGER");
-   scale = (1, 1);
-   context.drawImage(tempCanvas, 0, 0, tempCanvas.width,  tempCanvas.height);
-   context.fillStyle = ink;
-   context.strokeStyle = ink;
-   return;
- }
- console.log("wont see this");
- canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
- context.fillStyle = ink;
+    if (canvas.width > tempCanvas.width || canvas.width > tempCanvas.height){
+      var tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
+    let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
+    let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
+     tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+     canvas.setAttribute("width", window.innerWidth);
+     canvas.setAttribute("height", window.innerHeight);
+     /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
+       console.log("BIGGER");
+       scale = (1, 1);
+       context.drawImage(tempCanvas, 0, 0, tempCanvas.width,  tempCanvas.height);
+       context.fillStyle = ink;
+       context.strokeStyle = ink;
+       return;
+     }*/
+     console.log("wont see this");
+     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+
+    }
+context.fillStyle = ink;
  context.strokeStyle = ink;
 }
 function resizeCanvas(){

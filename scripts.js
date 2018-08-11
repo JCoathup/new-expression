@@ -352,7 +352,6 @@ function resizingCanvas(){
 function canvasResize(){
     let ink = context.fillStyle;
 
-    if (canvas.width >window.innerWidth || canvas.width > window.innerHeight){
 let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
@@ -362,19 +361,17 @@ let tempCanvas = document.createElement('canvas');
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
-     /*if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
+     if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
        console.log("BIGGER");
        scale = (1, 1);
        context.drawImage(tempCanvas, 0, 0, tempCanvas.width,  tempCanvas.height);
        context.fillStyle = ink;
        context.strokeStyle = ink;
        return;
-     }*/
-     console.log("wont see this");
+     }
+     console.log("SMALLER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 return;
-    }
-    console.log("BIgger");
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

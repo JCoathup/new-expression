@@ -2,10 +2,6 @@ let menu = document.querySelector(".menu");
 let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
-let Twit = require("twit");
-let config = require("./config");
-let tweeting = new Twit(config);
-
 let lastColour;
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");

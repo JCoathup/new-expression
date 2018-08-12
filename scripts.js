@@ -317,7 +317,7 @@ function erase (){
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-window.addEventListener("orientationchange", canvasResize, false);
+window.addEventListener("orientationchange", canvasOrientation, false);
 
 function resizingCanvas(){
   /*let main = document.getElementById("main");
@@ -362,6 +362,34 @@ let tempCanvas = document.createElement('canvas');
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
+       canvas.setAttribute("width", tempCanvas.width);
+       canvas.setAttribute("height", tempCanvas.height);
+       console.log("BIGGER");
+       let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
+       context.drawImage(tempCanvas, x, y, tempCanvas.width, tempCanvas.height);
+       context.fillStyle = ink;
+       context.strokeStyle = ink;
+       return;
+     }
+     console.log("SMALLER");
+     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+context.fillStyle = ink;
+ context.strokeStyle = ink;
+}
+
+function canvasOrientation(){
+    let ink = context.fillStyle;
+
+let tempCanvas = document.createElement('canvas');
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
+    let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
+    let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
+    let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
+     tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+     canvas.setAttribute("width", window.innerWidth);
+     canvas.setAttribute("height", window.innerHeight);
+     if (tempCanvas.width < canvas.width || tempCanvas.height < canvas.height){
        canvas.setAttribute("width", tempCanvas.width);
        canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");

@@ -384,7 +384,7 @@ function canvasOrientation(){
     main.style.backgroundColor = "red";
 let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.height;
-    tempCanvas.height = canvas.width;
+    tempCanvas.height = canvas.height;
     let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;

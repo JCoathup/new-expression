@@ -379,7 +379,8 @@ context.fillStyle = ink;
 
 function canvasOrientation(){
     let ink = context.fillStyle;
-
+    let main = document.getElementById("main");
+    main.style.backgroundColor = "red";
 let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;

@@ -383,7 +383,7 @@ function canvasOrientation(){
 let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
-    let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
+    let scale = Math.max(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
      tempCanvas.getContext('2d').drawImage(canvas, 0, 0);

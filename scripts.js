@@ -378,6 +378,7 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
+  alert("fired");
     let ink = context.fillStyle;
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";

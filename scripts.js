@@ -381,10 +381,10 @@ function canvasOrientation(){
 
     let ink = context.fillStyle;
     let main = document.getElementById("main");
-    main.style.backgroundColor = "red";
+
 let tempCanvas = document.createElement('canvas');
-    tempCanvas.width = canvas.height;
-    tempCanvas.height = canvas.width;
+    tempCanvas.width = canvas.width;
+    tempCanvas.height = canvas.height;
     let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
     let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
     let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
@@ -393,8 +393,8 @@ let tempCanvas = document.createElement('canvas');
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width < canvas.width || tempCanvas.height < canvas.height){
        main.style.backgroundColor = "blue";
-       canvas.setAttribute("width", tempCanvas.height);
-       canvas.setAttribute("height", tempCanvas.width);
+       canvas.setAttribute("width", tempCanvas.width);
+       canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
        let scale = Math.min(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        context.drawImage(tempCanvas, x, y, tempCanvas.width, tempCanvas.height);
@@ -402,6 +402,7 @@ let tempCanvas = document.createElement('canvas');
        context.strokeStyle = ink;
        return;
      }
+       main.style.backgroundColor = "red";
      console.log("SMALLER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 context.fillStyle = ink;

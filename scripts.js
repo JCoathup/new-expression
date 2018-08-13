@@ -392,6 +392,7 @@ let tempCanvas = document.createElement('canvas');
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width < canvas.width || tempCanvas.height < canvas.height){
+       main.style.backgroundColor = "blue";
        canvas.setAttribute("width", tempCanvas.width);
        canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");

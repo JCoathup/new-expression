@@ -317,7 +317,7 @@ function erase (){
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-//window.addEventListener("orientationchange", canvasOrientation, false);
+window.addEventListener("orientationchange", canvasOrientation, false);
 
 function resizingCanvas(){
   /*let main = document.getElementById("main");
@@ -378,7 +378,7 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
-  alert("fired");
+
     let ink = context.fillStyle;
     let main = document.getElementById("main");
     main.style.backgroundColor = "red";

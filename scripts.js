@@ -387,10 +387,8 @@ function canvasOrientation(){
    case -90 || 90:
    tempCanvas.width = canvas.height;
    tempCanvas.height = canvas.width;
-   canvas.setAttribute("width", "100vw");
-   canvas.setAttribute("height", "100vh");
    context.rotate(90*Math.PI/180);
-   canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.height, tempCanvas.width);
+   canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.height, canvas.width);
    context.fillStyle = ink;
   context.strokeStyle = ink;
    break;

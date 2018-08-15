@@ -378,16 +378,22 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
+
  switch(window.orientation){
+     let ink = context.fillStyle;
    case -90 || 90:
    canvas.setAttribute("width", window.innerWidth);
    canvas.setAttribute("height", window.innerHeight);
    context.rotate(90*Math.PI/180);
+   context.fillStyle = ink;
+    context.strokeStyle = ink;
    break;
    default:
    canvas.setAttribute("width", window.innerWidth);
    canvas.setAttribute("height", window.innerHeight);
    context.rotate(-90*Math.PI/180);
+   context.fillStyle = ink;
+    context.strokeStyle = ink;
    break;
  }
 }

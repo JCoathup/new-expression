@@ -378,8 +378,15 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
-
-    let ink = context.fillStyle;
+ swtich(window.orientation){
+   case -90 || 90:
+   alert("landscape");
+   break;
+   default:
+   alert("portrait");
+   break;
+ }
+  /*  let ink = context.fillStyle;
     let main = document.getElementById("main");
 
 let tempCanvas = document.createElement('canvas');
@@ -407,7 +414,7 @@ let tempCanvas = document.createElement('canvas');
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 context.fillStyle = ink;
  context.strokeStyle = ink;
-}
+} */
 function resizeCanvas(){
   /*let main = document.getElementById("main");
   main.style.backgroundColor = "black";*/

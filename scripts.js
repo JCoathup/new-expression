@@ -379,18 +379,22 @@ context.fillStyle = ink;
 
 function canvasOrientation(){
      let ink = context.fillStyle;
+     let tempCanvas = document.createElement('canvas');
+         tempCanvas.width = canvas.width;
+         tempCanvas.height = canvas.height;
  switch(window.orientation){
    case -90 || 90:
    canvas.setAttribute("width", window.innerHeight);
    canvas.setAttribute("height", window.innerWidth);
    context.rotate(90*Math.PI/180);
+   canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.height, tempCanvas.width);
    context.fillStyle = ink;
   context.strokeStyle = ink;
    break;
    default:
    canvas.setAttribute("width", window.innerHeight);
    canvas.setAttribute("height", window.innerWidth);
-   context.rotate(-90*Math.PI/180);
+   context.rotate(90*Math.PI/180);
    context.fillStyle = ink;
     context.strokeStyle = ink;
    break;

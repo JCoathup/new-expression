@@ -380,10 +380,10 @@ context.fillStyle = ink;
 function canvasOrientation(){
      let ink = context.fillStyle;
      let tempCanvas = document.createElement('canvas');
-         tempCanvas.width = canvas.width;
-         tempCanvas.height = canvas.height;
+         tempCanvas.width = canvas.height;
+         tempCanvas.height = canvas.width;
          tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-         
+
  switch(window.orientation){
    case -90 || 90:
    canvas.setAttribute("width", window.innerHeight);

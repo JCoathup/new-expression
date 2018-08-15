@@ -378,7 +378,7 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
- swtich(window.orientation){
+ switch(window.orientation){
    case -90 || 90:
    alert("landscape");
    break;

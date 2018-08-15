@@ -378,9 +378,8 @@ context.fillStyle = ink;
 }
 
 function canvasOrientation(){
-
- switch(window.orientation){
      let ink = context.fillStyle;
+ switch(window.orientation){
    case -90 || 90:
    canvas.setAttribute("width", window.innerWidth);
    canvas.setAttribute("height", window.innerHeight);

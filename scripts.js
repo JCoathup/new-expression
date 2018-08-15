@@ -386,6 +386,7 @@ function canvasOrientation(){
    alert("portrait");
    break;
  }
+}
   /*  let ink = context.fillStyle;
     let main = document.getElementById("main");
 

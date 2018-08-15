@@ -380,10 +380,10 @@ context.fillStyle = ink;
 function canvasOrientation(){
  switch(window.orientation){
    case -90 || 90:
-   alert("landscape");
+   context.rotate(90*Math.PI/180);
    break;
    default:
-   alert("portrait");
+   context.rotate(-90*Math.PI/180);
    break;
  }
 }

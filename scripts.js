@@ -385,6 +385,8 @@ function canvasOrientation(){
 
  switch(window.orientation){
    case -90 || 90:
+   canvas.setAttribute("width", window.innerHeight);
+   canvas.setAttribute("height", window.innerWidth);
    tempCanvas.width = canvas.height;
    tempCanvas.height = canvas.width;
    context.rotate(90*Math.PI/180);
@@ -393,8 +395,8 @@ function canvasOrientation(){
   context.strokeStyle = ink;
    break;
    default:
-   canvas.setAttribute("width", window.innerHeight);
-   canvas.setAttribute("height", window.innerWidth);
+   canvas.setAttribute("width", window.innerWidth);
+   canvas.setAttribute("height", window.innerHeight);
    context.rotate(90*Math.PI/180);
    context.fillStyle = ink;
     context.strokeStyle = ink;

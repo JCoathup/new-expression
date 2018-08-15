@@ -259,7 +259,7 @@ button:hover{
 }
 
 .menu {
-	height: 15%;
+	height: 15vh;
 	position: relative;
 	display: flex;
 	justify-content: center;

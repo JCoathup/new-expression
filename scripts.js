@@ -390,7 +390,7 @@ function canvasOrientation(){
    canvas.setAttribute("width", "100%");
    canvas.setAttribute("height", "100%");
 
-   context.rotate(90*Math.PI/180);
+   context.rotate(-90*Math.PI/180);
    canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.height, canvas.width);
    context.fillStyle = ink;
   context.strokeStyle = ink;

@@ -396,13 +396,13 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      // Copy to temporary canvas
      tempCanvas.drawImage(canvas, 0, 0);
      // Resize original canvas
-     //canvas.setAttribute("width", "100%");
-     //canvas.setAttribute("height", "100%");
+     canvas.setAttribute("width", window.innerWidth);
+     canvas.setAttribute("height", window.innerHeight);
      // Copy back to resized canvas
      context = canvas.getContext('2d');
     //context.rotate(90*Math.PI/180);
-    canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+    //canvas.width = window.innerWidth;
+//canvas.height = window.innerHeight;
      context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
    context.fillStyle = ink;
   context.strokeStyle = ink;

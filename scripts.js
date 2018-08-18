@@ -385,7 +385,7 @@ function Orientationshift(){
   let img = new Image();
   img.src = canvasToImage(bgd);
   img.onload = function() {
-    ctx.drawImage(img,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
+    context.drawImage(img,canvas.width/2-img.width/2,canvas.height/2-img.width/2);
   }
   tempContext.drawImage(canvas, 0, 0);
   switch(window.orientation){

@@ -400,7 +400,7 @@ function Orientationshift(){
   context.strokeStyle = ink;
 }
 function drawRotated(degrees){
-
+    console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     context.translate(canvas.width/2,canvas.height/2);

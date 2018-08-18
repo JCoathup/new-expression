@@ -389,7 +389,7 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
    tempCanvas.height = canvas.width;
    canvas.setAttribute("width", "100%");
    canvas.setAttribute("height", "100%");
-context.translate(canvas.width/2,canvas.height/2);
+context.translate(tempCanvas.width/2,tempCanvas.height/2);
    context.rotate(90*Math.PI/180);
    canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
    context.fillStyle = ink;

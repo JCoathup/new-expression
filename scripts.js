@@ -402,7 +402,7 @@ function Orientationshift(){
 }
 function drawRotated(degrees){
   canvas.width=window.innerWidth;
-  console.log(canvas.width);
+  console.log(window.innerWidth);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     context.translate(canvas.width/2,canvas.height/2);

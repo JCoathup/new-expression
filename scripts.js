@@ -379,10 +379,10 @@ context.fillStyle = ink;
 function Orientationshift(){
   var angleInDegrees=0;
   let ink = context.fillStyle;
-  var tempCanvas = document.createElement('canvas');
-  var tempContext = tempCanvas.getContext('2d');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
+  tempCanvas = document.createElement('canvas');
+  tempContext = tempCanvas.getContext('2d');
+  //tempCanvas.width = canvas.width;
+  //tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
   switch(window.orientation){
     case -90:

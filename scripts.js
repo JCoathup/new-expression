@@ -381,8 +381,12 @@ function Orientationshift(){
   let ink = context.fillStyle;
    tempCanvas = document.createElement('canvas');
    tempContext = tempCanvas.getContext('2d');
-  //tempCanvas.width = canvas.width;
-  //tempCanvas.height = canvas.height;
+v  let bgd = canvas.style.backgroundColor;
+  let img = new Image();
+  img.src = canvasToImage(bgd);
+  img.onload = function() {
+    ctx.drawImage(image,canvas.width/2-image.width/2,canvas.height/2-image.width/2);
+  }
   tempContext.drawImage(canvas, 0, 0);
   switch(window.orientation){
     case -90:
@@ -404,7 +408,7 @@ function drawRotated(degrees){
     context.save();
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
-    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.width/2);
+    context.drawImage(img,-img.width/2,-img.width/2);
     context.restore();
 }
 function canvasOrientation(){

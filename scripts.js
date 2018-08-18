@@ -389,6 +389,7 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      var tmpCanvas = document.createElement('canvas');
      tempCanvas.width = canvas.width;
      tempCanvas.height = canvas.height;
+
      tmpCtx = tempCanvas.getContext('2d');
       tmpCtx.rotate(90*Math.PI/180);
      // Copy to temporary canvas
@@ -396,13 +397,16 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
 
 
      // Resize original canvas
-     canvas.width = window.innerWidth;
-     canvas.height = window.innerHeight;
+     canvas.setAttribute("width", "100%");
+     canvas.setAttribute("height", "100%");
 
      // Copy back to resized canvas
      context = canvas.getContext('2d');
     context.rotate(90*Math.PI/180);
-     context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
+     context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+   context.fillStyle = ink;
+  context.strokeStyle = ink;
    break;
    default:
    canvas.setAttribute("width", window.innerWidth);

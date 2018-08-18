@@ -387,12 +387,9 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
    case -90 || 90:
    tempCanvas.width = canvas.height;
    tempCanvas.height = canvas.width;
-   let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
-   let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
-   let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
    canvas.setAttribute("width", "100%");
    canvas.setAttribute("height", "100%");
-
+context.translate(canvas.width/2,canvas.height/2);
    context.rotate(90*Math.PI/180);
    canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.height, canvas.width);
    context.fillStyle = ink;

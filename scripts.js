@@ -391,7 +391,7 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      tempCanvas.height = canvas.height;
 
      tmpCtx = tempCanvas.getContext('2d');
-      tmpCtx.rotate(90*Math.PI/180);
+      //tmpCtx.rotate(90*Math.PI/180);
      // Copy to temporary canvas
      tempCanvas.drawImage(canvas, 0, 0);
 

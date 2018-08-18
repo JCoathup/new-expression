@@ -390,9 +390,10 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      tempCanvas.width = canvas.width;
      tempCanvas.height = canvas.height;
      tmpCtx = tempCanvas.getContext('2d');
-
+      tmpCtx.rotate(90*Math.PI/180);
      // Copy to temporary canvas
      tempCanvas.drawImage(canvas, 0, 0);
+
 
      // Resize original canvas
      canvas.width = window.innerWidth;
@@ -400,7 +401,7 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
 
      // Copy back to resized canvas
      context = canvas.getContext('2d');
-     context.rotate(90*Math.PI/180);
+
      context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height, 0, 0, canvas.width, canvas.height);
    break;
    default:

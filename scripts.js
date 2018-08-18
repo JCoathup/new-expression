@@ -379,15 +379,14 @@ context.fillStyle = ink;
 
 function canvasOrientation(){
      let ink = context.fillStyle;
-          // let tempCanvas = document.createElement('canvas');
-//tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+     var tempCanvas = document.createElement('canvas');
+     tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
 
 
 
  switch(window.orientation){
    case -90 || 90:
-        let tempCanvas = document.createElement('canvas');
-        tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+
    // Set up temporary canvas
      tempCanvas.width = canvas.width;
      tempCanvas.height = canvas.height;
@@ -399,7 +398,7 @@ function canvasOrientation(){
      canvas.setAttribute("width", "100%");
      canvas.setAttribute("height", "100%");
      // Copy back to resized canvas
-     context = canvas.getContext('2d');
+     //context = canvas.getContext('2d');
     context.rotate(90*Math.PI/180);
      context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
    context.fillStyle = ink;

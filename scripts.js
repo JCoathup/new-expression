@@ -317,7 +317,7 @@ function erase (){
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-window.addEventListener("orientationchange", canvasOrientation, false);
+window.addEventListener("orientationchange", Orientationshift, false);
 
 function resizingCanvas(){
   /*let main = document.getElementById("main");
@@ -376,14 +376,43 @@ let tempCanvas = document.createElement('canvas');
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }
-
+function Orientationshift(){
+  let ink = context.fillStyle;
+  let tempCanvas = document.createElement('canvas');
+  let tempContext = tempCanvas.getContext('2d');
+  tempCanvas.width = canvas.width;
+  tempCanvas.height = canvas.height;
+  tempCanvas.drawImage(canvas, 0, 0);
+  switch(window.orientation){
+    case -90:
+    angleInDegrees-=90;
+    drawRotated(angleInDegrees);
+    break;
+    case 90:
+    angleInDegrees+=90;
+    drawRotated(angleInDegrees);
+    break;
+    default:
+    break;
+  }
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
+}
+function drawRotated(degrees){
+    context.clearRect(0,0,canvas.width,canvas.height);
+    context.save();
+    context.translate(canvas.width/2,canvas.height/2);
+    context.rotate(degrees*Math.PI/180);
+    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.width/2);
+    context.restore();
+}
 function canvasOrientation(){
      let ink = context.fillStyle;
-        var tempCanvas = document.createElement('canvas');
+        //var tempCanvas = document.createElement('canvas');
 tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
  switch(window.orientation){
    case -90 || 90:
-        //let tempCanvas = document.createElement('canvas');
+        let tempCanvas = document.createElement('canvas');
         //tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
    // Set up temporary canvas
      tempCanvas.width = canvas.width;

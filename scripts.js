@@ -382,7 +382,7 @@ function Orientationshift(){
    tempCanvas = document.createElement('canvas');
    tempContext = tempCanvas.getContext('2d');
   let bgd = canvas.style.backgroundColor;
-  let img = new Image();
+   img = new Image();
   img.src = canvasToImage(bgd);
   img.onload = function() {
     context.drawImage(img,canvas.width/2-img.width/2,canvas.height/2-img.width/2);

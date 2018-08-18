@@ -396,8 +396,8 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      // Copy to temporary canvas
      tempCanvas.drawImage(canvas, 0, 0);
      // Resize original canvas
-     canvas.setAttribute("width", "100%");
-     canvas.setAttribute("height", "100%");
+     //canvas.setAttribute("width", "100%");
+     //canvas.setAttribute("height", "100%");
      // Copy back to resized canvas
      context = canvas.getContext('2d');
     //context.rotate(90*Math.PI/180);

@@ -377,10 +377,10 @@ context.fillStyle = ink;
  context.strokeStyle = ink;
 }
 function Orientationshift(){
-  let angleInDegrees=0;
+  var angleInDegrees=0;
   let ink = context.fillStyle;
-   tempCanvas = document.createElement('canvas');
-   tempContext = tempCanvas.getContext('2d');
+  let tempCanvas = document.createElement('canvas');
+  let tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);

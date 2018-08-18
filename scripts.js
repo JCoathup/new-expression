@@ -382,7 +382,7 @@ function Orientationshift(){
   let tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
-  tempCanvas.drawImage(canvas, 0, 0);
+  tempContext.drawImage(canvas, 0, 0);
   switch(window.orientation){
     case -90:
     angleInDegrees-=90;

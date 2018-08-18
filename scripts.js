@@ -211,7 +211,7 @@ document.addEventListener("touchmove", function(e){
   }
 }, false);
 //removing finger from screen - disable touch
-document.addEventListener("touchend", function(){
+document.addEventListener("touchend", function(e){
   if (e.target && e.target.id == "canvas"){
     document.body.style.overflow = "auto";
     disengage(e);

@@ -397,7 +397,8 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      canvas.setAttribute("height", window.innerHeight);
      // Copy back to resized canvas
      context = canvas.getContext('2d');
-    tmpCtx.rotate(90*Math.PI/180);
+    context.rotate(90*Math.PI/180);
+    context.translate(-canvasWidth/2, -canvasWidth/2);
     //canvas.width = window.innerWidth;
 //canvas.height = window.innerHeight;
      context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);

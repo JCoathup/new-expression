@@ -381,9 +381,6 @@ function canvasOrientation(){
      let ink = context.fillStyle;
 
 tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-
-
-
  switch(window.orientation){
    case -90 || 90:
         let tempCanvas = document.createElement('canvas');
@@ -400,7 +397,7 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
      canvas.setAttribute("height", window.innerHeight);
      // Copy back to resized canvas
      context = canvas.getContext('2d');
-    //context.rotate(90*Math.PI/180);
+    tmpCtx.rotate(90*Math.PI/180);
     //canvas.width = window.innerWidth;
 //canvas.height = window.innerHeight;
      context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);

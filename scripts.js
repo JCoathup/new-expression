@@ -402,8 +402,8 @@ tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
 
      // Copy back to resized canvas
      context = canvas.getContext('2d');
-    context.rotate(90*Math.PI/180);
-     context.drawImage(tempCanvas, 0, 0, tempCanvas.height, tempCanvas.width);
+    //context.rotate(90*Math.PI/180);
+     context.drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
 
    context.fillStyle = ink;
   context.strokeStyle = ink;

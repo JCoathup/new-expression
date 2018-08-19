@@ -396,6 +396,8 @@ function Orientationshift(){
 
     //context.translate(canvas.height/2, canvas.width/2);
     console.log("kicked in");
+    canvas.setAttribute("width", window.innerWidth);
+    canvas.setAttribute("height", canvas.innerHeight);
     break;
     default:
     console.log("ooops");
@@ -407,8 +409,7 @@ function Orientationshift(){
 function drawRotated(degrees){
     console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", canvas.innerHeight);
+
     context.save();
 
     context.translate(canvas.width/2,canvas.height/2);

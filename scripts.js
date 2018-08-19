@@ -389,6 +389,7 @@ function Orientationshift(){
     angleInDegrees-=90;
     //drawRotated(angleInDegrees);
     context.rotate(90*Math.PI/180);
+    console.log("new code");
     break;
     case 90:
     angleInDegrees+=90;

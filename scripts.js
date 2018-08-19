@@ -395,8 +395,8 @@ function Orientationshift(){
     canvas.classList.add("canvasRotated");
     //context.translate(canvas.height/2, canvas.width/2);
     console.log("kicked in");
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
+    //canvas.setAttribute("width", window.innerWidth);
+    //canvas.setAttribute("height", window.innerHeight);
     break;
     default:
     console.log("ooops");

@@ -410,16 +410,9 @@ function drawRotated(degrees){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     context.translate(canvas.width/2,canvas.height/2);
-    //context.rotate(degrees*Math.PI/180);
-    context.setTransform(
-      0,1, // direction of x axis
-      -1,0, // direction of y axis
-      canvas.width,0   // location in pixels of the origin (0,0)
-);
-    context.drawImage(tempCanvas,0,0);
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
-    //context.restore();
+    context.rotate(degrees*Math.PI/180);
+    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.width/2);
+    context.restore();
 }
 function canvasOrientation(){
      let ink = context.fillStyle;

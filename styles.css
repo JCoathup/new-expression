@@ -412,6 +412,9 @@ canvas {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
+  display: relative;
+  top:0;
+  right:0;
 }
 .canvasRotated{
   transform: rotate(90deg);

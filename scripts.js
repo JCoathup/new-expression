@@ -417,6 +417,8 @@ function drawRotated(degrees){
       canvas.width,0   // location in pixels of the origin (0,0)
 );
     context.drawImage(tempCanvas,0,0);
+    canvas.setAttribute("width", window.innerWidth);
+    canvas.setAttribute("height", window.innerHeight);
     //context.restore();
 }
 function canvasOrientation(){

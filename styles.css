@@ -260,7 +260,7 @@ button:hover{
 
 .menu {
 	height: 15vh;
-	position: relative;
+	position: absolute;
 	display: flex;
 	justify-content: center;
 	align-items: center;

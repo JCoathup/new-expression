@@ -393,8 +393,9 @@ function Orientationshift(){
     angleInDegrees+=90;
     //drawRotated(angleInDegrees);
     canvas.classList.add("canvasRotated");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     context.translate(canvas.height/2, canvas.width/2);
-    context.rotate(90*Math.PI/180);
     console.log("kicked in");
     break;
     default:

@@ -387,7 +387,8 @@ function Orientationshift(){
   switch(window.orientation){
     case -90:
     angleInDegrees-=90;
-    drawRotated(angleInDegrees);
+    //drawRotated(angleInDegrees);
+    context.rotate(90*Math.PI/180);
     break;
     case 90:
     angleInDegrees+=90;

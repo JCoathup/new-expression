@@ -413,6 +413,9 @@ canvas {
   image-rendering: optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
 }
+.canvasRotated{
+  transform: rotate(90deg);
+}
 .eraseButton{
   position:absolute;
   right:0;

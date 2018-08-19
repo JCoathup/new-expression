@@ -411,7 +411,7 @@ function drawRotated(degrees){
     context.save();
     context.translate(canvas.width/2,canvas.height/2);
     //context.rotate(degrees*Math.PI/180);
-    ctx.setTransform(
+    context.setTransform(
       0,1, // direction of x axis
       -1,0, // direction of y axis
       canvas.width,0   // location in pixels of the origin (0,0)

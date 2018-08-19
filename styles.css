@@ -260,7 +260,7 @@ button:hover{
 
 .menu {
 	height: 15vh;
-	position: absolute;
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -324,7 +324,6 @@ main {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-  position:relative;
 }
 
 .icofont-navigation-menu, .icofont-delete-alt, .icofont-share:before, .icofont-edit-alt:before, .icofont-trash:before, .icofont-eraser-alt:before, .icofont-color-bucket:before, .icofont-color-picker:before, .icofont-file-alt:before {
@@ -413,7 +412,7 @@ canvas {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
-  position: absolute;
+  position: relative;
   top:0;
   right:0;
 }

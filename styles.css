@@ -415,7 +415,7 @@ canvas {
 }
 .canvasRotated{
   transform: rotate(90deg);
-  position:absolute;
+  position:relative;
 }
 .eraseButton{
   position:absolute;

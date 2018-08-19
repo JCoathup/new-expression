@@ -412,7 +412,7 @@ function drawRotated(degrees){
     context.translate(canvas.width/2,canvas.height/2);
     //context.rotate(degrees*Math.PI/180);
     canvas.classList.add("canvasRotated");
-    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.width/2);
+    context.drawImage(tempCanvas,-canvas.width/2,-canvas.width/2);
     context.restore();
 }
 function canvasOrientation(){

@@ -391,10 +391,8 @@ function Orientationshift(){
     break;
     case 90:
     angleInDegrees+=90;
-    //drawRotated(angleInDegrees);
-    context.save();
-    canvas.classList.add("canvasRotated");
-    context.restore();
+    drawRotated(angleInDegrees);
+    //canvas.classList.add("canvasRotated");
     //context.translate(canvas.height/2, canvas.width/2);
     console.log("kicked in");
     //canvas.setAttribute("width", window.innerWidth);
@@ -412,7 +410,8 @@ function drawRotated(degrees){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     context.translate(canvas.width/2,canvas.height/2);
-    context.rotate(degrees*Math.PI/180);
+    //context.rotate(degrees*Math.PI/180);
+    canvas.classList.add("canvasRotated");
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.width/2);
     context.restore();
 }

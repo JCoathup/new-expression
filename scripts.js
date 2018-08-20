@@ -398,6 +398,8 @@ function Orientationshift(){
     context.save();
     context.translate(canvas.width/2, canvas.height/2);
     context.rotate(90*Math.PI/180);
+    canvas.setAttribute("width", "100%");
+    canvas.setAttribute("height", "100%");
     context.drawImage(tempCanvas, -canvas.width/2, -canvas.height/2);
     context.restore();
     console.log("kicked in");

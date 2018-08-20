@@ -394,6 +394,7 @@ function Orientationshift(){
     angleInDegrees+=90;
     //drawRotated(angleInDegrees);
     canvas.classList.add("canvasRotated90");
+    context = canvas.getContext("2d");
     console.log("kicked in");
     break;
     default:

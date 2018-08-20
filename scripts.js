@@ -397,6 +397,7 @@ function Orientationshift(){
     context.setTransform(0,1,-1,0,canvas.width,0);
 context.drawImage(tempCanvas,0,0);
 context.setTransform(1,0,0,1,0,0);
+canvas.width =window.innerWidth;
     //context.translate(canvas.height/2, canvas.width/2);
     console.log("kicked in");
     //canvas.setAttribute("width", window.innerWidth);

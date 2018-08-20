@@ -400,7 +400,7 @@ function Orientationshift(){
     context.rotate(90*Math.PI/180);
 
     context.drawImage(tempCanvas, -canvas.width/2, -canvas.height/2);
-    //context.restore();
+    context.restore();
     console.log("kicked in");
     break;
     default:

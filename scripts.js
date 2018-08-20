@@ -372,7 +372,7 @@ let tempCanvas = document.createElement('canvas');
        return;
      }
      console.log("SMALLER");
-     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+     canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width*scale, tempCanvas.height*scale);
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }

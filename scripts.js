@@ -407,7 +407,8 @@ function Orientationshift(){
     //console.log("kicked in");
     break;
     default:
-    alert("ooops");
+    angleInDegrees+=90;
+    drawRotated(angleInDegrees);
     break;
   }
   context.fillStyle = ink;

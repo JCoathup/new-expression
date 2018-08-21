@@ -394,8 +394,7 @@ function Orientationshift(){
     drawRotated(angleInDegrees);
     break;
     default:
-    angleInDegrees=0;
-    alert(window.orietation);
+    canvas.restore();
     break;
   }
   context.fillStyle = ink;

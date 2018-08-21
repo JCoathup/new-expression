@@ -386,11 +386,11 @@ function Orientationshift(){
   tempContext.drawImage(canvas, 0, 0);
   switch(window.orientation){
     case -90:
-    angleInDegrees-=90;
+    angleInDegrees+=90;
     drawRotated(angleInDegrees);
     break;
     case 90:
-    angleInDegrees+=90;
+    angleInDegrees-=90;
     drawRotated(angleInDegrees);
     break;
     default:

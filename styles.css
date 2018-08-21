@@ -330,7 +330,9 @@ main {
   padding-right:4%;
   font-size:36px;
 }
-
+.navigation{
+  max-height:100%!important;
+}
 .pallette {
   background-color:#272b2e;
   position: fixed;

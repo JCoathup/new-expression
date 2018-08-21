@@ -407,7 +407,7 @@ function Orientationshift(){
     //console.log("kicked in");
     break;
     default:
-    console.log("ooops");
+    alert("ooops");
     break;
   }
   context.fillStyle = ink;

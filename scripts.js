@@ -387,8 +387,8 @@ function Orientationshift(){
   switch(window.orientation){
     case -90:
     angleInDegrees-=90;
-    drawRotated(angleInDegrees);
-    //canvas.classList.add("canvasRotated-90");
+    //drawRotated(angleInDegrees);
+    canvas.classList.add("canvasRotated-90");
 
     break;
     case 90:

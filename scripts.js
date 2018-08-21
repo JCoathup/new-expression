@@ -336,7 +336,7 @@ let tempCanvas = document.createElement('canvas');
        canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
        let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
-       canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
+       canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width*scale, tempCanvas.height*scale);
        context.fillStyle = ink;
        context.strokeStyle = ink;
        return;

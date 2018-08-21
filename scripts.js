@@ -412,10 +412,10 @@ function Orientationshift(){
 function drawRotated(degrees){
     console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
-        context.rotate(degrees*Math.PI/180);
     context.save();
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+      context.rotate(degrees*Math.PI/180);
     context.translate(canvas.width/2,canvas.height/2);
 
     context.drawImage(tempCanvas,-canvas.width/2,-canvas.height/2);

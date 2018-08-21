@@ -331,7 +331,7 @@ main {
   font-size:36px;
 }
 .navigation{
-  max-height:100%!important;
+
 }
 .pallette {
   background-color:#272b2e;
@@ -409,7 +409,7 @@ main {
 
 canvas {
   display:block;
-  overflow:hidden;
+
   image-rendering: crisp-edges;
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-optimize-contrast;

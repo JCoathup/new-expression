@@ -419,6 +419,7 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
+    alert("rotated " + degrees);
 }
 function canvasOrientation(){
      let ink = context.fillStyle;

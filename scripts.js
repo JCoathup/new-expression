@@ -417,8 +417,8 @@ function drawRotated(degrees){
     console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
-    canvas.setAttribute("width", window.innerHeight);
-    canvas.setAttribute("height", window.innerWidth);
+    canvas.setAttribute("width", "100%");
+    canvas.setAttribute("height", "100%");
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);

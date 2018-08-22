@@ -376,6 +376,8 @@ let tempCanvas = document.createElement('canvas');
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }
+
+var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
   let ink = context.fillStyle;
@@ -384,7 +386,7 @@ function Orientationshift(){
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
-  var rotation;
+
   switch(window.orientation){
     case -90:
     angleInDegrees+=90;

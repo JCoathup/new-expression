@@ -407,7 +407,7 @@ function Orientationshift(){
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
     }
-    alert("cannot compute");
+    alert("cannot compute", rotation);
     break;
   }
   context.fillStyle = ink;

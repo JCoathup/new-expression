@@ -3,6 +3,7 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
+
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
@@ -149,18 +150,21 @@ function colourPicker (){
      colourList.innerHTML += `<li><button id = ${colour} class='colour' style='background-color: ${colour}'></button></li>`;
    }
 }
+
 // mouse click to begin drawing
 document.addEventListener("mousedown", function(e){
   if(e.target && e.target.id == "canvas"){
     engage(e);
   }
 });
+
 // moving mouse to draw
 document.addEventListener("mousemove", function(e){
   if(e.target && e.target.id == "canvas"){
     putPoint(e);
   }
 });
+
 // release mouse click to stop drawing
 document.addEventListener("mouseup", function(e){
   if (e.target && e.target.id == "canvas"){
@@ -376,6 +380,7 @@ function Orientationshift(){
   context.fillStyle = ink;
   context.strokeStyle = ink;
 }
+
 function drawRotated(degrees){
     console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);

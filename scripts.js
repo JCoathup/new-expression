@@ -394,7 +394,7 @@ function Orientationshift(){
     drawRotated(angleInDegrees);
     break;
     default:
-    if (angleInDegrees >=0){
+    if (angleInDegrees > 0){
       alert("anticlockwise");
     }
     else {

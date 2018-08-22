@@ -384,24 +384,28 @@ function Orientationshift(){
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
+  let rotation;
   switch(window.orientation){
     case -90:
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
-      alert("anticlockwise");
+    rotation = 1;
     break;
     case 90:
     angleInDegrees-=90;
     drawRotated(angleInDegrees);
-    alert("clockwise");
+    rotation = -1;
     break;
     default:
-    if (angleInDegrees > 0){
-
+    if (rotation > 0){
+      angleInDegrees-=90;
+      drawRotated(angleInDegrees);
     }
-    else {
-
+    if(rotation < 0) {
+      angleInDegrees+=90;
+      drawRotated(angleInDegrees);
     }
+    alert("cannot compute");
     break;
   }
   context.fillStyle = ink;

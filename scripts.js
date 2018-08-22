@@ -88,11 +88,9 @@ document.addEventListener("click", function(e){
   }
   //selects stroke colour or background depending on which menu has been selected
   if (e.target && e.target.className == "colour"){
-    //resetErase(lastColour);
     let background = document.querySelector("#background");
     if (background.classList.contains("button--active")){
       canvas.style.backgroundColor = e.target.id;
-      //updateEraseHistory()
     }
     let colour = document.querySelector("#colour");
     if (colour.classList.contains("button--active")){
@@ -178,11 +176,10 @@ document.addEventListener("touchstart", function(e){
     document.body.style.overflow = "hidden";
     e.preventDefault();
     putPoint(e);
-
     engage(e);
   }
 }, false);
-//window.addEventListener("touchstart", function(e) {    e.preventDefault();}, false);window.addEventListener("touchmove", function(e) {    e.preventDefault();}, false);
+
 // Move finger to draw
 document.addEventListener("touchmove", function(e){
   e.preventDefault();
@@ -222,8 +219,6 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);
 canvas.setAttribute("height", window.innerHeight);
-//canvas.style.width = window.innerWidth;
-//canvas.style.height = window.innerHeight;
 canvas.style.backgroundColor = "#000000";
 context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';
@@ -319,40 +314,9 @@ function erase (){
 window.addEventListener("resize", canvasResize, false);
 window.addEventListener("orientationchange", Orientationshift, false);
 
-function resizingCanvas(){
-  /*let main = document.getElementById("main");
-  main.style.backgroundColor = "black";*/
-  let ink = context.fillStyle;
-  let bgd = canvas.style.backgroundColor;
-  let img = new Image();
-  img.src = canvasToImage(bgd);
-
-  canvas.setAttribute("width", window.innerWidth);
-  canvas.setAttribute("height", window.innerHeight);
-  img.onload = function() {
-    scaleToFill(this);
-  }
-  function scaleToFill(img){
-    let scale = Math.min(canvas.width / img.width, canvas.height / img.height);
-  let x = (canvas.width / 2) - (img.width / 2) * scale;
-  let y = (canvas.height / 2) - (img.height / 2) * scale;
-    if (img.width > canvas.width || img.height > canvas.height){
-      console.log("bigger image");
-      let scale = Math.min(img.width/canvas.width, img.height/canvas.height );
-      context.drawImage(img, 0,0, img.width, img.height);
-      context.fillStyle = ink;
-      context.strokeStyle = ink;
-      return;
-    }
-    context.drawImage(img, x, y, img.width * scale, img.height * scale);
-    context.fillStyle = ink;
-    context.strokeStyle = ink;
-  }
-}
 function canvasResize(){
     let ink = context.fillStyle;
-
-let tempCanvas = document.createElement('canvas');
+    let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
     let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);

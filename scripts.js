@@ -388,17 +388,19 @@ function Orientationshift(){
     case -90:
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
+      alert("anticlockwise");
     break;
     case 90:
     angleInDegrees-=90;
     drawRotated(angleInDegrees);
+    alert("clockwise");
     break;
     default:
     if (angleInDegrees > 0){
-      alert("anticlockwise");
+
     }
     else {
-      alert("clockwise");
+
     }
     break;
   }

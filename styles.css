@@ -228,7 +228,6 @@ nav {
 
 .toolbox--active {
 	transform: translate(0, 0);
-  height:100%;
 }
 
 li {

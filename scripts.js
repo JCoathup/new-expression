@@ -15,6 +15,7 @@ function openMenu () {
   //else menu is closed then open main menu
   menu.classList.toggle('menu--active');
   toolbox.classList.toggle('toolbox--active');
+  toolbox.style.height = window.innerHeight;
 }
 
 function openPallette(){

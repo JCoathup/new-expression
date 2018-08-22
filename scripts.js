@@ -394,7 +394,12 @@ function Orientationshift(){
     drawRotated(angleInDegrees);
     break;
     default:
-    canvas.restore();
+    if (angleInDegrees >=90){
+      alert("anticlockwise");
+    }
+    else {
+      alert("clockwise");
+    }
     break;
   }
   context.fillStyle = ink;

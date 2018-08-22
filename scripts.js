@@ -406,6 +406,7 @@ function Orientationshift(){
     if(rotation == -1) {
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
+      canvas.setAttribute("width", "100%");
     }
     //alert("cannot compute" + rotation);
     break;

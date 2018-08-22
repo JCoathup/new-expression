@@ -384,7 +384,7 @@ function Orientationshift(){
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
-  let rotation;
+  var rotation;
   switch(window.orientation){
     case -90:
     angleInDegrees+=90;

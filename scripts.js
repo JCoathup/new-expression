@@ -399,14 +399,4 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
-    if (tempCanvas.height > window.innerHeight){
-      context.clearRect(0,0,canvas.width,canvas.height);
-      context.save();
-      canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-      canvas.setAttribute("height", window.innerWidth);
-      context.translate(canvas.width/2,canvas.height/2);
-      context.rotate(degrees*Math.PI/180);
-      context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
-      context.restore();
-    }
 }

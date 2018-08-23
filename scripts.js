@@ -375,14 +375,6 @@ function Orientationshift(){
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
     }
-    if(rotation == -2) {
-      angleInDegrees+=180;
-      drawRotated(angleInDegrees);
-    }
-    if(rotation == 2) {
-      angleInDegrees-=180;
-      drawRotated(angleInDegrees);
-    }
     break;
   }
   context.fillStyle = ink;

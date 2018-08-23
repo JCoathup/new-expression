@@ -359,13 +359,12 @@ function Orientationshift(){
     case -90:
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
-    rotation += 1;
-    console.log("rotation");
+    rotation = 1;
     break;
     case 90:
     angleInDegrees-=90;
     drawRotated(angleInDegrees);
-    rotation -=1;
+    rotation = -1;
     break;
     default:
     if (rotation == 1){
@@ -385,7 +384,6 @@ function Orientationshift(){
       drawRotated(angleInDegrees);
     }
     break;
-    alert("something else");
   }
   context.fillStyle = ink;
   context.strokeStyle = ink;

@@ -367,12 +367,12 @@ function Orientationshift(){
     rotation = -1;
     break;
     case -180:
-    angleInDegrees+=180;
+    angleInDegrees-=180;
     drawRotated(angleInDegrees);
     //rotation = 1;
     break;
     case 180:
-    angleInDegrees-=180;
+    angleInDegrees+=180;
     drawRotated(angleInDegrees);
     //rotation = 1;
     break;

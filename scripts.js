@@ -360,6 +360,7 @@ function Orientationshift(){
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
     rotation += 1;
+    console.log("rotation");
     break;
     case 90:
     angleInDegrees-=90;

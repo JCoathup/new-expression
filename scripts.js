@@ -357,11 +357,13 @@ function Orientationshift(){
 
   switch(window.orientation){
     case -90:
+    alert("90 degrees");
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
     rotation = 1;
     break;
     case 90:
+    alert("90 degrees");
     angleInDegrees-=90;
     drawRotated(angleInDegrees);
     rotation = -1;
@@ -383,6 +385,7 @@ function Orientationshift(){
       drawRotated(angleInDegrees);
   }
     break;
+    alert("something else");
   }
   context.fillStyle = ink;
   context.strokeStyle = ink;

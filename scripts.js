@@ -357,25 +357,16 @@ function Orientationshift(){
 
   switch(window.orientation){
     case -90:
-    alert("90 degrees");
     angleInDegrees+=90;
     drawRotated(angleInDegrees);
-    rotation = 1;
+    rotation += 1;
     break;
     case 90:
-    alert("90 degrees");
     angleInDegrees-=90;
     drawRotated(angleInDegrees);
-    rotation = -1;
-    break;
-    case 180:
-    alert("180 degrees");
-    angleInDegrees-=180;
-    drawRotated(angleInDegrees);
-    //rotation = -1;
+    rotation -=1;
     break;
     default:
-    alert("default");
     if (rotation == 1){
       angleInDegrees-=90;
       drawRotated(angleInDegrees);
@@ -383,7 +374,15 @@ function Orientationshift(){
     if(rotation == -1) {
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
-  }
+    }
+    if(rotation == -2) {
+      angleInDegrees+=180;
+      drawRotated(angleInDegrees);
+    }
+    if(rotation == 2) {
+      angleInDegrees-=180;
+      drawRotated(angleInDegrees);
+    }
     break;
     alert("something else");
   }

@@ -391,18 +391,12 @@ function Orientationshift(){
 }
 
 function drawRotated(degrees){
-  let bgd = canvas.style.backgroundColor;
-  let img = new Image();
-      img.src = canvasToImage(bgd);
-    console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
-    canvas.setAttribute("width", window.innerHeight);
-    canvas.setAttribute("height", window.innerWidth);
+    canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+    canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
-    img.onload=function(){
-    context.drawImage(img,-img.width/2,-img.height/2);
-  }
+    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
 }

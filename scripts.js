@@ -272,7 +272,7 @@ function erase (){
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = "rgba(0,0,0,1)";
+  context.strokeStyle = lastColour;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";
@@ -330,8 +330,8 @@ function canvasResize(){
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-       canvas.setAttribute("width", tempCanvas.width*window.devicePixelRatio);
-       canvas.setAttribute("height", tempCanvas.height*window.devicePixelRatio);
+       canvas.setAttribute("width", tempCanvas.width);
+       canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
        let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);

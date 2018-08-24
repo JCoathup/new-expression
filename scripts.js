@@ -350,6 +350,12 @@ var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
   let ink = context.fillStyle;
+  var img = new Image();
+  img.onload = function() {
+    img.width = canvas.width;
+    img.height = canvas.height;
+    context.drawImage(canvas, 0, 0);
+  }
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
@@ -390,6 +396,6 @@ function drawRotated(degrees){
     canvas.setAttribute("height", window.innerWidth);
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
-    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
+    context.drawImage(img,-img.width/2,-img.height/2);
     context.restore();
 }

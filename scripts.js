@@ -5,7 +5,6 @@ let navigation = document.querySelector(".navigation");
 let lastColour;
 
 function openMenu () {
-  lastColour = context.strokeStyle;
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
     if (item.classList.contains("button--active")){
@@ -98,6 +97,7 @@ document.addEventListener("click", function(e){
     if (colour.classList.contains("button--active")){
       context.fillStyle = e.target.id;
       context.strokeStyle = e.target.id;
+      lastColour = e.target.id;
     }
   }
   if (e.target && e.target.id == "colour") {

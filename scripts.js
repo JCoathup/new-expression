@@ -331,8 +331,8 @@ function canvasResize(){
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-       canvas.setAttribute("width", tempCanvas.width);
-       canvas.setAttribute("height", tempCanvas.height);
+       //canvas.setAttribute("width", tempCanvas.width);
+       //canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
        let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
@@ -387,7 +387,7 @@ function drawRotated(degrees){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-    canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
+    canvas.setAttribute("height", window.innerWidth);
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);

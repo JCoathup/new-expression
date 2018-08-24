@@ -11,6 +11,7 @@ function openMenu () {
     // if menu already open then close main menu
     item.classList.remove("button--active");
     pallette.innerHTML = "";
+    context.strokeStyle = lastColour;
     }
   }
   //else menu is closed then open main menu

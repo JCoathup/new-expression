@@ -5,13 +5,13 @@ let navigation = document.querySelector(".navigation");
 let lastColour;
 
 function openMenu () {
+  lastColour = context.strokeStyle;
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
     if (item.classList.contains("button--active")){
     // if menu already open then close main menu
     item.classList.remove("button--active");
     pallette.innerHTML = "";
-    context.strokeStyle = lastColour;
     }
   }
   //else menu is closed then open main menu

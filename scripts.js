@@ -331,8 +331,8 @@ function canvasResize(){
      canvas.setAttribute("width", window.innerWidth);
      canvas.setAttribute("height", window.innerHeight);
      if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-       //canvas.setAttribute("width", tempCanvas.width);
-       //canvas.setAttribute("height", tempCanvas.height);
+       canvas.setAttribute("width", tempCanvas.width);
+       canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
        let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);

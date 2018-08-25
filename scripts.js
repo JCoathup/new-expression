@@ -393,11 +393,11 @@ function Orientationshift(){
 function drawRotated(degrees){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
-    canvas.setAttribute("width", window.innerHeight);
-    canvas.setAttribute("height", window.innerWidth);
+    canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+    canvas.setAttribute("height", window.innerWidth/window.devicePixelRatio);
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
-    context.scale(canvas.width/window.innerWidth, canvas.height/window.innerHTML);
+    //context.scale(window.innerWidth/canvas.width, window.innerHTML/canvas.height);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
 }

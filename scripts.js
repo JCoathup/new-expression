@@ -379,7 +379,7 @@ function Orientationshift(){
       alert(rotation);
     }
     else{ */
-      angleInDegrees-=90;
+      angleInDegrees+=90;
       drawRotated(angleInDegrees);
       alert("anticlockwise");
       // rotation = 0;

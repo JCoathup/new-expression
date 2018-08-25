@@ -358,33 +358,26 @@ function Orientationshift(){
 
   switch(window.orientation){
     case -90:
-    /* if (rotation == 1){
+    if (rotation == 1){
       angleInDegrees+=180;
       drawRotated180(angleInDegrees);
-      rotation = -1;
-      alert(rotation);
     }
-    else{ */
-      angleInDegrees-=90;
-      drawRotated(angleInDegrees);
-      rotation = 0;
-      alert("clockwise")
-  //  }
-    break;
-    case 90:
-  /* if (rotation == 1){
-      angleInDegrees+=180;
-      drawRotated180(angleInDegrees);
-      rotation = 1;
-      alert(rotation);
-    }
-    else{ */
+    else{
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
-      alert("anticlockwise");
-      // rotation = 0;
-      // alert(rotation);
-  //  }
+      rotation = 1;
+    }
+    break;
+    case 90:
+    if (rotation == 1){
+      angleInDegrees-=180;
+      drawRotated180(angleInDegrees);
+    }
+    else{
+      angleInDegrees-=90;
+      drawRotated(angleInDegrees);
+      rotation = -1;
+    }
     break;
     default:
     if (rotation == 1){
@@ -404,6 +397,7 @@ function Orientationshift(){
 }
 
 function drawRotated(degrees){
+    console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
@@ -415,11 +409,12 @@ function drawRotated(degrees){
 }
 
 function drawRotated180(degrees){
+    console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
-    //canvas.setAttribute("width", window.innerWidth);
-    //canvas.setAttribute("height", window.innerHeight);
-    //context.translate(canvas.width,canvas.height);
+    //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+    //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
+    //context.translate(-canvas.width/2,-canvas.height/2);
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();

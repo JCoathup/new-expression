@@ -365,9 +365,10 @@ function Orientationshift(){
       alert(rotation);
     }
     else{ */
-      angleInDegrees+=90;
+      angleInDegrees-=90;
       drawRotated(angleInDegrees);
       rotation = 0;
+      alert("anticlockwise")
   //  }
     break;
     case 90:
@@ -378,8 +379,9 @@ function Orientationshift(){
       alert(rotation);
     }
     else{ */
-      angleInDegrees-=90;
+      angleInDegrees+=90;
       drawRotated(angleInDegrees);
+      alert("clockwise");
       // rotation = 0;
       // alert(rotation);
   //  }

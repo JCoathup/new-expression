@@ -359,7 +359,7 @@ function Orientationshift(){
   switch(window.orientation){
     case -90:
     if (rotation == 1){
-      angleInDegrees+=180;
+      angleInDegrees-=180;
       drawRotated180(angleInDegrees);
     }
     else{
@@ -370,7 +370,7 @@ function Orientationshift(){
     break;
     case 90:
     if (rotation == 1){
-      angleInDegrees-=180;
+      angleInDegrees+=180;
       drawRotated180(angleInDegrees);
     }
     else{

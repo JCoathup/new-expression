@@ -409,7 +409,7 @@ function drawRotated(degrees){
 }
 
 function drawRotated180(degrees){
-    console.log(degrees);
+    alert(degrees);    
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);

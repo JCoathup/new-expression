@@ -378,7 +378,7 @@ function Orientationshift(){
     else{
       angleInDegrees-=90;
       drawRotated(angleInDegrees);
-      rotation + 0;
+      rotation = 0;
     }
     break;
     default:

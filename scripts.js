@@ -361,6 +361,7 @@ function Orientationshift(){
     if (rotation == 1){
       angleInDegrees+=180;
       drawRotated180(angleInDegrees);
+      rotation = 1;
     }
     else{
       angleInDegrees+=90;
@@ -372,15 +373,13 @@ function Orientationshift(){
    if (rotation == 1){
       angleInDegrees-=180;
       drawRotated180(angleInDegrees);
+      rotation = -1;
     }
     else{
       angleInDegrees-=90;
       drawRotated(angleInDegrees);
       rotation = -1;
     }
-    break;
-    case 180 || -180:
-    alert("hello");
     break;
     default:
     if (rotation == 1){

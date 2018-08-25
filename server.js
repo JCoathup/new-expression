@@ -9,7 +9,7 @@ app.get('/', function (req, res){
   res.render('index.html', {})
 })
 app.listen(process.env.PORT || 3000);
-
+console.log("server running");
 var T = new Twit(config);
 /*
 T.post('statuses/update', { status: 'woo whoooop!!!!!!' }, function(err, data, response) {

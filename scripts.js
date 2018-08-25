@@ -398,6 +398,6 @@ function drawRotated(degrees){
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);
     //context.scale(window.innerWidth/canvas.width, window.innerHTML/canvas.height);
-    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2, 0, 0, canvas.width,canvas.height);
+    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2, 0, 0);
     context.restore();
 }

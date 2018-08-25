@@ -361,6 +361,7 @@ function Orientationshift(){
     if (rotation == 1){
       angleInDegrees+=180;
       drawRotated180(angleInDegrees);
+      rotation = 2;
     }
     else{
       angleInDegrees+=90;
@@ -372,6 +373,7 @@ function Orientationshift(){
     if (rotation == 1){
       angleInDegrees-=180;
       drawRotated180(angleInDegrees);
+      rotation = -2;
     }
     else{
       angleInDegrees-=90;
@@ -397,7 +399,6 @@ function Orientationshift(){
 }
 
 function drawRotated(degrees){
-    console.log(degrees);
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
     canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);

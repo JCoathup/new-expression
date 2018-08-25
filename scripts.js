@@ -393,7 +393,7 @@ function Orientationshift(){
 function drawRotated(degrees){
     context.clearRect(0,0,canvas.width,canvas.height);
     context.save();
-    canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+    canvas.setAttribute("width", window.innerHeight);
     canvas.setAttribute("height", window.innerWidth);
     context.translate(canvas.width/2,canvas.height/2);
     context.rotate(degrees*Math.PI/180);

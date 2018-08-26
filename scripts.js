@@ -3,9 +3,7 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
-window.addEventListener('load', function(e) {
-  setTimeout(function() { window.scrollTo(0, 1); }, 1);
-}, false);
+var socket = io.connect();
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
@@ -129,7 +127,7 @@ document.addEventListener("click", function(e){
     lightbox.classList.toggle("lightbox-target");
     lightbox.innerHTML = `<div class = "lightbox-inner" style="padding:1%;">
                           <img src=${variable}><br>
-                          <input type="text"><br>
+                          <input id="comment" type="text"><br>
                           <button id="sendTweet">TWEET</button>
                           <button id="cancelTweet">CANCEL</button>
                           </div>`
@@ -142,10 +140,12 @@ document.addEventListener("click", function(e){
     lightbox.classList.toggle("lightbox-target");
     context.drawImage(img,0,0);
   }
-  msg="kdhfskfhdkhs";
   if (e.target && e.target.id == "sendTweet"){
-    socket.emit("tweet", msg);
-    console.log("socket sent");
+    let data = {}
+    data.comment = document.querySelector("#comment").value;
+    let bgd = canvas.style.backgroundColor
+    data.image = canvasToImage(bgd);
+    socket.emit("message", data);
   }
 });
 
@@ -356,7 +356,7 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
-  let ink = context.fillStyle;
+  //let ink = context.fillStyle;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
@@ -426,4 +426,3 @@ function drawRotated180(degrees){
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();
 }
-var socket = io.connect();

@@ -3,7 +3,9 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
-window.addEventListener("load", function() { window. scrollTo(0, 0); });
+window.addEventListener('load', function(e) {
+  setTimeout(function() { window.scrollTo(0, 1); }, 1);
+}, false);
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){

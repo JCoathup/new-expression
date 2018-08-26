@@ -357,7 +357,7 @@ var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
   let eraseButton = document.querySelector(".eraseButton");
-  if (eraseButton.innerHTML == ""){
+  if (eraseButton.innerHTML != ""){
       let ink = context.fillStyle;
   }
   tempCanvas = document.createElement('canvas');

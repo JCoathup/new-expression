@@ -356,11 +356,11 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
-//let ink = canvas.style.backgroundColor;
+let bgd = canvas.style.backgroundColor;
   let eraseButton = document.querySelector(".eraseButton");
   if (eraseButton.innerHTML != ""){
-      context.strokeStyle = "#fff";
-      context.fillStyle = "#fff";
+      context.strokeStyle = bgd;
+      context.fillStyle = bgd;
   }
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

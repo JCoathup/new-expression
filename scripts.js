@@ -3,7 +3,7 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
-
+window.addEventListener("load", function() { window. scrollTo(0, 0); });
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
@@ -139,6 +139,11 @@ document.addEventListener("click", function(e){
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
     context.drawImage(img,0,0);
+  }
+  msg="kdhfskfhdkhs";
+  if (e.target && e.target.id == "sendTweet"){
+    socket.emit("tweet", msg);
+    console.log("socket sent");
   }
 });
 
@@ -419,3 +424,4 @@ function drawRotated180(degrees){
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();
 }
+var socket = io.connect();

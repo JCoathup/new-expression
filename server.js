@@ -32,13 +32,13 @@ io.sockets.on('connection', function(socket) {
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'jeremy.coathup@bmipublishing.co.uk',
+        user: 'jeremycoathup@gmail.com',
         pass: '517a7e76'
       }
     });
 
     var mailOptions = {
-      from: 'jeremy.coathup@bmipublishing.co.uk',
+      from: 'jeremycoathup@gmail.com',
       to: data.comment,
       subject: 'Sending Email using Node.js',
       text: "A New Expression",

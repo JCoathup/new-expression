@@ -357,6 +357,8 @@ var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
 let bgd = canvas.style.backgroundColor;
+context.fillStyle = ink;
+context.strokeStyle = ink;
   let eraseButton = document.querySelector(".eraseButton");
   if (eraseButton.innerHTML != ""){
       context.strokeStyle = bgd;
@@ -404,8 +406,8 @@ let bgd = canvas.style.backgroundColor;
     }
     break;
   }
-  context.fillStyle = ink;
-  context.strokeStyle = ink;
+  //context.fillStyle = ink;
+  //context.strokeStyle = ink;
 }
 
 function drawRotated(degrees){

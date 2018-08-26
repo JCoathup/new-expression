@@ -38,7 +38,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     var mailOptions = {
-      from: 'jeremycoathup@gmail.com',
+      from: 'jeremy.coathup@bmipublishing.co.uk',
       to: data.comment,
       subject: 'Sending Email using Node.js',
       text: "A New Expression",

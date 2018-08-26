@@ -356,9 +356,10 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
+//  let ink = canvas.style.backgroundColor;
   let eraseButton = document.querySelector(".eraseButton");
   if (eraseButton.innerHTML != ""){
-      let ink = context.fillStyle;
+      ink = lastColour;
   }
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

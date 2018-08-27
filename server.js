@@ -30,22 +30,23 @@ io.sockets.on('connection', function(socket) {
   socket.on('message', function(data){
     console.log(socket.id, "posted", data.comment);
     var transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.ethereal.email',
+      port: 587,
       auth: {
-        user: 'jeremycoathup@gmail.com',
-        pass: '517a7e76'
+        user: 'gp6cootfwjn4oypa@ethereal.email',
+        pass: 'dpQEhzswzV95zTACDa'
       }
     });
 
     var mailOptions = {
-      from: 'jeremycoathup@gmail.com',
+      from: 'gp6cootfwjn4oypa@ethereal.email',
       to: data.comment,
       subject: 'Sending Email using Node.js',
       text: "A New Expression",
       html: "<h1>"+data.comment+"</h1><img src='cid:"+socket.id+"'>",
          attachments: [
       {   // data uri as an attachment
-    filename: "image2.jpg",
+    filename: "image.jpg",
     path: data.image,
     cid: socket.id
 }]

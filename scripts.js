@@ -367,22 +367,30 @@ function Orientationshift(){
     if (rotation == 1){
       angleInDegrees+=180;
       drawRotated180(angleInDegrees);
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     else{
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
       rotation = 1;
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     break;
     case 90:
     if (rotation == 1){
       angleInDegrees-=180;
       drawRotated180(angleInDegrees);
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     else{
       angleInDegrees-=90;
       drawRotated(angleInDegrees);
       rotation = -1;
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     break;
     default:
@@ -390,11 +398,15 @@ function Orientationshift(){
       angleInDegrees-=90;
       drawRotated(angleInDegrees);
       rotation = 0;
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     if(rotation == -1) {
       angleInDegrees+=90;
       drawRotated(angleInDegrees);
       rotation = 0;
+      context.fillStyle = ink;
+      context.strokeStyle = ink;
     }
     break;
   }

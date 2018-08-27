@@ -356,7 +356,7 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   let eraseButton = document.querySelector(".eraseButton");
-  if (eraseButton.innerHTML != null){
+  if (eraseButton.textContent != null){
       context.strokeStyle = canvas.style.backgroundColor;
   }
   else{

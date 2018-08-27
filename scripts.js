@@ -356,7 +356,6 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   var angleInDegrees=0;
-let bgd = canvas.style.backgroundColor;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;

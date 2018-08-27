@@ -400,6 +400,7 @@ function Orientationshift(){
   }
   context.fillStyle = ink;
   context.strokeStyle = ink;
+  alert(ink);
 }
 
 function drawRotated(degrees){

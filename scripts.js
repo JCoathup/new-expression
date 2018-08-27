@@ -362,7 +362,6 @@ function Orientationshift(){
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
 
-
   switch(window.orientation){
     case -90:
     if (rotation == 1){
@@ -399,7 +398,8 @@ function Orientationshift(){
     }
     break;
   }
-  alert(ink);
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
 }
 
 function drawRotated(degrees){
@@ -412,8 +412,6 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
-    context.fillStyle = ink;
-    context.strokeStyle = ink;
 }
 
 function drawRotated180(degrees){

@@ -355,7 +355,7 @@ context.fillStyle = ink;
 
 var rotation;
 function Orientationshift(){
-  if (erase.innerHTML !- null){
+  if (erase.innerHTML != null){
     context.strokeStyle = canvas.style.backgroundColor;
   }
   else {

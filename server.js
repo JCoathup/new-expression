@@ -30,16 +30,15 @@ io.sockets.on('connection', function(socket) {
   socket.on('message', function(data){
     console.log(socket.id, "posted", data.comment);
     var transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
+      service: 'gmail',
       auth: {
-        user: 'gp6cootfwjn4oypa@ethereal.email',
-        pass: 'dpQEhzswzV95zTACDa'
+        user: 'jeremycoathup@gmail.com',
+        pass: '517a7e76'
       }
     });
 
     var mailOptions = {
-      from: 'gp6cootfwjn4oypa@ethereal.email',
+      from: 'jeremycoathup@gmail.com',
       to: data.comment,
       subject: 'Sending Email using Node.js',
       text: "A New Expression",

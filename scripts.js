@@ -322,16 +322,8 @@ window.addEventListener("resize", canvasResize, false);
 window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
-  let endErase = document.querySelector("#endErase");
-    //checks if erase functionality running before resize
-    if (endErase != "null"){
-      console.log("erasing");
-      //context.strokeStyle = canvas.style.backgroundColor;
-    }
-    else {
-      console.log("not erasing");
-      //let ink = context.fillStyle;
-    }
+      let ink = context.fillStyle;
+      resetErase(ink);
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
@@ -359,15 +351,8 @@ context.fillStyle = ink;
 
 var rotation;
 function Orientationshift(){
-  let endErase = document.querySelector("#endErase");
-    //checks if erase functionality running before resize
-    if (endErase != "null"){
-      context.strokeStyle = canvas.style.backgroundColor;
-    }
-    else {
-      var    lastColour = context.strokeStyle;
-    }
-
+  var    lastColour = context.strokeStyle;
+  resetErase(lastColour);
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

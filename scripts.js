@@ -271,7 +271,7 @@ function clrscreen(){
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
   eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
-  lastColour = context.strokeStyle;
+  lastColour = canvas.style.backgroundColor; //context.strokeStyle;
   openMenu();
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');

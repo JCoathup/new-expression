@@ -276,7 +276,7 @@ function erase (){
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = canvas.style.backgroundColor;
+  context.strokeStyle = lastColour;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";

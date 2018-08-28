@@ -323,6 +323,7 @@ window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
     let ink = context.fillStyle;
+    console.log(ink);
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
@@ -352,7 +353,7 @@ var rotation;
 function Orientationshift(){
 
   var    lastColour = context.strokeStyle;
-alert(lastColour);
+
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

@@ -350,6 +350,7 @@ context.fillStyle = ink;
 
 var rotation;
 function Orientationshift(){
+  let endErase = document.querySelector(".endErase");
   if (endErase != null){
     context.strokeStyle = canvas.style.backgroundColor;
   }

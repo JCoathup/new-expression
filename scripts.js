@@ -64,7 +64,7 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.classList.contains("menu")){
     //check if erase functionality running
-    resetErase(lastColour);
+    //resetErase(lastColour);
     //resetErase(lastColour);
     if (pallette.classList.contains("pallette--active")){
       pallette.classList.remove("pallette--active");

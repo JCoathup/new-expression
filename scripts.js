@@ -351,7 +351,7 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   let endErase = document.querySelector(".endErase");
-  if (endErase != null){
+  if (endErase.textContent != null){
     context.strokeStyle = canvas.style.backgroundColor;
   }
   else {
@@ -401,8 +401,8 @@ function Orientationshift(){
     }
     break;
   }
-  //context.fillStyle = lastColour;
-  //context.strokeStyle = lastColour;
+  context.fillStyle = lastColour;
+  context.strokeStyle = lastColour;
 }
 
 function drawRotated(degrees){

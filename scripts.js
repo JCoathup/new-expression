@@ -323,7 +323,7 @@ window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
     let ink = context.fillStyle;
-    console.log(ink);
+    alert(ink);
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;

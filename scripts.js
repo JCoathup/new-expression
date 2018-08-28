@@ -323,7 +323,6 @@ window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
     let ink = context.fillStyle;
-    alert(ink);
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
@@ -423,8 +422,4 @@ function drawRotated180(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();
-}
-
-function eraseRotation (){
-  alert ("yey");
 }

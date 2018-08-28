@@ -325,10 +325,12 @@ function canvasResize(){
   let endErase = document.querySelector("#endErase");
     //checks if erase functionality running before resize
     if (endErase != "null"){
-      context.strokeStyle = canvas.style.backgroundColor;
+      console.log("erasing");
+      //context.strokeStyle = canvas.style.backgroundColor;
     }
     else {
-      let ink = context.fillStyle;
+      console.log("not erasing");
+      //let ink = context.fillStyle;
     }
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;

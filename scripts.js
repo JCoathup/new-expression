@@ -59,13 +59,11 @@ function pencilThickness () {
 //document Event Delegator
 document.addEventListener("click", function(e){
   if ((e.target && e.target.className == "outer--container") || (e.target && e.target.className == "inner--container") || (e.target && e.target.className == "curve1") || (e.target && e.target.className == "curve2")) {
-    //resetErase(lastColour);
     radius = e.target.getAttribute("data-thickness");
   }
   if (e.target && e.target.classList.contains("menu")){
     //check if erase functionality running
-    //resetErase(lastColour);
-    //resetErase(lastColour);
+    resetErase(lastColour);
     if (pallette.classList.contains("pallette--active")){
       pallette.classList.remove("pallette--active");
       navigation.classList.remove("nav--move");
@@ -73,12 +71,10 @@ document.addEventListener("click", function(e){
     openMenu();
   }
   if (e.target && e.target.id == "background"){
-    //resetErase(lastColour);
     menuChecker(e);
     colourPicker();
   }
   if (e.target && e.target.id == "clear"){
-    //resetErase(lastColour);
     clrscreen();
   }
   if (e.target && e.target.id == "erase"){
@@ -227,7 +223,7 @@ document.addEventListener("touchend", function(e){
   }
 }, false);
 
-let canvas = document.getElementById("canvas");
+let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);
 canvas.setAttribute("height", window.innerHeight);

@@ -277,6 +277,7 @@ function erase (){
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
   context.strokeStyle = lastColour;
+  console.log(lastColour);
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";

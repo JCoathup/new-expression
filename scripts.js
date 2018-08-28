@@ -401,8 +401,8 @@ function Orientationshift(){
     }
     break;
   }
-  context.fillStyle = lastColour;
-  context.strokeStyle = lastColour;
+  //context.fillStyle = lastColour;
+  //context.strokeStyle = lastColour;
 }
 
 function drawRotated(degrees){

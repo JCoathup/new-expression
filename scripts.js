@@ -271,12 +271,12 @@ function clrscreen(){
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
   eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
-  lastColour = context.strokeStyle;
+  //lastColour = context.strokeStyle;
   openMenu();
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = lastColour;
+  context.strokeStyle = canvas.style.backgroundColor; //lastColour;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";

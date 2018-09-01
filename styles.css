@@ -86,7 +86,9 @@
 .icofont-navigation-menu {
 
 }
-
+.icofont-download:before {
+  content: "\ef08";
+}
 .icofont-navigation-menu:before {
 	content: "\f080";
 }
@@ -225,7 +227,16 @@ nav {
   transform: translate(0, -100vh);
 	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+.menuItems {
 
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translate(-120%,0);
+}
+
+.menuItems--active {
+
+	transform: translate(0, 0);
+}
 .toolbox--active {
 	transform: translate(0, 0);
 }

@@ -3,12 +3,21 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
+//var coloursActive = document.querySelectorAll(".colourList button");
 var socket = io.connect();
+let timer = 0;
+//var coloursActive = document.querySelectorAll(".colourList button");
+
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
     if (item.classList.contains("button--active")){
     // if menu already open then close main menu
+    let menuItems = document.querySelectorAll(".menuItems");
+    for (let i=0; i<menuItems.length; i++){
+    menuItems[i].classList.remove(".menuItems--active");
+    }
+
     item.classList.remove("button--active");
     pallette.innerHTML = "";
     }
@@ -46,7 +55,7 @@ function pencilThickness () {
   let pencilArray = 6;
   let thickness = 1;
   for (let i=0; i<pencilArray; i++){
-    pencilList.innerHTML += `<div class="outer--container" data-thickness="${thickness}">
+    pencilList.innerHTML += `<div class="outer--container menuItems" data-thickness="${thickness}">
                               <div class="inner--container" data-thickness="${thickness}">
                                 <div class="curve1" data-thickness="${thickness}" style="border:${thickness}px solid #000; border-color:transparent #000 #000 transparent; border-radius: 0px 0px 350px 350px;"></div>
                                 <div class="curve2" data-thickness="${thickness}" style="border:${thickness}px solid #000; border-color:#000 transparent transparent #000; border-radius: 350px 450px 0px 0px; margin-left:-${thickness}px;"></div>
@@ -54,6 +63,8 @@ function pencilThickness () {
                             </div>`;
     thickness += 2;
   }
+  let menuItems = document.querySelectorAll(".menuItems");
+  Animation(menuItems);
 }
 
 //document Event Delegator
@@ -84,7 +95,7 @@ document.addEventListener("click", function(e){
     resetErase(lastColour);
   }
   //selects stroke colour or background depending on which menu has been selected
-  if (e.target && e.target.className == "colour"){
+  if (e.target && e.target.classList.contains("colour")){
     let background = document.querySelector("#background");
     if (background.classList.contains("button--active")){
       canvas.style.backgroundColor = e.target.id;
@@ -99,6 +110,7 @@ document.addEventListener("click", function(e){
   if (e.target && e.target.id == "colour") {
     menuChecker(e);
     colourPicker();
+
   }
   if (e.target && e.target.id == "pencil"){
     menuChecker(e);
@@ -110,10 +122,14 @@ document.addEventListener("click", function(e){
     pallette.innerHTML = `<ul class='shareList'></ul>`
     let shareList = document.querySelector(".shareList");
     let shareArray = 4;
-    shareList.innerHTML += `<li><button class='share icofont icofont-email' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
-                            <li><button class='share icofont icofont-social-facebook' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
-                            <li><button class='share icofont icofont-social-twitter' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
-                            <li><button class='share icofont icofont-social-whatsapp' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
+    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
+                            <li><button class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
+                            <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
+                            <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
+                            <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
+    let menuItems = document.querySelectorAll(".menuItems");
+    Animation(menuItems);
+
   }
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
@@ -148,11 +164,13 @@ document.addEventListener("click", function(e){
 function colourPicker (){
   pallette.innerHTML = "";
   pallette.innerHTML = `<ul class='colourList'></ul>`;
-  let colourList = document.querySelector(".colourList");
+let colourList = document.querySelector(".colourList");
   let colourArray = ["#ffffff", "#fff8c6", "#ffff00", "#ffd700", "#b1bb17", "#008000", "#006400", "#82caff", "#0000cd", "#191970", "#ffa500", "#f88017", "#ff7f50", "#ff0000", "#8b0000", "#faafba", "#f660ab", "#ff1493", "#c45aec", "#8b008b", "#800080", "#e2a76f", "#806517", "#8b4513", "#999999", "#666666", "#333333", "#000000"];
    for (let colour of colourArray){
-     colourList.innerHTML += `<li><button id = ${colour} class='colour' style='background-color: ${colour}'></button></li>`;
+     colourList.innerHTML += `<li><button id = ${colour} class='colour menuItems' style='background-color: ${colour}'></button></li>`;
    }
+   let menuItems = document.querySelectorAll(".menuItems");
+   Animation(menuItems);
 }
 
 // mouse click to begin drawing
@@ -422,4 +440,19 @@ function drawRotated180(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();
+}
+
+function Animation(item){
+  //let coloursActive = document.querySelectorAll(".colourList button");
+  console.log(item.length);
+    for (let i=0; i < item.length; i++){
+    menuAnimation(i);
+    }
+    timer = 0;
+    function menuAnimation(i){
+      timer += 100;
+      setTimeout(function(){
+      item[i].classList.toggle("menuItems--active");
+    },(200 + timer));
+    }
 }

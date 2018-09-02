@@ -297,7 +297,7 @@ function erase (){
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = lastColour;
+  //context.strokeStyle = lastColour;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";
@@ -457,8 +457,7 @@ function Animation(item){
 }
 
 function downloadImage(){
-  menu.classList.toggle('menu--active');
-  toolbox.classList.toggle('toolbox--active');
-  pallette.innerHTML = "";
   pallette.classList.remove("pallette--active");
+  openMenu();
+  navigation.classList.remove('nav--move');
 }

@@ -416,8 +416,8 @@ function Orientationshift(){
     }
     break;
   }
-  context.fillStyle = lastColour;
-  context.strokeStyle = lastColour;
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
 }
 
 function drawRotated(degrees){
@@ -430,8 +430,7 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
-    context.strokeStyle = ink;
-    context.fillstyle = ink;
+
 }
 
 function drawRotated180(degrees){
@@ -444,6 +443,8 @@ function drawRotated180(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
     context.restore();
+    context.strokeStyle = ink;
+    context.fillstyle = ink;
 }
 
 function Animation(item){

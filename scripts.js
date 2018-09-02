@@ -122,7 +122,7 @@ document.addEventListener("click", function(e){
     pallette.innerHTML = `<ul class='shareList'></ul>`
     let shareList = document.querySelector(".shareList");
     let shareArray = 4;
-    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
+    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
                             <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
@@ -130,6 +130,9 @@ document.addEventListener("click", function(e){
     let menuItems = document.querySelectorAll(".menuItems");
     Animation(menuItems);
 
+  }
+  if (e.target && e.target.id == "download"){
+    downloadImage();
   }
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
@@ -341,7 +344,6 @@ window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
       let ink = context.fillStyle;
-resetErase(ink);
     let tempCanvas = document.createElement('canvas');
     tempCanvas.width = canvas.width;
     tempCanvas.height = canvas.height;
@@ -370,7 +372,6 @@ context.fillStyle = ink;
 var rotation;
 function Orientationshift(){
   var    lastColour = context.strokeStyle;
-  resetErase(lastColour);
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
@@ -443,8 +444,6 @@ function drawRotated180(degrees){
 }
 
 function Animation(item){
-  //let coloursActive = document.querySelectorAll(".colourList button");
-  console.log(item.length);
     for (let i=0; i < item.length; i++){
     menuAnimation(i);
     }
@@ -455,4 +454,11 @@ function Animation(item){
       item[i].classList.toggle("menuItems--active");
     },(200 + timer));
     }
+}
+
+function downloadImage(){
+  menu.classList.toggle('menu--active');
+  toolbox.classList.toggle('toolbox--active');
+  pallette.innerHTML = "";
+  pallette.classList.remove("pallette--active");
 }

@@ -372,7 +372,7 @@ context.fillStyle = ink;
 
 var rotation;
 function Orientationshift(){
-  //var    lastColour = context.strokeStyle;
+  let    ink = context.strokeStyle;
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
@@ -430,6 +430,8 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
+    context.strokeStyle = ink;
+    context.fillstyle = ink;
 }
 
 function drawRotated180(degrees){

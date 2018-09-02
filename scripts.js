@@ -360,16 +360,13 @@ function canvasResize(){
        console.log("BIGGER");
        let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
        canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
-       context.globalCompositeOperation = "destination-out";
-
        context.fillStyle = ink;
        context.strokeStyle = ink;
        return;
      }
      console.log("SMALLER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-     context.globalCompositeOperation = "destination-out";
-
+     
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }
@@ -420,10 +417,8 @@ function Orientationshift(){
     }
     break;
   }
-  context.globalCompositeOperation = "destination-out";
-
-  context.fillStyle = ink;
-  context.strokeStyle = ink;
+  context.fillStyle = lastColour;
+  context.strokeStyle = lastColour;
 }
 
 function drawRotated(degrees){
@@ -436,8 +431,6 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
-    context.globalCompositeOperation = "destination-out";
-
     context.strokeStyle = ink;
     context.fillstyle = ink;
 }

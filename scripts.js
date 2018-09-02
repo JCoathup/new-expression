@@ -297,7 +297,8 @@ function erase (){
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = lastColour;
+  context.strokeStyle = canvas.style.backgroundColor;
+  context.fillStyle = canvas.style.backgroundColor;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";
@@ -371,7 +372,7 @@ context.fillStyle = ink;
 
 var rotation;
 function Orientationshift(){
-  var    lastColour = context.strokeStyle;
+  //var    lastColour = context.strokeStyle;
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

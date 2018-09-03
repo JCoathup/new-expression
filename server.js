@@ -29,6 +29,9 @@ io.sockets.on('connection', function(socket) {
   });
   socket.on('message', function(data){
     console.log(socket.id, "posted", data.comment);
+    var image = data.image.replace(/^data:image\/\w+;base64,/, "");
+    var buf = new Buffer(image, 'base64');
+    fs.writeFile('./uploads/'+socket.id+'.jpg', buf);
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {

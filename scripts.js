@@ -366,7 +366,6 @@ function canvasResize(){
      }
      console.log("SMALLER");
      canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-     
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }
@@ -456,7 +455,7 @@ function Animation(item){
       timer += 100;
       setTimeout(function(){
       item[i].classList.toggle("menuItems--active");
-    },(200 + timer));
+    },(100 + timer));
     }
 }
 

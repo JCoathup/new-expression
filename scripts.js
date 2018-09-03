@@ -430,8 +430,6 @@ function drawRotated(degrees){
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
-    context.strokeStyle = ink;
-    context.fillstyle = ink;
 }
 
 function drawRotated180(degrees){
@@ -455,7 +453,7 @@ function Animation(item){
       timer += 100;
       setTimeout(function(){
       item[i].classList.toggle("menuItems--active");
-    },(100 + timer));
+    },(200 + timer));
     }
 }
 

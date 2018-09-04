@@ -43,7 +43,7 @@ io.sockets.on('connection', function(socket) {
     var mailOptions = {
       from: 'jeremycoathup@gmail.com',
       to: data.comment,
-      subject: 'Sending Email using Node.js',
+      subject: 'Made using New Expressions',
       text: "A New Expression",
       html: "<h1>"+data.comment+"</h1><img src='cid:"+socket.id+"'>",
          attachments: [

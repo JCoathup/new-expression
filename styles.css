@@ -112,6 +112,13 @@
 	content: "\eea9";
 }
 
+.icofont-downloaded:before {
+	content: "\ef08";
+}
+a#download {
+  width:100px;
+  height:100px;
+}
 .icofont-edit-alt {
   color: #5fc7ea;
 }

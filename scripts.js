@@ -123,7 +123,7 @@ document.addEventListener("click", function(e){
     let shareList = document.querySelector(".shareList");
     let shareArray = 4;
     shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
-                            <li><button class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
+                            <li><button title = "email" class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
                             <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
@@ -132,7 +132,13 @@ document.addEventListener("click", function(e){
 
   }
   if (e.target && e.target.id == "download"){
-    downloadImage();
+    console.log("testing");
+    let link = document.createElement('a');
+    var dt = canvas.toDataURL('image/jpeg');
+    link.href = dt;
+    link.setAttribute("download","image.jpg");
+    link.click();
+    console.log("file downloaded");
   }
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
@@ -461,4 +467,6 @@ function downloadImage(){
   pallette.classList.remove("pallette--active");
   openMenu();
   navigation.classList.remove('nav--move');
+
+
 }

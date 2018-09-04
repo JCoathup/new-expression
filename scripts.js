@@ -122,7 +122,7 @@ document.addEventListener("click", function(e){
     pallette.innerHTML = `<ul class='shareList'></ul>`
     let shareList = document.querySelector(".shareList");
     let shareArray = 4;
-    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
+    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button title = "email" class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
                             <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
@@ -131,15 +131,16 @@ document.addEventListener("click", function(e){
     Animation(menuItems);
 
   }
+
   if (e.target && e.target.id == "download"){
-    console.log("testing");
     let link = document.createElement('a');
-    var dt = canvas.toDataURL('image/jpeg');
-    link.href = dt;
+    var img = canvas.toDataURL('image/jpeg');
+    link.href = img;
     link.setAttribute("download","image.jpg");
     link.click();
-    console.log("file downloaded");
+    doClick(link);
   }
+
   if (e.target && e.target.id == "tweet"){
     let bgd = canvas.style.backgroundColor;
     let variable = canvasToImage(bgd);
@@ -469,4 +470,19 @@ function downloadImage(){
   navigation.classList.remove('nav--move');
 
 
+}
+function doClick(obj) {
+try {
+var evt = document.createEvent("MouseEvents");
+evt.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0,
+false, false, false, false, 0, null);
+var canceled = !obj.dispatchEvent(evt);
+if(canceled) {
+// A handler called preventDefault
+} else {
+// None of the handlers called preventDefault
+}
+} catch(er) {
+obj.click(); //IE
+}
 }

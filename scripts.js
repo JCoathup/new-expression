@@ -137,7 +137,8 @@ document.addEventListener("click", function(e){
     var img = canvas.toDataURL('image/jpeg');
     link.href = img;
     link.setAttribute("download","image.jpg");
-    link.click();
+    //link.click();
+    e.preventDefault();
     doClick(link);
   }
 

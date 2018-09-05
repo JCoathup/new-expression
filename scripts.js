@@ -134,12 +134,17 @@ document.addEventListener("click", function(e){
 
   if (e.target && e.target.id == "download"){
     let link = document.createElement('a');
-    var img = canvas.toDataURL('image/jpeg');
+    let bgd = canvas.style.backgroundColor;
+    var img = canvasToImage(bgd);
     link.href = img;
     link.setAttribute("download","image.jpg");
-    //link.click();
-    e.preventDefault();
+    if (canvas.msToBlob) { //for IE
+     var blob = canvas.msToBlob();
+     window.navigator.msSaveBlob(blob, 'dicomimage.jpg');
+ } else{
     doClick(link);
+ }
+
   }
 
   if (e.target && e.target.id == "tweet"){

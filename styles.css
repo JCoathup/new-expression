@@ -462,10 +462,9 @@ canvas {
 
 .lightbox {
 	/** Default lightbox to hidden */
-	display: none;
   padding:1%;
 	/** Position and style */
-	position: absolute;
+	position: fixed;
 	z-index: 999;
 	width: 100%;
 	height: 100%;
@@ -473,13 +472,11 @@ canvas {
 	top: 0;
 	left: 0;
 	background: rgba(0,0,0,0.8);
+  transition: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translate(120%,0);
 }
 
-.lightbox img {
-	/** Pad the lightbox image */
-	width: 90%;
-	height:auto;
-}
+
 .lightbox input {
   width:88%;
   padding:1%;
@@ -489,16 +486,16 @@ canvas {
 .lightbox-target {
 	/** Remove default browser outline */
 	outline: none;
-
+  transform:translate(0,0);
 	/** Unhide lightbox **/
 	display: block;
 }
 .lightbox-inner {
   background-color:#fff;
-  width:60%;
-  height:90%;
-  margin: auto;
+  max-width:50%;
+  margin:auto;
   overflow:auto;
+  margin-top:15%;
 }
 .lightbox button {
   display:inline-block;
@@ -515,7 +512,7 @@ canvas {
   background-color:#fff;
 }
 
-#sendTweet{
+#sendEmail{
   background-color:#0084B4;
   color:#ffffff;
 }

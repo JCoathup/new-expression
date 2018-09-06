@@ -123,7 +123,7 @@ document.addEventListener("click", function(e){
     let shareList = document.querySelector(".shareList");
     let shareArray = 4;
     shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
-                            <li><button title = "email" class='share icofont icofont-email menuItems' style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
+                            <li><button title = "email" class='share icofont icofont-email menuItems' id="email" style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
                             <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
@@ -133,32 +133,42 @@ document.addEventListener("click", function(e){
   }
 
   if (e.target && e.target.id == "download"){
+    pallette.classList.remove("pallette--active");
+    openMenu();
+    navigation.classList.remove('nav--move');
     let link = document.createElement('a');
     let bgd = canvas.style.backgroundColor;
-    var img = canvasToImage(bgd);
+    let filename = Date.now();
+    let img = canvasToImage(bgd);
     link.href = img;
-    link.setAttribute("download","image.jpg");
+    link.setAttribute("download", filename + ".jpg");
     if (canvas.msToBlob) { //for IE
      var blob = canvas.msToBlob();
-     window.navigator.msSaveBlob(blob, 'dicomimage.jpg');
+     window.navigator.msSaveBlob(blob, filename + '.jpg');
  } else{
     doClick(link);
  }
 
   }
-
-  if (e.target && e.target.id == "tweet"){
+  if(e.target && e.target.classList.contains("lightbox")){
+    let lightbox = document.querySelector(".lightbox");
+    lightbox.classList.toggle("lightbox-target");
+  }
+  if (e.target && e.target.id == "email"){
+    pallette.classList.remove("pallette--active");
+    openMenu();
+    navigation.classList.remove('nav--move');
     let bgd = canvas.style.backgroundColor;
     let variable = canvasToImage(bgd);
     console.log(variable);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
-    lightbox.innerHTML = `<div class = "lightbox-inner" style="padding:1%;">
-                          <img src=${variable}><br>
-                          <input id="comment" type="text"><br>
-                          <button id="sendTweet">TWEET</button>
+    lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
+                          <input id="emailAddress" type="text" placeholder="email"><br>
+                          <input id="comment" type="textarea" placeholder="message"><br>
+                          <button id="sendEmail">EMAIL</button>
                           <button id="cancelTweet">CANCEL</button>
-                          </div>`
+                          </aside>`
   }
   if (e.target && e.target.id == "cancelTweet"){
     let bgd = canvas.style.backgroundColor;
@@ -168,8 +178,12 @@ document.addEventListener("click", function(e){
     lightbox.classList.toggle("lightbox-target");
     context.drawImage(img,0,0);
   }
-  if (e.target && e.target.id == "sendTweet"){
+  if (e.target && e.target.id == "sendEmail"){
+    pallette.classList.remove("pallette--active");
+    openMenu();
+    navigation.classList.remove('nav--move');
     let data = {}
+    data.emailAddress = document.querySelector("#emailAddress").value;
     data.comment = document.querySelector("#comment").value;
     let bgd = canvas.style.backgroundColor
     data.image = canvasToImage(bgd);
@@ -470,13 +484,6 @@ function Animation(item){
     }
 }
 
-function downloadImage(){
-  pallette.classList.remove("pallette--active");
-  openMenu();
-  navigation.classList.remove('nav--move');
-
-
-}
 function doClick(obj) {
 try {
 var evt = document.createEvent("MouseEvents");

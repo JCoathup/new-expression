@@ -31,7 +31,8 @@ io.sockets.on('connection', function(socket) {
     console.log(socket.id, "posted", data.comment);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
-    fs.writeFile('./uploads/'+socket.id+'.jpg', buf);
+    var timestamp = Date.now();
+    fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -42,7 +43,7 @@ io.sockets.on('connection', function(socket) {
 
     var mailOptions = {
       from: 'jeremycoathup@gmail.com',
-      to: data.comment,
+      to: data.emailAddress,
       subject: 'Made using New Expressions',
       text: "A New Expression",
       html: "<h1>"+data.comment+"</h1><img src='cid:"+socket.id+"'>",

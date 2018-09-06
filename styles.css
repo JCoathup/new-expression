@@ -496,6 +496,7 @@ canvas {
   margin:auto;
   overflow:auto;
   margin-top:15%;
+  min-width:400px;
 }
 .lightbox button {
   display:inline-block;
@@ -515,4 +516,10 @@ canvas {
 #sendEmail{
   background-color:#0084B4;
   color:#ffffff;
+}
+
+@media only screen and (max-width: 550px){
+  .lightbox-inner{
+    width:80%;
+  }
 }

@@ -1,7 +1,7 @@
-let menu = document.querySelector(".menu");
-let toolbox = document.querySelector(".toolbox");
-let pallette = document.querySelector(".pallette");
-let navigation = document.querySelector(".navigation");
+let _menu = document.querySelector(".menu");
+let _toolbox = document.querySelector(".toolbox");
+let _pallette = document.querySelector(".pallette");
+let _navigation = document.querySelector(".navigation");
 let lastColour;
 //var coloursActive = document.querySelectorAll(".colourList button");
 var socket = io.connect();
@@ -9,34 +9,34 @@ let timer = 0;
 //var coloursActive = document.querySelectorAll(".colourList button");
 
 function openMenu () {
-  let subMenu = document.querySelectorAll(".subMenu");
-  for (let item of subMenu){
+  let _subMenu = document.querySelectorAll(".subMenu");
+  for (let item of _subMenu){
     if (item.classList.contains("button--active")){
     // if menu already open then close main menu
-    let menuItems = document.querySelectorAll(".menuItems");
-    for (let i=0; i<menuItems.length; i++){
-    menuItems[i].classList.remove(".menuItems--active");
+    let _menuItems = document.querySelectorAll(".menuItems");
+    for (let i=0; i<_menuItems.length; i++){
+    _menuItems[i].classList.remove(".menuItems--active");
     }
 
     item.classList.remove("button--active");
-    pallette.innerHTML = "";
+    _pallette.innerHTML = "";
     }
   }
   //else menu is closed then open main menu
-  menu.classList.toggle('menu--active');
-  toolbox.classList.toggle('toolbox--active');
+  _menu.classList.toggle('menu--active');
+  _toolbox.classList.toggle('toolbox--active');
 }
 
 function openPallette(){
-  pallette.classList.toggle('pallette--active');
-  navigation.classList.toggle('nav--move');
+  _pallette.classList.toggle('pallette--active');
+  _navigation.classList.toggle('nav--move');
 }
 
 //checks if menu is already open - if so - does not close it and just replaces pallette innerHTML
 function menuChecker(e){
   if (e.target && e.target.classList.contains("subMenu")) {
-    let subMenu = document.querySelectorAll(".subMenu");
-    for (let item of subMenu){
+    let _subMenu = document.querySelectorAll(".subMenu");
+    for (let item of _subMenu){
       if (item.classList.contains("button--active") && (item != e.target)){
         item.classList.remove("button--active");
         e.target.classList.toggle("button--active");
@@ -49,13 +49,13 @@ function menuChecker(e){
 }
 
 function pencilThickness () {
-  pallette.innerHTML = "";
-  pallette.innerHTML = `<div class='pencilList'></div>`;
-  let pencilList = document.querySelector(".pencilList");
+  _pallette.innerHTML = "";
+  _pallette.innerHTML = `<div class='pencilList'></div>`;
+  let _pencilList = document.querySelector(".pencilList");
   let pencilArray = 6;
   let thickness = 1;
   for (let i=0; i<pencilArray; i++){
-    pencilList.innerHTML += `<div class="outer--container menuItems" data-thickness="${thickness}">
+    _pencilList.innerHTML += `<div class="outer--container menuItems" data-thickness="${thickness}">
                               <div class="inner--container" data-thickness="${thickness}">
                                 <div class="curve1" data-thickness="${thickness}" style="border:${thickness}px solid #000; border-color:transparent #000 #000 transparent; border-radius: 0px 0px 350px 350px;"></div>
                                 <div class="curve2" data-thickness="${thickness}" style="border:${thickness}px solid #000; border-color:#000 transparent transparent #000; border-radius: 350px 450px 0px 0px; margin-left:-${thickness}px;"></div>
@@ -63,8 +63,8 @@ function pencilThickness () {
                             </div>`;
     thickness += 2;
   }
-  let menuItems = document.querySelectorAll(".menuItems");
-  Animation(menuItems);
+  let _menuItems = document.querySelectorAll(".menuItems");
+  Animation(_menuItems);
 }
 
 //document Event Delegator
@@ -75,9 +75,9 @@ document.addEventListener("click", function(e){
   if (e.target && e.target.classList.contains("menu")){
     //check if erase functionality running
     resetErase(lastColour);
-    if (pallette.classList.contains("pallette--active")){
-      pallette.classList.remove("pallette--active");
-      navigation.classList.remove("nav--move");
+    if (_pallette.classList.contains("pallette--active")){
+      _pallette.classList.remove("pallette--active");
+      _navigation.classList.remove("nav--move");
     }
     openMenu();
   }
@@ -96,12 +96,12 @@ document.addEventListener("click", function(e){
   }
   //selects stroke colour or background depending on which menu has been selected
   if (e.target && e.target.classList.contains("colour")){
-    let background = document.querySelector("#background");
-    if (background.classList.contains("button--active")){
-      canvas.style.backgroundColor = e.target.id;
+    let _background = document.querySelector("#background");
+    if (_background.classList.contains("button--active")){
+      _canvas.style.backgroundColor = e.target.id;
     }
-    let colour = document.querySelector("#colour");
-    if (colour.classList.contains("button--active")){
+    let _colour = document.querySelector("#colour");
+    if (_colour.classList.contains("button--active")){
       context.fillStyle = e.target.id;
       context.strokeStyle = e.target.id;
       lastColour = e.target.id;
@@ -118,32 +118,32 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "share"){
     menuChecker(e);
-    pallette.innerHTML = "";
-    pallette.innerHTML = `<ul class='shareList'></ul>`
-    let shareList = document.querySelector(".shareList");
+    _pallette.innerHTML = "";
+    _pallette.innerHTML = `<ul class='shareList'></ul>`
+    let _shareList = document.querySelector(".shareList");
     let shareArray = 4;
-    shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
+    _shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button title = "email" class='share icofont icofont-email menuItems' id="email" style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems' style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
                             <li><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
-    let menuItems = document.querySelectorAll(".menuItems");
-    Animation(menuItems);
+    let _menuItems = document.querySelectorAll(".menuItems");
+    Animation(_menuItems);
 
   }
 
   if (e.target && e.target.id == "download"){
-    pallette.classList.remove("pallette--active");
+    _pallette.classList.remove("pallette--active");
     openMenu();
-    navigation.classList.remove('nav--move');
+    _navigation.classList.remove('nav--move');
     let link = document.createElement('a');
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     let filename = Date.now();
     let img = canvasToImage(bgd);
     link.href = img;
     link.setAttribute("download", filename + ".jpg");
-    if (canvas.msToBlob) { //for IE
-     var blob = canvas.msToBlob();
+    if (_canvas.msToBlob) { //for IE
+     var blob = _canvas.msToBlob();
      window.navigator.msSaveBlob(blob, filename + '.jpg');
  } else{
     doClick(link);
@@ -151,19 +151,19 @@ document.addEventListener("click", function(e){
 
   }
   if(e.target && e.target.classList.contains("lightbox")){
-    let lightbox = document.querySelector(".lightbox");
-    lightbox.classList.toggle("lightbox-target");
+    let _lightbox = document.querySelector(".lightbox");
+    _lightbox.classList.toggle("lightbox-target");
   }
   if (e.target && e.target.id == "email"){
-    pallette.classList.remove("pallette--active");
+    _pallette.classList.remove("pallette--active");
     openMenu();
-    navigation.classList.remove('nav--move');
-    let bgd = canvas.style.backgroundColor;
+    _navigation.classList.remove('nav--move');
+    let bgd = _canvas.style.backgroundColor;
     let variable = canvasToImage(bgd);
     console.log(variable);
-    let lightbox = document.querySelector(".lightbox");
-    lightbox.classList.toggle("lightbox-target");
-    lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
+    let _lightbox = document.querySelector(".lightbox");
+    _lightbox.classList.toggle("lightbox-target");
+    _lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
                           <input id="emailAddress" type="text" placeholder="email"><br>
                           <input id="comment" type="textarea" placeholder="message"><br>
                           <button id="sendEmail">EMAIL</button>
@@ -171,36 +171,36 @@ document.addEventListener("click", function(e){
                           </aside>`
   }
   if (e.target && e.target.id == "cancelTweet"){
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     let img = new Image();
     img.src = canvasToImage(bgd);
-    let lightbox = document.querySelector(".lightbox");
-    lightbox.classList.toggle("lightbox-target");
+    let _lightbox = document.querySelector(".lightbox");
+    _lightbox.classList.toggle("lightbox-target");
     context.drawImage(img,0,0);
   }
   if (e.target && e.target.id == "sendEmail"){
-    pallette.classList.remove("pallette--active");
+    _pallette.classList.remove("pallette--active");
     openMenu();
-    navigation.classList.remove('nav--move');
+    _navigation.classList.remove('nav--move');
     let data = {}
     data.emailAddress = document.querySelector("#emailAddress").value;
     data.comment = document.querySelector("#comment").value;
-    let bgd = canvas.style.backgroundColor
+    let bgd = _canvas.style.backgroundColor
     data.image = canvasToImage(bgd);
     socket.emit("message", data);
   }
 });
 
 function colourPicker (){
-  pallette.innerHTML = "";
-  pallette.innerHTML = `<ul class='colourList'></ul>`;
-let colourList = document.querySelector(".colourList");
+  _pallette.innerHTML = "";
+  _pallette.innerHTML = `<ul class='colourList'></ul>`;
+let _colourList = document.querySelector(".colourList");
   let colourArray = ["#ffffff", "#fff8c6", "#ffff00", "#ffd700", "#b1bb17", "#008000", "#006400", "#82caff", "#0000cd", "#191970", "#ffa500", "#f88017", "#ff7f50", "#ff0000", "#8b0000", "#faafba", "#f660ab", "#ff1493", "#c45aec", "#8b008b", "#800080", "#e2a76f", "#806517", "#8b4513", "#999999", "#666666", "#333333", "#000000"];
    for (let colour of colourArray){
-     colourList.innerHTML += `<li><button id = ${colour} class='colour menuItems' style='background-color: ${colour}'></button></li>`;
+     _colourList.innerHTML += `<li><button id = ${_colour} class='colour menuItems' style='background-color: ${_colour}'></button></li>`;
    }
-   let menuItems = document.querySelectorAll(".menuItems");
-   Animation(menuItems);
+   let _menuItems = document.querySelectorAll(".menuItems");
+   Animation(_menuItems);
 }
 
 // mouse click to begin drawing
@@ -271,11 +271,11 @@ document.addEventListener("touchend", function(e){
   }
 }, false);
 
-let canvas = document.querySelector("#canvas");
-let context = canvas.getContext("2d");
-canvas.setAttribute("width", window.innerWidth);
-canvas.setAttribute("height", window.innerHeight);
-canvas.style.backgroundColor = "#000000";
+let _canvas = document.querySelector("#canvas");
+let context = _canvas.getContext("2d");
+_canvas.setAttribute("width", window.innerWidth);
+_canvas.setAttribute("height", window.innerHeight);
+_canvas.style.backgroundColor = "#000000";
 context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';
 let radius = 1;
@@ -307,25 +307,25 @@ function disengage (){
 //clear screen contents
 function clrscreen(){
   openMenu();
-  pallette.classList.remove('pallette--active');
-  navigation.classList.remove('nav--move');
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  canvas.style.backgroundColor = '#000000';
+  _pallette.classList.remove('pallette--active');
+  _navigation.classList.remove('nav--move');
+  context.clearRect(0, 0, _canvas.width, _canvas.height);
+  _canvas.style.backgroundColor = '#000000';
   radius = 1;
   context.fillStyle = '#ffffff';
   context.strokeStyle = '#ffffff';
 }
 
 function erase (){
-  let eraseButton = document.querySelector(".eraseButton");
-  eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
+  let _eraseButton = document.querySelector(".eraseButton");
+  _eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
   lastColour = context.strokeStyle;
   openMenu();
-  pallette.classList.remove('pallette--active');
-  navigation.classList.remove('nav--move');
+  _pallette.classList.remove('pallette--active');
+  _navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = canvas.style.backgroundColor;
-  context.fillStyle = canvas.style.backgroundColor;
+  context.strokeStyle = _canvas.style.backgroundColor;
+  context.fillStyle = _canvas.style.backgroundColor;
 }
  function resetErase (col){
    document.querySelector(".eraseButton").innerHTML = "";
@@ -337,8 +337,8 @@ function erase (){
  function canvasToImage(backgroundColor)
  {
  	//cache height and width
- 	var w = canvas.width;
- 	var h = canvas.height;
+ 	var w = _canvas.width;
+ 	var h = _canvas.height;
  	var data;
  	if(backgroundColor)
  	{
@@ -354,7 +354,7 @@ function erase (){
  		context.fillRect(0,0,w,h);
  	}
  	//get the image data from the canvas
- 	var imageData = this.canvas.toDataURL("image/jpeg");
+ 	var imageData = this._canvas.toDataURL("image/jpeg");
  	if(backgroundColor)
  	{
  		//clear the canvas
@@ -373,26 +373,26 @@ window.addEventListener("orientationchange", Orientationshift, false);
 function canvasResize(){
       let ink = context.fillStyle;
     let tempCanvas = document.createElement('canvas');
-    tempCanvas.width = canvas.width;
-    tempCanvas.height = canvas.height;
-    let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
-    let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
-    let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
+    tempCanvas.width = _canvas.width;
+    tempCanvas.height = _canvas.height;
+    let scale = Math.min(_canvas.width / tempCanvas.width, _canvas.height / tempCanvas.height);
+    let x = (_canvas.width / 2) - (tempCanvas.width / 2) * scale;
+    let y = (_canvas.height / 2) - (tempCanvas.height / 2) * scale;
     tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
-    if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-       canvas.setAttribute("width", tempCanvas.width);
-       canvas.setAttribute("height", tempCanvas.height);
+    _canvas.setAttribute("width", window.innerWidth);
+    _canvas.setAttribute("height", window.innerHeight);
+    if (tempCanvas.width > _canvas.width || tempCanvas.height > _canvas.height){
+       _canvas.setAttribute("width", tempCanvas.width);
+       _canvas.setAttribute("height", tempCanvas.height);
        console.log("BIGGER");
-       let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
-       canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
+       let scale = Math.max(tempCanvas.width / _canvas.width, tempCanvas.height / _canvas.height);
+       _canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
        context.fillStyle = ink;
        context.strokeStyle = ink;
        return;
      }
      console.log("SMALLER");
-     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+     _canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
 context.fillStyle = ink;
  context.strokeStyle = ink;
 }
@@ -403,9 +403,9 @@ function Orientationshift(){
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
-  tempContext.drawImage(canvas, 0, 0);
+  tempCanvas.width = _canvas.width;
+  tempCanvas.height = _canvas.height;
+  tempContext.drawImage(_canvas, 0, 0);
 
   switch(window.orientation){
     case -90:
@@ -449,11 +449,11 @@ function Orientationshift(){
 
 function drawRotated(degrees){
     console.log(degrees);
-    context.clearRect(0,0,canvas.width,canvas.height);
+    context.clearRect(0,0,_canvas.width,_canvas.height);
     context.save();
-    canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-    canvas.setAttribute("height", window.innerWidth);
-    context.translate(canvas.width/2,canvas.height/2);
+    _canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+    _canvas.setAttribute("height", window.innerWidth);
+    context.translate(_canvas.width/2,_canvas.height/2);
     context.rotate(degrees*Math.PI/180);
     context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
     context.restore();
@@ -461,7 +461,7 @@ function drawRotated(degrees){
 
 function drawRotated180(degrees){
     console.log(degrees);
-    context.clearRect(0,0,canvas.width,canvas.height);
+    context.clearRect(0,0,_canvas.width,_canvas.height);
     context.save();
     //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
     //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);

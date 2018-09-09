@@ -3,11 +3,9 @@ let toolbox = document.querySelector(".toolbox");
 let pallette = document.querySelector(".pallette");
 let navigation = document.querySelector(".navigation");
 let lastColour;
-//var coloursActive = document.querySelectorAll(".colourList button");
 var socket = io.connect();
 let timer = 0;
-//var coloursActive = document.querySelectorAll(".colourList button");
-
+//opens or closes main menu
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
   for (let item of subMenu){
@@ -17,7 +15,6 @@ function openMenu () {
     for (let i=0; i<menuItems.length; i++){
     menuItems[i].classList.remove(".menuItems--active");
     }
-
     item.classList.remove("button--active");
     pallette.innerHTML = "";
     }
@@ -26,12 +23,11 @@ function openMenu () {
   menu.classList.toggle('menu--active');
   toolbox.classList.toggle('toolbox--active');
 }
-
+//opens submenu
 function openPallette(){
   pallette.classList.toggle('pallette--active');
   navigation.classList.toggle('nav--move');
 }
-
 //checks if menu is already open - if so - does not close it and just replaces pallette innerHTML
 function menuChecker(e){
   if (e.target && e.target.classList.contains("subMenu")) {
@@ -47,7 +43,7 @@ function menuChecker(e){
     openPallette();
   }
 }
-
+//displays options for line thickness
 function pencilThickness () {
   pallette.innerHTML = "";
   pallette.innerHTML = `<div class='pencilList'></div>`;
@@ -66,7 +62,6 @@ function pencilThickness () {
   let menuItems = document.querySelectorAll(".menuItems");
   Animation(menuItems);
 }
-
 //document Event Delegator
 document.addEventListener("click", function(e){
   if ((e.target && e.target.className == "outer--container") || (e.target && e.target.className == "inner--container") || (e.target && e.target.className == "curve1") || (e.target && e.target.className == "curve2")) {
@@ -110,7 +105,6 @@ document.addEventListener("click", function(e){
   if (e.target && e.target.id == "colour") {
     menuChecker(e);
     colourPicker();
-
   }
   if (e.target && e.target.id == "pencil"){
     menuChecker(e);
@@ -129,9 +123,7 @@ document.addEventListener("click", function(e){
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
     let menuItems = document.querySelectorAll(".menuItems");
     Animation(menuItems);
-
   }
-
   if (e.target && e.target.id == "download"){
     pallette.classList.remove("pallette--active");
     openMenu();
@@ -145,10 +137,9 @@ document.addEventListener("click", function(e){
     if (canvas.msToBlob) { //for IE
      var blob = canvas.msToBlob();
      window.navigator.msSaveBlob(blob, filename + '.jpg');
- } else{
-    doClick(link);
- }
-
+    } else{
+      doClick(link);
+    }
   }
   if(e.target && e.target.classList.contains("lightbox")){
     let lightbox = document.querySelector(".lightbox");
@@ -190,40 +181,36 @@ document.addEventListener("click", function(e){
     socket.emit("message", data);
   }
 });
-
+//displays colours for line and background
 function colourPicker (){
   pallette.innerHTML = "";
   pallette.innerHTML = `<ul class='colourList'></ul>`;
-let colourList = document.querySelector(".colourList");
+  let colourList = document.querySelector(".colourList");
   let colourArray = ["#ffffff", "#fff8c6", "#ffff00", "#ffd700", "#b1bb17", "#008000", "#006400", "#82caff", "#0000cd", "#191970", "#ffa500", "#f88017", "#ff7f50", "#ff0000", "#8b0000", "#faafba", "#f660ab", "#ff1493", "#c45aec", "#8b008b", "#800080", "#e2a76f", "#806517", "#8b4513", "#999999", "#666666", "#333333", "#000000"];
-   for (let colour of colourArray){
-     colourList.innerHTML += `<li><button id = ${colour} class='colour menuItems' style='background-color: ${colour}'></button></li>`;
-   }
-   let menuItems = document.querySelectorAll(".menuItems");
-   Animation(menuItems);
+  for (let colour of colourArray){
+    colourList.innerHTML += `<li><button id = ${colour} class='colour menuItems' style='background-color: ${colour}'></button></li>`;
+  }
+  let menuItems = document.querySelectorAll(".menuItems");
+  Animation(menuItems);
 }
-
 // mouse click to begin drawing
 document.addEventListener("mousedown", function(e){
   if(e.target && e.target.id == "canvas"){
     engage(e);
   }
 });
-
 // moving mouse to draw
 document.addEventListener("mousemove", function(e){
   if(e.target && e.target.id == "canvas"){
     putPoint(e);
   }
 });
-
 // release mouse click to stop drawing
 document.addEventListener("mouseup", function(e){
   if (e.target && e.target.id == "canvas"){
     disengage(e);
   }
 });
-
 // Set up touch events for mobile, etc
 document.addEventListener("touchstart", function(e){
   e.preventDefault();
@@ -235,7 +222,6 @@ document.addEventListener("touchstart", function(e){
     engage(e);
   }
 }, false);
-
 // Move finger to draw
 document.addEventListener("touchmove", function(e){
   e.preventDefault();
@@ -270,7 +256,7 @@ document.addEventListener("touchend", function(e){
     disengage(e);
   }
 }, false);
-
+//actual program begins here
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);
@@ -280,7 +266,6 @@ context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';
 let radius = 1;
 let dragging = false;
-
 //detect mouse position and draw lines
 function putPoint(e){
   if(dragging){
@@ -315,7 +300,7 @@ function clrscreen(){
   context.fillStyle = '#ffffff';
   context.strokeStyle = '#ffffff';
 }
-
+//erase functionality
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
   eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
@@ -327,17 +312,18 @@ function erase (){
   context.strokeStyle = canvas.style.backgroundColor;
   context.fillStyle = canvas.style.backgroundColor;
 }
- function resetErase (col){
-   document.querySelector(".eraseButton").innerHTML = "";
-   context.globalCompositeOperation = "source-over";
-   context.fillStyle = col;
-   context.strokeStyle = col;
- }
- //saves canvas drawing as png and also uses the current canvas background colour
- function canvasToImage(backgroundColor)
- {
- 	//cache height and width
- 	var w = canvas.width;
+//resets colours after erase ended
+function resetErase (col){
+  document.querySelector(".eraseButton").innerHTML = "";
+  context.globalCompositeOperation = "source-over";
+  context.fillStyle = col;
+  context.strokeStyle = col;
+}
+//saves canvas drawing as png and also uses the current canvas background colour
+function canvasToImage(backgroundColor)
+{
+//cache height and width
+  var w = canvas.width;
  	var h = canvas.height;
  	var data;
  	if(backgroundColor)
@@ -371,42 +357,40 @@ window.addEventListener("resize", canvasResize, false);
 window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
-      let ink = context.fillStyle;
-    let tempCanvas = document.createElement('canvas');
-    tempCanvas.width = canvas.width;
-    tempCanvas.height = canvas.height;
-    let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
-    let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
-    let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
-    tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-    canvas.setAttribute("width", window.innerWidth);
-    canvas.setAttribute("height", window.innerHeight);
-    if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-       canvas.setAttribute("width", tempCanvas.width);
-       canvas.setAttribute("height", tempCanvas.height);
-       console.log("BIGGER");
-       let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
-       canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
-       context.fillStyle = ink;
-       context.strokeStyle = ink;
-       return;
-     }
-     console.log("SMALLER");
-     canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
-context.fillStyle = ink;
- context.strokeStyle = ink;
+  let ink = context.fillStyle;
+  let tempCanvas = document.createElement('canvas');
+  tempCanvas.width = canvas.width;
+  tempCanvas.height = canvas.height;
+  let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
+  let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
+  let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
+  tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
+  canvas.setAttribute("width", window.innerWidth);
+  canvas.setAttribute("height", window.innerHeight);
+  if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
+    canvas.setAttribute("width", tempCanvas.width);
+    canvas.setAttribute("height", tempCanvas.height);
+    console.log("BIGGER");
+    let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
+    canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
+    context.fillStyle = ink;
+    context.strokeStyle = ink;
+    return;
+  }
+  console.log("SMALLER");
+  canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
 }
-
 var rotation;
 function Orientationshift(){
-  var    lastColour = context.strokeStyle;
+  var lastColour = context.strokeStyle;
   var angleInDegrees=0;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
-
   switch(window.orientation){
     case -90:
     if (rotation == 1){
@@ -446,31 +430,31 @@ function Orientationshift(){
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
 }
-
+//handles device rotation
 function drawRotated(degrees){
-    console.log(degrees);
-    context.clearRect(0,0,canvas.width,canvas.height);
-    context.save();
-    canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-    canvas.setAttribute("height", window.innerWidth);
-    context.translate(canvas.width/2,canvas.height/2);
-    context.rotate(degrees*Math.PI/180);
-    context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
-    context.restore();
+  console.log(degrees);
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.save();
+  canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+  canvas.setAttribute("height", window.innerWidth);
+  context.translate(canvas.width/2,canvas.height/2);
+  context.rotate(degrees*Math.PI/180);
+  context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
+  context.restore();
 }
-
+//handles 180 rotation
 function drawRotated180(degrees){
-    console.log(degrees);
-    context.clearRect(0,0,canvas.width,canvas.height);
-    context.save();
-    //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-    //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
-    //context.translate(-canvas.width/2,-canvas.height/2);
-    context.rotate(degrees*Math.PI/180);
-    context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
-    context.restore();
+  console.log(degrees);
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.save();
+  //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+  //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
+  //context.translate(-canvas.width/2,-canvas.height/2);
+  context.rotate(degrees*Math.PI/180);
+  context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
+  context.restore();
 }
-
+//handles pallette animations
 function Animation(item){
     for (let i=0; i < item.length; i++){
     menuAnimation(i);
@@ -483,19 +467,19 @@ function Animation(item){
     },(100 + timer));
     }
 }
-
+//handles image download functionality
 function doClick(obj) {
-try {
-var evt = document.createEvent("MouseEvents");
-evt.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0,
-false, false, false, false, 0, null);
-var canceled = !obj.dispatchEvent(evt);
-if(canceled) {
-// A handler called preventDefault
-} else {
-// None of the handlers called preventDefault
-}
-} catch(er) {
-obj.click(); //IE
+  try {
+    let evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0,
+      false, false, false, false, 0, null);
+      let canceled = !obj.dispatchEvent(evt);
+      if(canceled) {
+      // A handler called preventDefault
+      } else {
+      // None of the handlers called preventDefault
+    }
+  } catch(er) {
+    obj.click(); //IE
 }
 }

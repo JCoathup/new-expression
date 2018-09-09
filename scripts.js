@@ -125,7 +125,9 @@ document.addEventListener("click", function(e){
     Animation(menuItems);
   }
   if (e.target && e.target.id == "facebook"){
-    alert("hey");
+    FB.login(function(response){
+
+    });
   }
   if (e.target && e.target.id == "download"){
     pallette.classList.remove("pallette--active");

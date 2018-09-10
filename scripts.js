@@ -359,7 +359,7 @@ function canvasToImage(backgroundColor)
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-window.addEventListener("orientationchange", Orientationshift, false);
+window.addEventListener("orientationchange", OrientationshiftNew, false);
 
 function canvasResize(){
   let ink = context.fillStyle;
@@ -487,4 +487,12 @@ function doClick(obj) {
   } catch(er) {
     obj.click(); //IE
 }
+}
+function OrientationshiftNew(){
+  if (screen.orientation == "portrait"){
+    alert("portrait");
+  }
+  if (screen.orientation == "landscape"){
+    alert("landscape");
+  }
 }

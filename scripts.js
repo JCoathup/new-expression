@@ -489,10 +489,16 @@ function doClick(obj) {
 }
 }
 function OrientationshiftNew(){
-  if (window.orientation == "portrait"){
+  if (window.orientation == 0){
     alert("portrait");
   }
-  if (window.orientation == "landscape"){
-    alert("landscape");
+  if (window.orientation == -90){
+    alert("the device is landscape rotated to the right");
+  }
+  if (window.orientation == 90){
+    alert("the device is landscape rotated to the left");
+  }
+  if (window.orientation == 180){
+    alert("upside down");
   }
 }

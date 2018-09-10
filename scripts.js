@@ -262,6 +262,7 @@ document.addEventListener("touchend", function(e){
   }
 }, false);
 //actual program begins here
+alert(window.orientation);
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);

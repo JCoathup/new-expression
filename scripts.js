@@ -489,10 +489,10 @@ function doClick(obj) {
 }
 }
 function OrientationshiftNew(){
-  if (screen.orientation == "portrait"){
+  if (window.orientation == "portrait"){
     alert("portrait");
   }
-  if (screen.orientation == "landscape"){
+  if (window.orientation == "landscape"){
     alert("landscape");
   }
 }

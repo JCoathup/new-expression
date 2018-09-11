@@ -391,7 +391,7 @@ function canvasResize(){
 var rotation;
 function Orientationshift(){
   var lastColour = context.strokeStyle;
-  var angleInDegrees=0;
+  var angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;

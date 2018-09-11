@@ -262,7 +262,7 @@ document.addEventListener("touchend", function(e){
   }
 }, false);
 //actual program begins here
-alert(window.orientation);
+let screen = window.orientation;
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);
@@ -360,7 +360,7 @@ function canvasToImage(backgroundColor)
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-window.addEventListener("orientationchange", OrientationshiftNew, false);
+window.addEventListener("orientationchange", Orientationshift, false);
 
 function canvasResize(){
   let ink = context.fillStyle;

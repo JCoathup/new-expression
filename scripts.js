@@ -476,13 +476,11 @@ function OrientationshiftNew(){
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
         screen+=90;
-        erasing();
       break;
       case 90:
         angleInDegrees=-180;
         drawRotated180(angleInDegrees);
         screen+=180;
-        erasing();
       break;
       default:
       console.log("done");
@@ -494,25 +492,22 @@ function OrientationshiftNew(){
         angleInDegrees=90;
         drawRotated(angleInDegrees);
         screen+=-90;
-        erasing();
-      break;
+        break;
       case -90:
         angleInDegrees=180;
         drawRotated180(angleInDegrees);
         screen-=180;
-        erasing();
-      break;
+        break;
       default:
       console.log("done");
     }
   }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
-  erasing();
 }
 
 function erasing(){
-  if (document.querySelector(".eraseButton").innerHTML != " "){
+  if (document.querySelector(".eraseButton").innerHTML != null){
     erase();
   }
 }

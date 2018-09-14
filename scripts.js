@@ -508,6 +508,7 @@ function OrientationshiftNew(){
 
 function erasing(){
   if (document.querySelector(".eraseButton").innerHTML != null){
+    console.log("hkk.h");
     erase();
   }
 }

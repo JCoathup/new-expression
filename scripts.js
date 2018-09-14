@@ -502,7 +502,7 @@ function OrientationshiftNew(){
     switch(window.orientation){
       case -90:
         angleInDegrees=90;
-        drawRotated180(angleInDegrees);
+        drawRotated(angleInDegrees);
       break;
       case 90:
         angleInDegrees=-90;

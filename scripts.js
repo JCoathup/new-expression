@@ -523,7 +523,7 @@ function OrientationshiftNew(){
       break;
       case 90:
         angleInDegrees=-180;
-        drawRotated(angleInDegrees);
+        drawRotated180(angleInDegrees);
         screen+=180;
       break;
       default:
@@ -539,7 +539,7 @@ function OrientationshiftNew(){
       break;
       case -90:
         angleInDegrees=180;
-        drawRotated(angleInDegrees);
+        drawRotated180(angleInDegrees);
         screen-=180;
       break;
       default:

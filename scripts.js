@@ -508,6 +508,7 @@ function OrientationshiftNew(){
   }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
+  erasing();
 }
 
 function erasing(){

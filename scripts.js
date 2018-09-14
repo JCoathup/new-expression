@@ -493,7 +493,7 @@ function OrientationshiftNew(){
   if (screen == 0){
     alert("portrait");
   }
-  if (screen) == -90){
+  if (screen == -90){
     alert("the device is landscape rotated to the right");
   }
   if (screen == 90){

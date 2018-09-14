@@ -546,4 +546,6 @@ function OrientationshiftNew(){
       console.log("done");
     }
   }
+  context.fillStyle = lastColour;
+  context.strokeStyle = lastColour;
 }

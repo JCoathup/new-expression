@@ -513,7 +513,14 @@ function OrientationshiftNew(){
     }
     }
   if (screen == -90){
-    alert("the device is landscape rotated to the right");
+    switch(window.orientation){
+      case 0:
+        angleInDegrees=-90;
+        drawRotated(angleInDegrees);
+      break;
+      default:
+      console.log("done");
+    }
   }
   if (screen == 90){
     alert("the device is landscape rotated to the left");

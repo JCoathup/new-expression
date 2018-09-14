@@ -5,6 +5,7 @@ let navigation = document.querySelector(".navigation");
 let lastColour;
 var socket = io.connect();
 let timer = 0;
+let screen = window.orientation;
 //opens or closes main menu
 function openMenu () {
   let subMenu = document.querySelectorAll(".subMenu");
@@ -262,7 +263,7 @@ document.addEventListener("touchend", function(e){
   }
 }, false);
 //actual program begins here
-let screen = window.orientation;
+
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 canvas.setAttribute("width", window.innerWidth);
@@ -360,7 +361,7 @@ function canvasToImage(backgroundColor)
  	return imageData;
  }
 window.addEventListener("resize", canvasResize, false);
-window.addEventListener("orientationchange", Orientationshift, false);
+window.addEventListener("orientationchange", OrientationshiftNew, false);
 
 function canvasResize(){
   let ink = context.fillStyle;

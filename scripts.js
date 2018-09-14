@@ -501,11 +501,11 @@ function OrientationshiftNew(){
   if (screen == 0){
     switch(window.orientation){
       case -90:
-        angleInDegrees=90;
+        angleInDegrees+=90;
         drawRotated(angleInDegrees);
       break;
       case 90:
-        angleInDegrees=-90;
+        angleInDegrees-=-90;
         drawRotated(angleInDegrees);
       break;
       default:
@@ -515,7 +515,7 @@ function OrientationshiftNew(){
   if (screen == -90){
     switch(window.orientation){
       case 0:
-        angleInDegrees=90;
+        angleInDegrees+=-90;
         drawRotated(angleInDegrees);
       break;
       default:
@@ -525,7 +525,7 @@ function OrientationshiftNew(){
   if (screen == 90){
     switch(window.orientation){
       case 0:
-        angleInDegrees=-90;
+        angleInDegrees+=90;
         drawRotated(angleInDegrees);
       break;
       default:

@@ -444,7 +444,7 @@ function doClick(obj) {
 }
 }
 function OrientationshiftNew(){
-  var lastColour = context.strokeStyle;
+  v//ar lastColour = context.strokeStyle;
   resetErase(lastColour);
   var angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');

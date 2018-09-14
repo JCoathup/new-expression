@@ -310,7 +310,7 @@ function clrscreen(){
 //erase functionality
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
-  if (document.querySelector("#endErase") == "null"){
+  if (document.querySelector("#endErase") == null){
     eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
   }
   lastColour = context.strokeStyle;

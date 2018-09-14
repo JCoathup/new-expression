@@ -310,7 +310,9 @@ function clrscreen(){
 //erase functionality
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
-  eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
+  if (eraseButton.innerHTML == " "){
+    eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
+  }
   lastColour = context.strokeStyle;
   openMenu();
   pallette.classList.remove('pallette--active');
@@ -456,11 +458,13 @@ function OrientationshiftNew(){
         angleInDegrees=90;
         drawRotated(angleInDegrees);
         screen+=-90;
+        erasing();
       break;
       case 90:
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
         screen+=90;
+        erasing();
       break;
       default:
       console.log("done");
@@ -472,11 +476,13 @@ function OrientationshiftNew(){
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
         screen+=90;
+        erasing();
       break;
       case 90:
         angleInDegrees=-180;
         drawRotated180(angleInDegrees);
         screen+=180;
+        erasing();
       break;
       default:
       console.log("done");
@@ -488,11 +494,13 @@ function OrientationshiftNew(){
         angleInDegrees=90;
         drawRotated(angleInDegrees);
         screen+=-90;
+        erasing();
       break;
       case -90:
         angleInDegrees=180;
         drawRotated180(angleInDegrees);
         screen-=180;
+        erasing();
       break;
       default:
       console.log("done");
@@ -500,4 +508,10 @@ function OrientationshiftNew(){
   }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
+}
+
+function erasing(){
+  if (document.querySelector(".eraseButton").innerHTML != " "){
+    erase();
+  }
 }

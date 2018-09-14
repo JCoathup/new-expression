@@ -498,10 +498,6 @@ function OrientationshiftNew(){
       console.log("done");
     }
   }
-  if(document.querySelector(".eraseButton").innerHTML != " "){
-    erase();
-    console.log("erasing");
-  }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
 }

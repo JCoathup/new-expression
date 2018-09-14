@@ -389,54 +389,7 @@ function canvasResize(){
   context.fillStyle = ink;
   context.strokeStyle = ink;
 }
-var rotation;
-function Orientationshift(){
-  var lastColour = context.strokeStyle;
-  var angleInDegrees=screen;
-  tempCanvas = document.createElement('canvas');
-  tempContext = tempCanvas.getContext('2d');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
-  tempContext.drawImage(canvas, 0, 0);
-  switch(window.orientation){
-    case -90:
-    if (rotation == 1){
-      angleInDegrees+=180;
-      drawRotated180(angleInDegrees);
-    }
-    else{
-      angleInDegrees+=90;
-      drawRotated(angleInDegrees);
-      rotation = 1;
-    }
-    break;
-    case 90:
-    if (rotation == 1){
-      angleInDegrees-=180;
-      drawRotated180(angleInDegrees);
-    }
-    else{
-      angleInDegrees-=90;
-      drawRotated(angleInDegrees);
-      rotation = -1;
-    }
-    break;
-    default:
-    if (rotation == 1){
-      angleInDegrees-=90;
-      drawRotated(angleInDegrees);
-      rotation = 0;
-    }
-    if(rotation == -1) {
-      angleInDegrees+=90;
-      drawRotated(angleInDegrees);
-      rotation = 0;
-    }
-    break;
-  }
-  context.fillStyle = lastColour;
-  context.strokeStyle = lastColour;
-}
+
 //handles device rotation
 function drawRotated(degrees){
   console.log(degrees);

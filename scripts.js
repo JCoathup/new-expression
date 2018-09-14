@@ -503,10 +503,12 @@ function OrientationshiftNew(){
       case -90:
         angleInDegrees=90;
         drawRotated(angleInDegrees);
+        screen+=90;
       break;
       case 90:
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
+        screen+=-90;
       break;
       default:
       console.log("done");
@@ -517,6 +519,7 @@ function OrientationshiftNew(){
       case 0:
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
+        screen+=-90;
       break;
       default:
       console.log("done");
@@ -527,6 +530,7 @@ function OrientationshiftNew(){
       case 0:
         angleInDegrees=90;
         drawRotated(angleInDegrees);
+        screen+=90;
       break;
       default:
       console.log("done");

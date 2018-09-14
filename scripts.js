@@ -499,7 +499,7 @@ function OrientationshiftNew(){
     }
   }
   if(document.querySelector(".eraseButton").innerHTML != " "){
-    context.globalCompositeOperation = "source-over";
+    erase();
     console.log("erasing");
   }
   context.fillStyle = lastColour;

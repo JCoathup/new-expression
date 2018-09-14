@@ -389,7 +389,6 @@ function canvasResize(){
   context.fillStyle = ink;
   context.strokeStyle = ink;
 }
-
 //handles device rotation
 function drawRotated(degrees){
   console.log(degrees);
@@ -498,6 +497,9 @@ function OrientationshiftNew(){
       default:
       console.log("done");
     }
+  }
+  if(document.querySelector(".eraseButton").innerHTML != " "){
+    context.globalCompositeOperation = "destination-out";;
   }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;

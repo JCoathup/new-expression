@@ -364,7 +364,7 @@ window.addEventListener("resize", canvasResize, false);
 window.addEventListener("orientationchange", OrientationshiftNew, false);
 
 function canvasResize(){
-  resetErase();
+  resetErase(lastColour);
   let ink = context.fillStyle;
   let tempCanvas = document.createElement('canvas');
   tempCanvas.width = canvas.width;
@@ -444,8 +444,8 @@ function doClick(obj) {
 }
 }
 function OrientationshiftNew(){
-  resetErase();
   var lastColour = context.strokeStyle;
+  resetErase(lastColour);
   var angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

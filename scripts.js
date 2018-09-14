@@ -499,7 +499,18 @@ function OrientationshiftNew(){
   tempCanvas.height = canvas.height;
   tempContext.drawImage(canvas, 0, 0);
   if (screen == 0){
-
+    switch(window.orientation){
+      case -90:
+        angleInDegrees=90;
+        drawRotated180(angleInDegrees);
+      break;
+      case 90:
+        angleInDegrees=-90;
+        drawRotated(angleInDegrees);
+      break;
+      default:
+      console.log("done");
+    }
     }
   if (screen == -90){
     alert("the device is landscape rotated to the right");

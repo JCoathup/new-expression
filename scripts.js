@@ -310,9 +310,7 @@ function clrscreen(){
 //erase functionality
 function erase (){
   let eraseButton = document.querySelector(".eraseButton");
-  if (document.querySelector("#endErase") == null){
-    eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
-  }
+  eraseButton.innerHTML += `<button id="endErase">Stop Erasing</button>`;
   lastColour = context.strokeStyle;
   openMenu();
   pallette.classList.remove('pallette--active');
@@ -366,6 +364,7 @@ window.addEventListener("resize", canvasResize, false);
 window.addEventListener("orientationchange", OrientationshiftNew, false);
 
 function canvasResize(){
+  resetErase();
   let ink = context.fillStyle;
   let tempCanvas = document.createElement('canvas');
   tempCanvas.width = canvas.width;
@@ -445,6 +444,7 @@ function doClick(obj) {
 }
 }
 function OrientationshiftNew(){
+  resetErase();
   var lastColour = context.strokeStyle;
   var angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
@@ -504,11 +504,4 @@ function OrientationshiftNew(){
   }
   context.fillStyle = lastColour;
   context.strokeStyle = lastColour;
-}
-
-function erasing(){
-  if (document.querySelector(".eraseButton").innerHTML != null){
-    console.log("hkk.h");
-    erase();
-  }
 }

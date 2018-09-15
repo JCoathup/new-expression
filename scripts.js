@@ -443,10 +443,12 @@ function doClick(obj) {
     obj.click(); //IE
 }
 }
+//handles device rotation
 function OrientationshiftNew(){
   //var lastColour = context.strokeStyle;
   resetErase(lastColour);
-  var angleInDegrees=screen;
+  let ink = context.fillStyle;
+  let angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = canvas.width;
@@ -502,6 +504,6 @@ function OrientationshiftNew(){
       console.log("done");
     }
   }
-  context.fillStyle = lastColour;
-  context.strokeStyle = lastColour;
+  context.fillStyle = ink;
+  context.strokeStyle = ink;
 }

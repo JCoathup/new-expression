@@ -183,7 +183,7 @@ document.addEventListener("click", function(e){
     data.comment = document.querySelector("#comment").value;
     let bgd = canvas.style.backgroundColor
     data.image = canvasToImage(bgd);
-    socket.emit("message", data);
+    socket.emit("email", data);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
   }

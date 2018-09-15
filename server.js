@@ -27,7 +27,7 @@ io.sockets.on('connection', function(socket) {
     connections.splice(connections.indexOf(socket), 1);
     console.log('Disconnected: %s sockets connected', connections.length);
   });
-  socket.on('message', function(data){
+  socket.on('email', function(data){
     console.log(socket.id, "posted", data.comment);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');

@@ -446,8 +446,9 @@ function doClick(obj) {
 //handles device rotation
 function OrientationshiftNew(){
   //var lastColour = context.strokeStyle;
+    let ink = context.fillStyle;
   resetErase(lastColour);
-  let ink = context.fillStyle;
+
   let angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');

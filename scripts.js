@@ -177,7 +177,6 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "sendEmail"){
     pallette.classList.remove("pallette--active");
-    openMenu();
     navigation.classList.remove('nav--move');
     let data = {}
     data.emailAddress = document.querySelector("#emailAddress").value;
@@ -462,13 +461,11 @@ console.log(ink, lastColour);
         angleInDegrees=90;
         drawRotated(angleInDegrees);
         screen+=-90;
-        erasing();
       break;
       case 90:
         angleInDegrees=-90;
         drawRotated(angleInDegrees);
         screen+=90;
-        erasing();
       break;
       default:
       console.log("done");

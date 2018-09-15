@@ -24,7 +24,7 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(tweetData){
-    var tweet = {status: tweetData.tweetContent}:
+    var tweet = {status: tweetData.tweetContent};
     T.post('statuses/update', { status: tweet }, function(err, tweetData, response) {
       if(err){
         console.log("something went wrong");

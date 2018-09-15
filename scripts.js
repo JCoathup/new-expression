@@ -164,10 +164,10 @@ document.addEventListener("click", function(e){
                           <input id="emailAddress" type="text" placeholder="email"><br>
                           <input id="comment" type="textarea" placeholder="message"><br>
                           <button id="sendEmail">EMAIL</button>
-                          <button id="cancelTweet">CANCEL</button>
+                          <button id="cancelEmail">CANCEL</button>
                           </aside>`
   }
-  if (e.target && e.target.id == "cancelTweet"){
+  if (e.target && e.target.id == "cancelEmail"){
     let bgd = canvas.style.backgroundColor;
     let img = new Image();
     img.src = canvasToImage(bgd);
@@ -186,6 +186,12 @@ document.addEventListener("click", function(e){
     socket.emit("email", data);
     let lightbox = document.querySelector(".lightbox");
     lightbox.classList.toggle("lightbox-target");
+  }
+  if (e.target && e.target.id == "tweet"){
+    tweet();
+  }
+  if (e.target && e.target.id == "sendTweet"){
+    sendingTweet();
   }
 });
 //displays colours for line and background
@@ -505,4 +511,26 @@ function OrientationshiftNew(){
   }
   context.fillStyle = ink;
   context.strokeStyle = ink;
+}
+
+//handles tweet functionality
+function tweet () {
+  let lightbox = document.querySelector(".lightbox");
+  lightbox.classList.toggle("lightbox-target");
+  lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
+                        <textarea id="tweetContent" maxlength="140">
+                        #Scribblez...
+                        </textarea>
+                        <button id="sendTweet">TWEET</button>
+                        <button id="cancelTweet">CANCEL</button>
+                        </aside>`;
+}
+//sending a tweet
+function sendingTweet () {
+  let tweetData = {};
+  tweetData.tweetContent = document.querySelector("#tweetContent").value;
+  console.log("giot it" + document.querySelector("#tweetContent").value);
+  let bgd = canvas.style.backgroundColor;
+  tweetData.image = canvasToImage(bgd);
+  socket.emit('dispatch', tweetData);
 }

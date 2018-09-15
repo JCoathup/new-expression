@@ -23,6 +23,17 @@ io.sockets.on('connection', function(socket) {
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
+  socket.on('dispatch', function(tweetData){
+    var tweet = {tweetData.tweetContent}:
+    T.post('statuses/update', { status: tweet }, function(err, tweetData, response) {
+      if(err){
+        console.log("something went wrong");
+      }
+      else {
+        console.log('Tweet content:', tweetData);  
+      }
+      });
+  });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);
     console.log('Disconnected: %s sockets connected', connections.length);
@@ -44,8 +55,8 @@ io.sockets.on('connection', function(socket) {
     var mailOptions = {
       from: 'jeremycoathup@gmail.com',
       to: data.emailAddress,
-      subject: 'Made using New Expressions',
-      text: "A New Expression",
+      subject: 'Made using Scibblez',
+      text: "Scribblez",
       html: "<h1>"+data.comment+"</h1><img src='cid:"+socket.id+"'>",
          attachments: [
       {   // data uri as an attachment
@@ -66,7 +77,5 @@ io.sockets.on('connection', function(socket) {
 });
 
 /*
-T.post('statuses/update', { status: 'woo whoooop!!!!!!' }, function(err, data, response) {
-  console.log(data)
-});
+
 */

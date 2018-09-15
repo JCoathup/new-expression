@@ -184,6 +184,8 @@ document.addEventListener("click", function(e){
     let bgd = canvas.style.backgroundColor
     data.image = canvasToImage(bgd);
     socket.emit("message", data);
+    let lightbox = document.querySelector(".lightbox");
+    lightbox.classList.toggle("lightbox-target");
   }
 });
 //displays colours for line and background
@@ -446,9 +448,7 @@ function doClick(obj) {
 function OrientationshiftNew(){
   //var lastColour = context.strokeStyle;
     let ink = context.fillStyle;
-    console.log(ink, lastColour);
   resetErase(lastColour);
-console.log(ink, lastColour);
   let angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
@@ -505,5 +505,4 @@ console.log(ink, lastColour);
   }
   context.fillStyle = ink;
   context.strokeStyle = ink;
-  console.log(ink, lastColour);
 }

@@ -36,7 +36,7 @@ io.sockets.on('connection', function(socket) {
     T.post('media/upload', {media: b64}, uploaded);
     function uploaded(err, data, response){
       var id = data.media_id_string;
-      var tweet = {status: "#Scribblez hello", media_ids: [id]};
+      var tweet = {status: "#Scribblez hello again", media_ids: [id]};
       T.post('statuses/update', tweet, function(err, data, response) {
         if(err){
           console.log("something went wrong");

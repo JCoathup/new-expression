@@ -24,8 +24,8 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
-    var tweet = {status: "#Scribblez " + data + " " + data.source.screen_name};
-    T.post('statuses/update', tweet, function(err, data, response) {
+    var tweet = {status: "#Scribblez " + data};
+    T.post('statuses/update', tweet + data.source.screen_name, function(err, data, response) {
       if(err){
         console.log("something went wrong");
         console.log(err);

@@ -30,7 +30,7 @@ io.sockets.on('connection', function(socket) {
     var timestamp = Date.now();
     var params = {encoding: 'base64'};
     var img2 = fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
-    console.log(img2.src);
+    console.log(img2);
     var b64 = fs.readFileSync(img2.src, params);
     T.post('media/upload', {media_data: b64}, uploaded);
     function uploaded(err, data, response){

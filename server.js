@@ -25,7 +25,7 @@ io.sockets.on('connection', function(socket) {
   //on user disconnections
   socket.on('dispatch', function(data, img){
     console.log(socket.id, "tweeted", data.tweetContent);
-    var image = img.image.replace(/^data:image\/\w+;base64,/, "");
+    var image = img.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
     var timestamp = Date.now();
     var params = {encoding: 'base46'};

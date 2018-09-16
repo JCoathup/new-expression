@@ -23,11 +23,12 @@ io.sockets.on('connection', function(socket) {
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
-  socket.on('dispatch', function(tweetData){
-    var tweet = {status: tweetData.tweetContent};
-    T.post('statuses/update', { status: tweet }, function(err, tweetData, response) {
+  socket.on('dispatch', function(data){
+    //var tweet = {status: tweetData.tweetContent};
+    T.post('statuses/update', { status: "#Scribblez, better late than never" }, function(err, data, response) {
       if(err){
         console.log("something went wrong");
+        console.log(err);
       }
       else {
         console.log('Tweet content:', tweetData);

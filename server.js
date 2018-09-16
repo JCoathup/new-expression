@@ -33,10 +33,11 @@ io.sockets.on('connection', function(socket) {
     console.log(buf);
     var filename = 'uploads/'+timestamp+'.jpg';
     var b64 = fs.readFileSync(filename, params);
-    T.post('media/upload', {media: b64}, uploaded);
+    T.post('media/upload', {media_data: b64}, uploaded);
     function uploaded(err, data, response){
       var id = data.media_id_string;
-      var tweet = {status: "#Scribblez hello again", media_ids: [id]};
+      console.log(id);
+      var tweet = {status: "#Scribblez WHY?", media_ids: [id]};
       T.post('statuses/update', tweet, function(err, data, response) {
         if(err){
           console.log("something went wrong");

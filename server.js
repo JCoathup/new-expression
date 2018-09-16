@@ -25,12 +25,12 @@ io.sockets.on('connection', function(socket) {
   //on user disconnections
   socket.on('dispatch', function(data, img){
     console.log(socket.id, "tweeted", data, img);
-    var image = img.replace(/^data:image\/\w+;base64,/, "");
-    var buf = new Buffer(image, 'base64');
+    //var image = img.replace(/^data:image\/\w+;base64,/, "");
+    var buf = new Buffer(img, 'base64');
     var timestamp = Date.now();
     var params = {encoding: 'base64'};
-    var img = fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
-    var b64 = fs.readFileSync(img, params);
+    var img2 = fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
+    var b64 = fs.readFileSync(img2, params);
     T.post('media/upload', {media_data: b64}, uploaded);
     function uploaded(err, data, response){
       var id = data.media_id_string

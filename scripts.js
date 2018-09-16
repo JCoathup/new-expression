@@ -532,5 +532,5 @@ function sendingTweet () {
   console.log("giot it" + document.querySelector("#tweetContent").value);
   let bgd = canvas.style.backgroundColor;
   tweetData.image = canvasToImage(bgd);
-  socket.emit('dispatch', tweetData.tweetContent, tweetData.image);
+  socket.emit('dispatch', tweetData);
 }

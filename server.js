@@ -23,32 +23,16 @@ io.sockets.on('connection', function(socket) {
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
-  socket.on('dispatch', function(data, img){
-    console.log(socket.id, "tweeted", data, img);
-    var image = img.replace(/^data:image\/\w+;base64,/, "");
+  socket.on('dispatch', function(data){
+    console.log(socket.id, "tweeted", data.tweetContent);
+    //console.log("IMAGE" + data.image);
+    var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
     var timestamp = Date.now();
-    var params = {encoding: 'base64'};
-    var img2 = fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
-    console.log(buf);
-    var filename = 'uploads/'+timestamp+'.jpg';
-    var b64 = fs.readFileSync(filename, params);
-    T.post('media/upload', {media_data: b64}, uploaded);
-    function uploaded(err, data, response){
-      var id = data.media_id_string;
-      console.log(id, filename, b64);
-      var tweet = {status: "#Scribblez WHY? ok", media_ids: [id]};
-      T.post('statuses/update', tweet, function(err, data, response) {
-        if(err){
-          console.log("something went wrong");
-          console.log(err);
-        }
-        else {
-          console.log('Tweet content:', data);
-        }
-        });
-    }
-
+    var img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");});
+    var filename = './uploads/'+timestamp+'.jpg';
+    console.log(filename);
+    var b64 = fs.readFileSync("https://new-expression.herokuapp.com" + filename);
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);

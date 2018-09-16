@@ -25,14 +25,32 @@ io.sockets.on('connection', function(socket) {
   //on user disconnections
   socket.on('dispatch', function(data){
     console.log(socket.id, "tweeted", data.tweetContent);
-    //console.log("IMAGE" + data.image);
+    var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
+    console.log(buf);
     var timestamp = Date.now();
-    var img = fs.writeFile(__dirname + './uploads/'+timestamp+'.jpg', buf, function(){console.log("done");});
-    var filename = '/uploads/'+timestamp+'.jpg';
-    console.log(filename);
-    var b64 = fs.readFileSync("https://new-expression.herokuapp.com" + filename);
+    img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
+    var filename = "uploads/"+timestamp+".jpg";
+    var params = {encoding: "base64"};
+    var b64 = fs.readFileSync(filename);
+    T.post("media/upload", {media_data: b64}, uploaded);
+    function uploaded (err, data, response){
+      console.log(data);
+      var id = data.media_id_string;
+      console.log(id);
+      var tweet = {status: message, media_ids:[id]}
+      T.post("statuses/update", tweet, tweeted);
+    }
+    function tweeted(err, data, response){
+      if (err){
+        console.log("ERROR:", err);
+      }
+      else {
+        console.log("it worked");
+      }
+    }
+  });
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);
@@ -75,7 +93,3 @@ io.sockets.on('connection', function(socket) {
     });
   })
 });
-
-/*
-
-*/

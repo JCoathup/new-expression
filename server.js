@@ -24,7 +24,7 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data, img){
-    console.log(socket.id, "tweeted", data.tweetContent);
+    console.log(socket.id, "tweeted", data, image);
     var image = img.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
     var timestamp = Date.now();

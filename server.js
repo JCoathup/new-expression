@@ -23,17 +23,29 @@ io.sockets.on('connection', function(socket) {
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
-  socket.on('dispatch', function(data){
-    var tweet = {status: "#Scribblez " + data};
-    T.post('statuses/update', tweet, function(err, data, response) {
-      if(err){
-        console.log("something went wrong");
-        console.log(err);
-      }
-      else {
-        console.log('Tweet content:', data);
-      }
-      });
+  socket.on('dispatch', function(data, img){
+    console.log(socket.id, "tweeted", data.tweetContent);
+    var image = data.image.replace(/^data:image\/\w+;base64,/, "");
+    var buf = new Buffer(image, 'base64');
+    var timestamp = Date.now();
+    var params = {encoding: 'base46'};
+    var img = fs.writeFile('./uploads/'+timestamp+'.jpg', buf);
+    bar b64 = fs.readFileSync(img, params);
+    T.post('media/upload', {media_data: b64}, uploaded);
+    function uploaded(err, data, response){
+      var id = data.media_id_string
+      var tweet = {status: "#Scribblez " + data};
+      T.post('statuses/update', tweet, function(err, data, response) {
+        if(err){
+          console.log("something went wrong");
+          console.log(err);
+        }
+        else {
+          console.log('Tweet content:', data);
+        }
+        });
+    }
+
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);

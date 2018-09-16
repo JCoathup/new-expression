@@ -29,7 +29,7 @@ io.sockets.on('connection', function(socket) {
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
     var timestamp = Date.now();
-    var img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");});
+    var img = fs.writeFile(__dirname + './uploads/'+timestamp+'.jpg', buf, function(){console.log("done");});
     var filename = '/uploads/'+timestamp+'.jpg';
     console.log(filename);
     var b64 = fs.readFileSync("https://new-expression.herokuapp.com" + filename);

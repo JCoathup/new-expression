@@ -36,7 +36,7 @@ io.sockets.on('connection', function(socket) {
     T.post('media/upload', {media_data: b64}, uploaded);
     function uploaded(err, data, response){
       var id = data.media_id_string;
-      console.log(id);
+      console.log(id, filename, b64);
       var tweet = {status: "#Scribblez WHY?", media_ids: [id]};
       T.post('statuses/update', tweet, function(err, data, response) {
         if(err){

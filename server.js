@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     Twit = require('twit'),
-    config = require(path.join(__dirname, 'twitter_config.js')),
+    config = require(path.join(__dirname, '/twitter_config.js')),
     express = require('express'),
     app = express(),
     http = require('http'),
@@ -36,9 +36,10 @@ io.sockets.on('connection', function(socket) {
     var b64 = fs.readFileSync(filename);
     T.post("media/upload", {media_data: b64}, uploaded);
     function uploaded (err, data, response){
-      console.log(data);
+      console.log(err);
+      console.log("Data:", data);
       var id = data.media_id_string;
-      console.log(id);
+      console.log("Media ID: ", id);
       var tweet = {status: message, media_ids:[id]}
       T.post("statuses/update", tweet, tweeted);
     }

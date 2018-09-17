@@ -518,9 +518,7 @@ function tweet () {
   let lightbox = document.querySelector(".lightbox");
   lightbox.classList.toggle("lightbox-target");
   lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
-                        <textarea id="tweetContent" maxlength="140">
-                        #Scribblez...
-                        </textarea>
+                        <textarea id="tweetContent" maxlength="140">#Scribblez...</textarea>
                         <button id="sendTweet">TWEET</button>
                         <button id="cancelTweet">CANCEL</button>
                         </aside>`;

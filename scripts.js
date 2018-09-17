@@ -305,6 +305,7 @@ function disengage (){
 }
 //clear screen contents
 function clrscreen(){
+  document.location.reload();
   openMenu();
   pallette.classList.remove('pallette--active');
   navigation.classList.remove('nav--move');

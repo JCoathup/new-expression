@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     Twit = require('twit'),
-    config = require(path.join(__dirname, '/twitter_config.js')),
+    config = require(path.join(__dirname, 'twitter_config.js')),
     express = require('express'),
     app = express(),
     http = require('http'),
@@ -34,7 +34,7 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     var params = {encoding: "base64"};
     var b64 = fs.readFileSync(filename);
-    T.post("media/upload", {media_data: b64}, uploaded);
+    T.post("media/upload", {media_data: image}, uploaded);
     function uploaded (err, data, response){
       console.log(err);
       console.log("Data:", data);

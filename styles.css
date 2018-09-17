@@ -476,7 +476,7 @@ canvas {
 }
 
 
-.lightbox input {
+.lightbox input, .lightbox textarea{
   width:88%;
   padding:1%;
   margin:1%;
@@ -506,13 +506,13 @@ canvas {
   position:relative;
   margin: 1%;
 }
-#cancelTweet{
+#cancelTweet, #cancelEmail{
   color:#0084B4;
   border: 1px solid #0084B4;
   background-color:#fff;
 }
 
-#sendEmail{
+#sendEmail, #sendTweet{
   background-color:#0084B4;
   color:#ffffff;
 }

@@ -26,7 +26,7 @@ io.sockets.on('connection', function(socket) {
   //on user disconnections
   socket.on('dispatch', function(data){
 
-    T.get('account/verify_credentials', { skip_status: true })
+    T.get('account/verify_credentials', { skip_status: false })
   .catch(function (err) {
     console.log('caught error', err.stack)
   })

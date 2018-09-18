@@ -39,6 +39,7 @@ io.sockets.on('connection', function(socket) {
     // for details.
 
     console.log('data', result.data);
+    console.log('response', result.resp);
   })
 
 

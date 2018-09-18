@@ -52,7 +52,7 @@ io.sockets.on('connection', function(socket) {
     "HMAC-SHA1"
   );
 
-  app.get('/auth/twitter', function(req, res){
+  app.get('/', function(req, res){
 	oa.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
 		if (error) {
 			console.log(error);
@@ -69,7 +69,7 @@ io.sockets.on('connection', function(socket) {
 	});
 });
 
-app.get('/auth/twitter/callback', function(req, res, next){
+app.get('/', function(req, res, next){
 	if (req.session.oauth) {
 		req.session.oauth.verifier = req.query.oauth_verifier;
 		var oauth = req.session.oauth;

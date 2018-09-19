@@ -549,10 +549,6 @@ function uploadFacebook (data){
   FB.ui({
   method: 'share',
   url: 'https://new-expression.herokuapp.com',
-  title: 'test',
-  picture:'new-expression.herokuapp.com/'+data,
-  caption: "testing",
-  description: "a new test"
 }, function(response){
   console.log(response);
 });

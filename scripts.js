@@ -548,7 +548,7 @@ function sendingTweet () {
 function uploadFacebook (data){
   FB.ui({
   method: 'share',
-  url: 'https://new-expression.herokuapp.com',
+  url: 'https://new-expression.herokuapp.com'
 }, function(response){
   console.log(response);
 });

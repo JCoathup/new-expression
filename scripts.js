@@ -548,7 +548,7 @@ function sendingTweet () {
 function uploadFacebook (data){
   FB.ui({
   method: 'share',
-  picture:'https://new-expression.herokuapp.com/'+data,
+  picture:'/'+data,
   caption: "testing",
   description: "a new test"
 }, function(response){

@@ -549,9 +549,14 @@ function uploadFacebook (data){
   FB.ui({
   method: 'share',
   url: 'https://new-expression.herokuapp.com',
-  action_type: 'new-expression:share',
+  action_type: 'og.shares',
   action_properties: JSON.stringify({
-      object: 'https://new-expression.herokuapp.com/'+data
+      object: {
+        'og:url': 'https://new-expression.herokuapp.com',
+        'og:title': 'test description',
+        'og:image': 'https://new-expression.herokuapp.com/'+data,
+        'og:image:type': 'image/jpeg'
+      }
   })
 }, function(response){
   console.log(response);

@@ -547,9 +547,11 @@ function sendingTweet () {
 
 function uploadFacebook (data){
   FB.ui({
-  method: 'feed',
+  method: 'share_open_graph',
   url: 'https://new-expression.herokuapp.com',
-  picture: 'https://new-expression.herokuapp.com/'+data
+  action_properties: JSON.stringify({
+      object: 'https://new-expression.herokuapp.com/'+data
+  })
 }, function(response){
   console.log(response);
 });

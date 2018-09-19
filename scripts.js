@@ -558,7 +558,7 @@ function uploadFacebook (data){
         'og:image:type': 'image/jpeg',
         'og:image:height':512,
         'og:image:width':512,
-        'og:image:url': data
+        'og:image:url': 'https://new-expression.herokuapp.com/'+data
       }
   })
 }, function(response){

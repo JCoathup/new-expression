@@ -129,15 +129,16 @@ document.addEventListener("click", function(e){
     let facebookData = {};
     let bgd = canvas.style.backgroundColor;
     facebookData.image = canvasToImage(bgd);
-
+    var source;
     FB.login(function(response){
     console.log(response);
     console.log("now we are connected");
     socket.emit("facebook", facebookData);
     socket.on("facebookReply", function(data){
       console.log(data);
+      source = data;
     })
-    uploadFacebook(data);
+    uploadFacebook(source);
     });
   }
   if (e.target && e.target.id == "download"){

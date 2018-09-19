@@ -549,13 +549,16 @@ function uploadFacebook (data){
   FB.ui({
   method: 'share',
   url: 'https://new-expression.herokuapp.com',
-  action_type: 'Scribblez:share',
+  action_type: 'og.shares',
   action_properties: JSON.stringify({
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
         'og:title': 'test description',
-        'og:image': 'http://new-expression.herokuapp.com/',
-        'og:image:type': 'image/jpeg'
+        'og:image': 'http://new-expression.herokuapp.com/images/icon512.png',
+        'og:image:type': 'image/jpeg',
+        'og:image:height':512,
+        'og:image:width':512,
+        'og:image': data
       }
   })
 }, function(response){

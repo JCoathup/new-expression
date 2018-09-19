@@ -549,6 +549,7 @@ function uploadFacebook (data){
   FB.ui({
   method: 'share_open_graph',
   url: 'https://new-expression.herokuapp.com',
+  action_type: 'appnamespace:play',
   action_properties: JSON.stringify({
       object: 'https://new-expression.herokuapp.com/'+data
   })

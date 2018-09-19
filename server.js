@@ -62,8 +62,8 @@ io.sockets.on('connection', function(socket) {
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
     var filename = "uploads/"+timestamp+".jpg";
     console.log(filename);
+    });
     socket.emit("facebookReply", filename);
-  });
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);

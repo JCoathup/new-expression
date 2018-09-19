@@ -549,7 +549,7 @@ function uploadFacebook (data){
   FB.ui({
   method: 'share',
   url: 'https://new-expression.herokuapp.com',
-  action_type: 'new-expression.herokuapp.com:share',
+  action_type: 'new-expression:share',
   action_properties: JSON.stringify({
       object: 'https://new-expression.herokuapp.com/'+data
   })

@@ -554,7 +554,7 @@ function uploadFacebook (data){
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
         'og:title': 'test description',
-        'og:image': 'https://new-expression.herokuapp.com/'+data,
+        'og:image': 'new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg'
       }
   })

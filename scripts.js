@@ -127,8 +127,13 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "facebook"){
     FB.login(function(response){
+console.log(response);
+console.log("now we are connected");
+socket.emit("facebook", "someone facebooked");
 
+uploadFacebook();
     });
+
   }
   if (e.target && e.target.id == "download"){
     pallette.classList.remove("pallette--active");
@@ -532,4 +537,11 @@ function sendingTweet () {
   let bgd = canvas.style.backgroundColor;
   tweetData.image = canvasToImage(bgd);
   socket.emit('dispatch', tweetData);
+}
+
+function uploadFacebook (){
+  FB.ui({
+  method: 'share',
+  href: 'https://developers.facebook.com/docs/',
+}, function(response){});
 }

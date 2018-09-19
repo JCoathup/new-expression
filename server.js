@@ -55,6 +55,15 @@ io.sockets.on('connection', function(socket) {
   });
   socket.on ("facebook", function(data){
     console.log(data);
+    var image = data.image.replace(/^data:image\/\w+;base64,/, "");
+    var buf = new Buffer(image, 'base64');
+    console.log(buf);
+    var timestamp = Date.now();
+    img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
+    var filename = "uploads/"+timestamp+".jpg";
+    console.log(filename);
+    socket.emit("facebookReply", filename);
+  });
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);

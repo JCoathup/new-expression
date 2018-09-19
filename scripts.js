@@ -126,14 +126,19 @@ document.addEventListener("click", function(e){
     Animation(menuItems);
   }
   if (e.target && e.target.id == "facebook"){
+    let facebookData = {};
+    let bgd = canvas.style.backgroundColor;
+    facebookData.image = canvasToImage(bgd);
+
     FB.login(function(response){
-console.log(response);
-console.log("now we are connected");
-socket.emit("facebook", "someone facebooked");
-
-uploadFacebook();
+    console.log(response);
+    console.log("now we are connected");
+    socket.emit("facebook", facebookData);
+    socket.on("facebookReply", function(data){
+      console.log(data);
+    })
+    uploadFacebook(data);
     });
-
   }
   if (e.target && e.target.id == "download"){
     pallette.classList.remove("pallette--active");
@@ -533,16 +538,17 @@ function tweet () {
 function sendingTweet () {
   let tweetData = {};
   tweetData.tweetContent = document.querySelector("#tweetContent").value;
-  console.log("giot it" + document.querySelector("#tweetContent").value);
+  console.log("got it" + document.querySelector("#tweetContent").value);
   let bgd = canvas.style.backgroundColor;
   tweetData.image = canvasToImage(bgd);
   socket.emit('dispatch', tweetData);
 }
 
-function uploadFacebook (){
+function uploadFacebook (data){
   FB.ui({
   method: 'share',
-  href: 'https://developers.facebook.com/docs/',
+  href: 'https://new-expression.herokuapp.com',
+  picture:data
 }, function(response){
   console.log(response);
 });

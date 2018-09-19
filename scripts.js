@@ -543,5 +543,7 @@ function uploadFacebook (){
   FB.ui({
   method: 'share',
   href: 'https://developers.facebook.com/docs/',
-}, function(response){});
+}, function(response){
+  console.log(response);
+});
 }

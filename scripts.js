@@ -553,11 +553,6 @@ function uploadFacebook (data){
   action_type: 'og.shares',
   action_properties: JSON.stringify({
       object: {
-        'og:title': 'Scribblez',
-        'og:site_name': 'https://new-expression.herokuapp.com',
-        'og:url': 'https://new-expression.herokuapp.com',
-        'og:description': 'Say something, by drawing something',
-        'fb:app_id': '519899595123870',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg'
       }

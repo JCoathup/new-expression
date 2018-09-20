@@ -554,7 +554,6 @@ function uploadFacebook (data){
   action_properties: JSON.stringify({
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
-        'og:title': 'Scribblez',
         'og:image': 'https://new-expression.herokuapp.com/images/icon512.png',
         'og:image:type': 'image/jpeg',
         'og:image': 'https://new-expression.herokuapp.com/'+data,

@@ -555,11 +555,11 @@ function uploadFacebook (data){
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
         'og:title': 'Scribblez',
-        'og:quote': 'waheeey',
+        'og:description': 'Say something, by drawing something',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg',
-        'og:image:width':1800,
-        'og:image:height':900
+        'og:image:width':1200,
+        'og:image:height':630
       }
   })
 }, function(response){

@@ -61,8 +61,6 @@ io.sockets.on('connection', function(socket) {
     var timestamp = Date.now();
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
     var filename = "uploads/"+timestamp+".jpg";
-    console.log(filename);
-    filename=__dirname+filename;
     socket.emit("facebookReply", filename);
     console.log(filename);
     });

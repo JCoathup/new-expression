@@ -137,8 +137,9 @@ document.addEventListener("click", function(e){
     socket.on("facebookReply", function(data){
       console.log(data);
       source = data;
+      uploadFacebook(source);
     })
-    uploadFacebook(source);
+
     });
   }
   if (e.target && e.target.id == "download"){

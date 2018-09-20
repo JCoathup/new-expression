@@ -557,9 +557,7 @@ function uploadFacebook (data){
         'og:title': 'Scribblez',
         'og:description': 'Say something, by drawing something',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
-        'og:image:type': 'image/jpeg',
-        'og:image:width':1200,
-        'og:image:height':630
+        'og:image:type': 'image/jpeg'
       }
   })
 }, function(response){

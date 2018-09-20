@@ -555,6 +555,10 @@ function uploadFacebook (data){
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
         'og:title': 'Scribblez',
+        'og:image': 'https://new-expression.herokuapp.com/images/icon512.png',
+        'og:image:type': 'image/jpeg',
+        'og:image:height':512,
+        'og:image:width':512,
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg',
         'og:image:height':512,

@@ -554,10 +554,11 @@ function uploadFacebook (data){
   action_properties: JSON.stringify({
       object: {
         'og:url': 'https://new-expression.herokuapp.com',
-        'og:image': 'https://new-expression.herokuapp.com/images/icon512.png',
-        'og:image:type': 'image/jpeg',
+        'og:title': 'Scribblez',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
-        'og:image:type': 'image/jpeg'
+        'og:image:type': 'image/jpeg',
+        'og:image:height':1800,
+        'og:image:width':899
       }
   })
 }, function(response){

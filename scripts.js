@@ -548,7 +548,7 @@ function sendingTweet () {
 
 function uploadFacebook (data){
   FB.ui({
-  method: 'share',
+  method: 'feed',
   url: 'https://new-expression.herokuapp.com',
   action_type: 'og.shares',
   action_properties: JSON.stringify({

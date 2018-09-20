@@ -559,6 +559,8 @@ function uploadFacebook (data){
         'og:image:height':512,
         'og:image:width':512,
         'og:image:url': data
+        'og:image:height':512,
+        'og:image:width':512,
       }
   })
 }, function(response){

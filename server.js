@@ -30,6 +30,8 @@ io.sockets.on('connection', function(socket) {
   console.log('socket.io connected', socket.id);
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
+  //on user disconnections
+  socket.on('dispatch', function(data){
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

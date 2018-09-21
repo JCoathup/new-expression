@@ -31,62 +31,6 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
-
-
-    passport.serializeUser(function(user, done) {
-    done(null, user);
-    });
-
-    passport.deserializeUser(function(obj, done) {
-    done(null, obj);
-    });
-
-    // Use the TwitterStrategy within Passport.
-
-    passport.use(new TwitterStrategy({
-    consumerKey: config.consumer_key,
-    consumerSecret:config.consumer_secret ,
-    callbackURL: config.callback_url
-    },
-    function(token, tokenSecret, profile, done) {
-    process.nextTick(function () {
-    //Check whether the User exists or not using profile.id
-    console.log("waiting");
-  return done(null, profile);}
-    );
-    }
-    ));
-    app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({ secret: 'keyboard cat', key: 'sid'}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.get('/', function(req, res){
-res.render('index', { user: req.user });
-});
-
-app.get('/account', ensureAuthenticated, function(req, res){
-res.render('account', { user: req.user });
-});
-
-app.get('/auth/twitter', passport.authenticate('twitter'));
-
-app.get('/auth/twitter/callback',
-passport.authenticate('twitter', { successRedirect : '/', failureRedirect: '/login' }),
-function(req, res) {
-res.redirect('/');
-});
-
-app.get('/logout', function(req, res){
-req.logout();
-res.redirect('/');
-});
-
-function ensureAuthenticated(req, res, next) {
-if (req.isAuthenticated()) { return next(); }
-res.redirect('/login')
-}
-
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

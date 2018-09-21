@@ -48,6 +48,7 @@ io.sockets.on('connection', function(socket) {
         console.log("ERROR:", err);
       }
       else {
+        console.log(data);
         console.log("it worked");
       }
     }

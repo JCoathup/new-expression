@@ -15,7 +15,12 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    oauth2lib = require('oauth20-provider');
+    var oauth2 = new oauth2lib({log: {level: 2}});
+    app.use(oauth2.inject());
+    app.post('/token', oauth2.controller.token);
+
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -31,6 +36,21 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
+    app.get('/authorization', isAuthorized, oauth2.controller.authorization, function(req, res) {
+    // Render our decision page
+    // Look into ./test/server for further information
+    res.render('authorization', {layout: false});
+});
+server.post('/authorization', isAuthorized, oauth2.controller.authorization);
+
+function isAuthorized(req, res, next) {
+    if (req.session.authorized) next();
+    else {
+        var params = req.query;
+        params.backUrl = req.path;
+        res.redirect('/login?' + query.stringify(params));
+    }
+};
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

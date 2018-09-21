@@ -55,7 +55,6 @@ io.sockets.on('connection', function(socket) {
     );
     }
     return done(null, profile);
-    });
     }
     ));
 

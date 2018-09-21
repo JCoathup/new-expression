@@ -56,7 +56,7 @@ io.sockets.on('connection', function(socket) {
     var stream = T.stream('user', { stringify_friend_ids: true });
     stream.on('tweet', function (data) {
     console.log("RIGHT HERE!!!!!!!!!", data);
-    }
+  });
   });
   });
   socket.on ("facebook", function(data){

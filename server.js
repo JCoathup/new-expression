@@ -35,7 +35,7 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     var params = {encoding: "base64"};
     var b64 = fs.readFileSync(filename);
-    T.get('account/verify_credentials', { skip_status: true })
+    T.get('account/verify_credentials', { skip_status: false })
   .catch(function (err) {
     console.log('caught error', err.stack)
   })

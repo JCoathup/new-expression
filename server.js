@@ -62,7 +62,6 @@ io.sockets.on('connection', function(socket) {
       }
       else {
         console.log(data);
-        console.log(tweet);
         console.log("it worked");
       }
     }

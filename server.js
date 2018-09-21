@@ -56,7 +56,36 @@ io.sockets.on('connection', function(socket) {
     );
     }
     ));
+    app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({ secret: 'keyboard cat', key: 'sid'}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.get('/', function(req, res){
+res.render('index', { user: req.user });
+});
 
+app.get('/account', ensureAuthenticated, function(req, res){
+res.render('account', { user: req.user });
+});
+
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
+app.get('/auth/twitter/callback',
+passport.authenticate('twitter', { successRedirect : '/', failureRedirect: '/login' }),
+function(req, res) {
+res.redirect('/');
+});
+
+app.get('/logout', function(req, res){
+req.logout();
+res.redirect('/');
+});
+
+function ensureAuthenticated(req, res, next) {
+if (req.isAuthenticated()) { return next(); }
+res.redirect('/login')
+}
 
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;

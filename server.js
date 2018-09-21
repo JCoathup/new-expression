@@ -36,10 +36,7 @@ io.sockets.on('connection', function(socket) {
     var params = {encoding: "base64"};
     var b64 = fs.readFileSync(filename);
     T.post("media/upload", {media_data: image}, uploaded);
-    var stream = T.stream('user', { stringify_friend_ids: true });
-    stream.on('tweet', function (data) {
-    console.log("RIGHT HERE!!!!!!!!!", data);
-    }
+
     function uploaded (err, data, response){
       console.log("Data:", data);
       var id = data.media_id_string;
@@ -55,6 +52,10 @@ io.sockets.on('connection', function(socket) {
         console.log(data);
         console.log("it worked");
       }
+    }
+    var stream = T.stream('user', { stringify_friend_ids: true });
+    stream.on('tweet', function (data) {
+    console.log("RIGHT HERE!!!!!!!!!", data);
     }
   });
   });

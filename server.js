@@ -31,6 +31,17 @@ console.log("server running");
 var T = new Twit(config);
 
 io.sockets.on('connection', function(socket) {
+  app.post('/authorization', isAuthorized, oauth2.controller.authorization);
+
+  function isAuthorized(req, res, next) {
+      if (req.session.authorized) next();
+      else {
+          var params = req.query;
+          params.backUrl = req.path;
+          res.redirect('/login?' + query.stringify(params));
+      }
+  };
+
   console.log('socket.io connected', socket.id);
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
@@ -41,16 +52,6 @@ io.sockets.on('connection', function(socket) {
     // Look into ./test/server for further information
     res.render('authorization', {layout: false});
 });
-app.post('/authorization', isAuthorized, oauth2.controller.authorization);
-
-function isAuthorized(req, res, next) {
-    if (req.session.authorized) next();
-    else {
-        var params = req.query;
-        params.backUrl = req.path;
-        res.redirect('/login?' + query.stringify(params));
-    }
-};
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

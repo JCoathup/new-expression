@@ -35,12 +35,25 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     var params = {encoding: "base64"};
     var b64 = fs.readFileSync(filename);
+    T.get('account/verify_credentials', { skip_status: true })
+  .catch(function (err) {
+    console.log('caught error', err.stack)
+  })
+  .then(function (result) {
+    // `result` is an Object with keys "data" and "resp".
+    // `data` and `resp` are the same objects as the ones passed
+    // to the callback.
+    // See https://github.com/ttezel/twit#tgetpath-params-callback
+    // for details.
+
+    console.log('data', result.data);
+  })
     T.post("media/upload", {media_data: image}, uploaded);
     function uploaded (err, data, response){
       console.log("Data:", data);
       var id = data.media_id_string;
       console.log("Media ID: ", id);
-      var tweet = {screen_name: data.profile.username, status: message, media_ids:[id]}
+      var tweet = {status: message, media_ids:[id]}
       T.post("statuses/update", tweet, tweeted);
     }
     function tweeted(err, data, response){

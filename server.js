@@ -41,7 +41,7 @@ io.sockets.on('connection', function(socket) {
     // Look into ./test/server for further information
     res.render('authorization', {layout: false});
 });
-server.post('/authorization', isAuthorized, oauth2.controller.authorization);
+app.post('/authorization', isAuthorized, oauth2.controller.authorization);
 
 function isAuthorized(req, res, next) {
     if (req.session.authorized) next();

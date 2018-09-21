@@ -9,7 +9,13 @@ var fs = require('fs'),
     io = require('socket.io').listen(server),
     connections = [],
     nodemailer = require('nodemailer'),
-    OAuth= require('oauth').OAuth;
+    OAuth= require('oauth').OAuth,
+    passport = require('passport'),
+    util = require('util'),
+    TwitterStrategy = require('passport-twitter').Strategy,
+    session = require('express-session'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -25,6 +31,36 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
+
+
+    passport.serializeUser(function(user, done) {
+    done(null, user);
+    });
+
+    passport.deserializeUser(function(obj, done) {
+    done(null, obj);
+    });
+
+    // Use the TwitterStrategy within Passport.
+
+    passport.use(new TwitterStrategy({
+    consumerKey: config.consumer_key,
+    consumerSecret:config.consumer_secret ,
+    callbackURL: config.callback_url
+    },
+    function(token, tokenSecret, profile, done) {
+    process.nextTick(function () {
+    //Check whether the User exists or not using profile.id
+
+    );
+    }
+    return done(null, profile);
+    console.log(profile);
+    });
+    }
+    ));
+
+
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

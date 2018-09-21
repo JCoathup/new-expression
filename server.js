@@ -40,7 +40,7 @@ io.sockets.on('connection', function(socket) {
       console.log("Data:", data);
       var id = data.media_id_string;
       console.log("Media ID: ", id);
-      var tweet = {screen_name: user.profile.username, status: message, media_ids:[id]}
+      var tweet = {screen_name: data.profile.username, status: message, media_ids:[id]}
       T.post("statuses/update", tweet, tweeted);
     }
     function tweeted(err, data, response){

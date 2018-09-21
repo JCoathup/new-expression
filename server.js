@@ -51,10 +51,9 @@ io.sockets.on('connection', function(socket) {
     function(token, tokenSecret, profile, done) {
     process.nextTick(function () {
     //Check whether the User exists or not using profile.id
-    console.log("waiting");}
+    console.log("waiting");
+  return done(null, profile);}
     );
-    }
-    return done(null, profile);
     }
     ));
 

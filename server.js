@@ -15,11 +15,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    oauth2lib = require('oauth20-provider');
-    var oauth2 = new oauth2lib({log: {level: 2}});
-    app.use(oauth2.inject());
-    app.post('/token', oauth2.controller.token);
+    bodyParser = require('body-parser');
 
 
 app.use(express.static(__dirname + '/'));
@@ -31,17 +27,6 @@ console.log("server running");
 var T = new Twit(config);
 
 io.sockets.on('connection', function(socket) {
-  app.post('/authorization', isAuthorized, oauth2.controller.authorization);
-
-  function isAuthorized(req, res, next) {
-      if (req.session.authorized) next();
-      else {
-          var params = req.query;
-          params.backUrl = req.path;
-          res.redirect('/login?' + query.stringify(params));
-      }
-  };
-
   console.log('socket.io connected', socket.id);
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);

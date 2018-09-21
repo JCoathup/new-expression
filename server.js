@@ -46,7 +46,7 @@ io.sockets.on('connection', function(socket) {
     // See https://github.com/ttezel/twit#tgetpath-params-callback
     // for details.
 
-    console.log('data', result.data);
+    console.log('RESULT DATA', result.data);
   })
     T.post("media/upload", {media_data: image}, uploaded);
     function uploaded (err, data, response){

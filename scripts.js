@@ -561,8 +561,8 @@ function uploadFacebook (data){
         'fb:app_id': '519899595123870',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg',
-        'og:image:width': '1200',
-        'og:image:height': '630'
+        'og:image:width': window.innerWidth,
+        'og:image:height': window.innerHeight
       }
   })
 }, function(response){

@@ -551,7 +551,7 @@ function uploadFacebook (data){
   method: 'share_open_graph',
   href: 'https://new-expression.herokuapp.com/',
   url: 'https://new-expression.herokuapp.com',
-  action_type: 'og.likes',
+  action_type: 'og.shares',
   action_properties: JSON.stringify({
       object: {
         'og:title': 'Scribblez',

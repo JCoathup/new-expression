@@ -94,7 +94,7 @@ io.sockets.on('connection', function(socket) {
 });
 
 
-    console.log(socket.id, "tweeted", data.tweetContent);
+  /*  console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
@@ -122,7 +122,7 @@ io.sockets.on('connection', function(socket) {
         console.log("it worked");
       }
     }
-  });
+  }); */
   });
   socket.on ("facebook", function(data){
     console.log(data);

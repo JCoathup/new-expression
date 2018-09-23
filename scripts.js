@@ -559,10 +559,10 @@ function uploadFacebook (data){
         'og:url': 'https://new-expression.herokuapp.com/'+data,
         'og:description': 'Say something, by drawing something',
         'fb:app_id': '519899595123870',
-        //'og:image': 'https://new-expression.herokuapp.com/'+data,
-        //'og:image:type': 'image/jpeg',
-        //'og:image:width': '1200',
-        //'og:image:height': '630'
+        'og:image': 'https://new-expression.herokuapp.com/'+data,
+        'og:image:type': 'image/jpeg',
+        'og:image:width': '1200',
+        'og:image:height': '630'
       }
   })
 }, function(response){

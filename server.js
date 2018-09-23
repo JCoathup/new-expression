@@ -9,7 +9,7 @@ var fs = require('fs'),
     io = require('socket.io').listen(server),
     connections = [],
     nodemailer = require('nodemailer'),
-    OAuth= require('oauth').OAuth2,
+    OAuth= require('oauth').OAuth,
     passport = require('passport'),
     util = require('util'),
     TwitterStrategy = require('passport-twitter').Strategy,
@@ -32,69 +32,7 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
-
-    var oauth = new OAuth(
-      "https://api.twitter.com/oauth/request_token",
-      "https://api.twitter.com/oauth/access_token",
-      "CQxtt9hErmWZDuu4Rsya3WgzA",
-      "LUtXBVADsJP7T9YXDEpJS5lWQT7tKJJ6wz60Az7rGDPfQkDKnb",
-      "1.0",
-      "https://new-expression.herokuapp.com",
-      "HMAC-SHA1"
-    );
-
-    app.get('/auth/twitter', function(req, res) {
-
-      oauth.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results) {
-        if (error) {
-          console.log(error);
-          res.send("Authentication Failed!");
-        }
-        else {
-          req.session.oauth = {
-            token: oauth_token,
-            token_secret: oauth_token_secret
-          };
-          console.log(req.session.oauth);
-          res.redirect('https://twitter.com/oauth/authenticate?oauth_token='+oauth_token)
-        }
-      });
-
-    });
-
-    app.get('/', function(req, res, next) {
-
-  if (req.session.oauth) {
-    req.session.oauth.verifier = req.query.oauth_verifier;
-    var oauth_data = req.session.oauth;
-
-    oauth.getOAuthAccessToken(
-      oauth_data.token,
-      oauth_data.token_secret,
-      oauth_data.verifier,
-      function(error, oauth_access_token, oauth_access_token_secret, results) {
-        if (error) {
-          console.log(error);
-          res.send("Authentication Failure!");
-        }
-        else {
-          req.session.oauth.access_token = oauth_access_token;
-          req.session.oauth.access_token_secret = oauth_access_token_secret;
-          console.log(results, req.session.oauth);
-          res.send("Authentication Successful");
-          // res.redirect('/'); // You might actually want to redirect!
-        }
-      }
-    );
-  }
-  else {
-    res.redirect('/login'); // Redirect to login page
-  }
-
-});
-
-
-  /*  console.log(socket.id, "tweeted", data.tweetContent);
+    console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
@@ -122,7 +60,7 @@ io.sockets.on('connection', function(socket) {
         console.log("it worked");
       }
     }
-  }); */
+  });
   });
   socket.on ("facebook", function(data){
     console.log(data);

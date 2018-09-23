@@ -548,8 +548,8 @@ function sendingTweet () {
 
 function uploadFacebook (data){
   FB.ui({
-  method: 'feed',
-  href: 'https://new-expression.herokuapp.com/'+data,
+  method: 'share_open_graph',
+  href: 'https://new-expression.herokuapp.com/',
   url: 'https://new-expression.herokuapp.com',
   action_type: 'og.likes',
   action_properties: JSON.stringify({

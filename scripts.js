@@ -553,8 +553,7 @@ function uploadFacebook (data){
       }, function (r) {
           alert(JSON.stringify(r));
       });
-  }
-}, function(response){
+  }, function(response){
   console.log(response);
 });
 }

@@ -556,7 +556,7 @@ function uploadFacebook (data){
       object: {
         'og:title': 'Scribblez',
         'og:site_name': 'https://new-expression.herokuapp.com',
-        'og:url': 'https://new-expression.herokuapp.com'+data,
+        'og:url': 'https://new-expression.herokuapp.com/'+data,
         'og:description': 'Say something, by drawing something',
         'fb:app_id': '519899595123870',
         'og:image': 'https://new-expression.herokuapp.com/'+data,

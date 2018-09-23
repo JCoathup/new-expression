@@ -547,7 +547,7 @@ function sendingTweet () {
 }
 
 function uploadFacebook (data){
-  FB.ui({
+/*  FB.ui({
   method: 'share_open_graph',
   href: 'https://new-expression.herokuapp.com/',
   url: 'https://new-expression.herokuapp.com',
@@ -567,5 +567,14 @@ function uploadFacebook (data){
   })
 }, function(response){
   console.log(response);
-});
+}); */
+FB.ui(
+  {
+    method: 'feed',
+    name: 'Scribblez',
+    href: 'https://new-expression.herokuapp.com',
+    picture: "https://new-expression.herokuapp.com/" + data
+  }
+);
+con
 }

@@ -562,7 +562,8 @@ function uploadFacebook (data){
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg',
         'og:image:width': '1200',
-        'og:image:height': '630'
+        'og:image:height': '630',
+        'og:type': 'scribblez:article'
       }
   })
 }, function(response){

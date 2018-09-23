@@ -547,24 +547,13 @@ function sendingTweet () {
 }
 
 function uploadFacebook (data){
-  FB.ui({
-  method: 'share_open_graph',
-  href: 'https://new-expression.herokuapp.com/'+data,
-  url: 'https://new-expression.herokuapp.com',
-  action_type: 'og.shares',
-  action_properties: JSON.stringify({
-      object: {
-        'og:title': 'Scribblez',
-        'og:site_name': 'https://new-expression.herokuapp.com',
-        'og:url': 'https://new-expression.herokuapp.com',
-        'og:description': 'Say something, by drawing something',
-        'fb:app_id': '519899595123870',
-        'og:image': 'https://new-expression.herokuapp.com/'+data,
-        'og:image:type': 'image/jpeg',
-        'og:image:width': '1200',
-        'og:image:height': '630'
-      }
-  })
+  FB.api('me/photos', 'post', {
+      message: 'Only use message and url so the pictures takes all the space',
+      url: 'https://newexpression.herokuapp.com/'+data
+      }, function (r) {
+          alert(JSON.stringify(r));
+      });
+  }
 }, function(response){
   console.log(response);
 });

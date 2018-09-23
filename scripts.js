@@ -555,7 +555,6 @@ function uploadFacebook (data){
   action_properties: JSON.stringify({
       object: {
         'og:title': 'Scribblez',
-        'og:type': 'scribblez:quiz',
         'og:site_name': 'https://new-expression.herokuapp.com',
         'og:url': 'https://new-expression.herokuapp.com',
         'og:description': 'Say something, by drawing something',

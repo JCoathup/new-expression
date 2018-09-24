@@ -547,6 +547,10 @@ function sendingTweet () {
 }
 
 function uploadFacebook (data){
+  var meta = document.createElement('meta');
+meta.property = "og:image";
+meta.content = 'https://new-expression.herokuapp.com/'+data;
+document.getElementsByTagName('head')[0].appendChild(meta);
  FB.ui({
   method: 'share_open_graph',
   href: 'https://new-expression.herokuapp.com/',

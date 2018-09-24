@@ -553,6 +553,7 @@ meta.content = window.innerWidth;
 document.getElementsByTagName('head')[0].appendChild(meta);
  FB.ui({
   method: 'share_open_graph',
+  display: 'page',
   href: 'https://new-expression.herokuapp.com/',
   url: 'https://new-expression.herokuapp.com',
   action_type: 'og.shares',

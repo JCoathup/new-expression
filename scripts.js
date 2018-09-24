@@ -555,6 +555,7 @@ document.getElementsByTagName('head')[0].appendChild(meta);
   method: 'share_open_graph',
   href: 'https://new-expression.herokuapp.com/'+data,
   url: 'https://new-expression.herokuapp.com'+data,
+  picture: 'https://new-expression.herokuapp.com/'+data,
   action_type: 'og.shares',
   action_properties: JSON.stringify({
       object: {

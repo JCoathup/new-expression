@@ -8,15 +8,7 @@ var fs = require('fs'),
     server = http.createServer(app),
     io = require('socket.io').listen(server),
     connections = [],
-    nodemailer = require('nodemailer'),
-    OAuth= require('oauth').OAuth,
-    passport = require('passport'),
-    util = require('util'),
-    TwitterStrategy = require('passport-twitter').Strategy,
-    session = require('express-session'),
-    cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
-
+    nodemailer = require('nodemailer');
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){

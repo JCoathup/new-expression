@@ -19,6 +19,7 @@ Whatsapp
 service workers
 expand manifest.json
 Logos
+after changing something in menu touching canvas closes menu
 thickness icons on smaller devices - adjust css
 iOS - let to var
 erase on rotate and resize

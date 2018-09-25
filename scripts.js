@@ -367,7 +367,7 @@ function canvasToImage(backgroundColor)
  		context.fillRect(0,0,w,h);
  	}
  	//get the image data from the canvas
- 	var imageData = this._canvas.toDataURL("image/jpeg");
+ 	var imageData = this.canvas.toDataURL("image/jpeg");
  	if(backgroundColor)
  	{
  		//clear the canvas

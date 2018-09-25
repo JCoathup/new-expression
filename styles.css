@@ -203,7 +203,7 @@ html {
 }
 body {
   margin:0;
-  position:relative;
+  position:fixed;
   background-color:#000;
   overflow:hidden;
   padding:0;

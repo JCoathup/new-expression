@@ -238,8 +238,8 @@ document.addEventListener("mouseup", function(e){
 });
 // Set up touch events for mobile, etc
 document.addEventListener("touchstart", function(e){
-  e.preventDefault();
-  e.stopPropagation();
+  //e.preventDefault();
+  //e.stopPropagation();
   if (e.target && e.target.id == "canvas"){
     document.body.style.overflow = "hidden";
     e.preventDefault();

@@ -94,7 +94,7 @@ document.addEventListener("click", function(e){
   if (e.target && e.target.classList.contains("colour")){
     let background = document.querySelector("#background");
     if (background.classList.contains("button--active")){
-      canvas.style.backgroundColor = e.target.id;
+      _canvas.style.backgroundColor = e.target.id;
     }
     let _colour = document.querySelector("#colour");
     if (_colour.classList.contains("button--active")){
@@ -127,7 +127,7 @@ document.addEventListener("click", function(e){
   }
   if (e.target && e.target.id == "facebook"){
     let facebookData = {};
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     facebookData.image = canvasToImage(bgd);
     var source;
     FB.login(function(response){
@@ -147,13 +147,13 @@ document.addEventListener("click", function(e){
     openMenu();
     _navigation.classList.remove('nav--move');
     let link = document.createElement('a');
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     let filename = Date.now();
     let img = canvasToImage(bgd);
     link.href = img;
     link.setAttribute("download", filename + ".jpg");
-    if (canvas.msToBlob) { //for IE
-     var blob = canvas.msToBlob();
+    if (_canvas.msToBlob) { //for IE
+     var blob = _canvas.msToBlob();
      window.navigator.msSaveBlob(blob, filename + '.jpg');
     } else{
       doClick(link);
@@ -167,7 +167,7 @@ document.addEventListener("click", function(e){
     _pallette.classList.remove("pallette--active");
     openMenu();
     _navigation.classList.remove('nav--move');
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     let variable = canvasToImage(bgd);
     console.log(variable);
     let _lightbox = document.querySelector(".lightbox");
@@ -180,7 +180,7 @@ document.addEventListener("click", function(e){
                           </aside>`
   }
   if (e.target && e.target.id == "cancelEmail"){
-    let bgd = canvas.style.backgroundColor;
+    let bgd = _canvas.style.backgroundColor;
     let img = new Image();
     img.src = canvasToImage(bgd);
     let _lightbox = document.querySelector(".lightbox");
@@ -193,7 +193,7 @@ document.addEventListener("click", function(e){
     let data = {}
     data.emailAddress = document.querySelector("#emailAddress").value;
     data.comment = document.querySelector("#comment").value;
-    let bgd = canvas.style.backgroundColor
+    let bgd = _canvas.style.backgroundColor
     data.image = canvasToImage(bgd);
     socket.emit("email", data);
     let _lightbox = document.querySelector(".lightbox");
@@ -283,11 +283,11 @@ document.addEventListener("touchend", function(e){
 }, false);
 //actual program begins here
 
-let canvas = document.querySelector("#canvas");
-let context = canvas.getContext("2d");
-canvas.setAttribute("width", window.innerWidth);
-canvas.setAttribute("height", window.innerHeight);
-canvas.style.backgroundColor = "#000000";
+let _canvas = document.querySelector("#canvas");
+let context = _canvas.getContext("2d");
+_canvas.setAttribute("width", window.innerWidth);
+_canvas.setAttribute("height", window.innerHeight);
+_canvas.style.backgroundColor = "#000000";
 context.fillStyle = '#ffffff';
 context.strokeStyle = '#ffffff';
 let radius = 1;
@@ -321,8 +321,8 @@ function clrscreen(){
   openMenu();
   _pallette.classList.remove('pallette--active');
   _navigation.classList.remove('nav--move');
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  canvas.style.backgroundColor = '#000000';
+  context.clearRect(0, 0, _canvas.width, _canvas.height);
+  _canvas.style.backgroundColor = '#000000';
   radius = 1;
   context.fillStyle = '#ffffff';
   context.strokeStyle = '#ffffff';
@@ -336,8 +336,8 @@ function erase (){
   _pallette.classList.remove('pallette--active');
   _navigation.classList.remove('nav--move');
   context.globalCompositeOperation = "destination-out";
-  context.strokeStyle = canvas.style.backgroundColor;
-  context.fillStyle = canvas.style.backgroundColor;
+  context.strokeStyle = _canvas.style.backgroundColor;
+  context.fillStyle = _canvas.style.backgroundColor;
 }
 //resets colours after erase ended
 function resetErase (col){
@@ -350,8 +350,8 @@ function resetErase (col){
 function canvasToImage(backgroundColor)
 {
 //cache height and width
-  var w = canvas.width;
- 	var h = canvas.height;
+  var w = _canvas.width;
+ 	var h = _canvas.height;
  	var data;
  	if(backgroundColor)
  	{
@@ -367,7 +367,7 @@ function canvasToImage(backgroundColor)
  		context.fillRect(0,0,w,h);
  	}
  	//get the image data from the canvas
- 	var imageData = this.canvas.toDataURL("image/jpeg");
+ 	var imageData = this._canvas.toDataURL("image/jpeg");
  	if(backgroundColor)
  	{
  		//clear the canvas
@@ -387,37 +387,37 @@ function canvasResize(){
   resetErase(lastColour);
   let ink = context.fillStyle;
   let tempCanvas = document.createElement('canvas');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
-  let scale = Math.min(canvas.width / tempCanvas.width, canvas.height / tempCanvas.height);
-  let x = (canvas.width / 2) - (tempCanvas.width / 2) * scale;
-  let y = (canvas.height / 2) - (tempCanvas.height / 2) * scale;
+  tempCanvas.width = _canvas.width;
+  tempCanvas.height = _canvas.height;
+  let scale = Math.min(_canvas.width / tempCanvas.width, _canvas.height / tempCanvas.height);
+  let x = (_canvas.width / 2) - (tempCanvas.width / 2) * scale;
+  let y = (_canvas.height / 2) - (tempCanvas.height / 2) * scale;
   tempCanvas.getContext('2d').drawImage(canvas, 0, 0);
-  canvas.setAttribute("width", window.innerWidth);
-  canvas.setAttribute("height", window.innerHeight);
-  if (tempCanvas.width > canvas.width || tempCanvas.height > canvas.height){
-    canvas.setAttribute("width", tempCanvas.width);
-    canvas.setAttribute("height", tempCanvas.height);
+  _canvas.setAttribute("width", window.innerWidth);
+  _canvas.setAttribute("height", window.innerHeight);
+  if (tempCanvas.width > _canvas.width || tempCanvas.height > _canvas.height){
+    _canvas.setAttribute("width", tempCanvas.width);
+    _canvas.setAttribute("height", tempCanvas.height);
     console.log("BIGGER");
-    let scale = Math.max(tempCanvas.width / canvas.width, tempCanvas.height / canvas.height);
-    canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
+    let scale = Math.max(tempCanvas.width / _canvas.width, tempCanvas.height / _canvas.height);
+    _canvas.getContext('2d').drawImage(tempCanvas, 0, 0, tempCanvas.width, tempCanvas.height);
     context.fillStyle = ink;
     context.strokeStyle = ink;
     return;
   }
   console.log("SMALLER");
-  canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
+  _canvas.getContext('2d').drawImage(tempCanvas, x, y, tempCanvas.width*scale, tempCanvas.height*scale);
   context.fillStyle = ink;
   context.strokeStyle = ink;
 }
 //handles device rotation
 function drawRotated(degrees){
   console.log(degrees);
-  context.clearRect(0,0,canvas.width,canvas.height);
+  context.clearRect(0,0,_canvas.width,_canvas.height);
   context.save();
-  canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-  canvas.setAttribute("height", window.innerWidth);
-  context.translate(canvas.width/2,canvas.height/2);
+  _canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
+  _canvas.setAttribute("height", window.innerWidth);
+  context.translate(_canvas.width/2,_canvas.height/2);
   context.rotate(degrees*Math.PI/180);
   context.drawImage(tempCanvas,-tempCanvas.width/2,-tempCanvas.height/2);
   context.restore();
@@ -425,7 +425,7 @@ function drawRotated(degrees){
 //handles 180 rotation
 function drawRotated180(degrees){
   console.log(degrees);
-  context.clearRect(0,0,canvas.width,canvas.height);
+  context.clearRect(0,0,_canvas.width,_canvas.height);
   context.save();
   //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
   //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
@@ -471,9 +471,9 @@ function OrientationshiftNew(){
   let angleInDegrees=screen;
   tempCanvas = document.createElement('canvas');
   tempContext = tempCanvas.getContext('2d');
-  tempCanvas.width = canvas.width;
-  tempCanvas.height = canvas.height;
-  tempContext.drawImage(canvas, 0, 0);
+  tempCanvas.width = _canvas.width;
+  tempCanvas.height = _canvas.height;
+  tempContext.drawImage(_canvas, 0, 0);
   if (screen == 0){
     switch(window.orientation){
       case -90:
@@ -541,7 +541,7 @@ function sendingTweet () {
   let tweetData = {};
   tweetData.tweetContent = document.querySelector("#tweetContent").value;
   console.log("got it" + document.querySelector("#tweetContent").value);
-  let bgd = canvas.style.backgroundColor;
+  let bgd = _canvas.style.backgroundColor;
   tweetData.image = canvasToImage(bgd);
   socket.emit('dispatch', tweetData);
 }

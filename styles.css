@@ -87,18 +87,22 @@
 
 }
 .icofont-download:before {
+  margin:0 auto;
   content: "\efdd";
 }
 .icofont-navigation-menu:before {
 	content: "\f080";
 }
 .icofont-social-facebook:before {
+  margin:0 auto;
 	content: "\ee08";
 }
 .icofont-social-twitter:before {
+  margin:0 auto;
 	content: "\ee34";
 }
 .icofont-social-whatsapp:before {
+  margin:0 auto;
 	content: "\f135";
 }
 .icofont-share{
@@ -130,6 +134,7 @@ a#download {
   color:#000;
 }
 .icofont-email:before{
+  margin:0 auto;
   content:"\efe4";
 }
 .icofont-eraser-alt{

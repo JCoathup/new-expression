@@ -347,7 +347,7 @@ main {
 
 .icofont-navigation-menu, .icofont-delete-alt, .icofont-share:before, .icofont-edit-alt:before, .icofont-trash:before, .icofont-eraser-alt:before, .icofont-color-bucket:before, .icofont-color-picker:before, .icofont-file-alt:before {
   /*padding-right:4%;*/
-  text-align:center;
+  margin:0 auto;
   font-size:36px;
 }
 .navigation{

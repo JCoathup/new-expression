@@ -250,10 +250,12 @@ nav {
 li {
   position:relative;
   flex-grow:1;
+  text-align:center;
 }
 
 button{
   display: flex;
+  text-align:center;
 	justify-content: center;
 	align-items: center;
 	position: absolute;

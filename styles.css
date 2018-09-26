@@ -345,7 +345,7 @@ main {
 	overflow: hidden;
 }
 
-.icofont-navigation-menu, .icofont-delete-alt, .icofont-share:before, .icofont-edit-alt:before, .icofont-trash:before, .icofont-eraser-alt:before, .icofont-color-bucket:before, .icofont-color-picker:before, .icofont-file-alt:before {
+.icofont-navigation-menu, .icofont-delete-alt:before, .icofont-share:before, .icofont-edit-alt:before, .icofont-trash:before, .icofont-eraser-alt:before, .icofont-color-bucket:before, .icofont-color-picker:before, .icofont-file-alt:before {
   /*padding-right:4%;*/
   margin:0 auto;
   font-size:36px;

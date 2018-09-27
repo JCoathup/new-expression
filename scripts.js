@@ -169,7 +169,6 @@ document.addEventListener("click", function(e){
     _navigation.classList.remove('nav--move');
     let bgd = _canvas.style.backgroundColor;
     let variable = canvasToImage(bgd);
-    console.log(variable);
     let _lightbox = document.querySelector(".lightbox");
     _lightbox.classList.toggle("lightbox-target");
     _lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">

@@ -15,6 +15,7 @@ Facebook facebook page
 Twitter oauth
 Instagram
 Whatsapp
+Google+
 
 service workers
 expand manifest.json
@@ -23,6 +24,6 @@ after changing something in menu touching canvas closes menu
 thickness icons on smaller devices - adjust css
 git ignore file - uploads
 clean keys for github upload
-iOS - safari resize on height - smaller window
+iOS - ipad?
 erase on rotate and resize
 'titles' for Icons

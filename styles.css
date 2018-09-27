@@ -82,10 +82,6 @@
     top: .14285714em;
     text-align: center;
 }
-
-.icofont-navigation-menu {
-
-}
 .icofont-download:before {
   margin:0 auto;
   content: "\efdd";
@@ -217,11 +213,10 @@ body {
 }
 nav {
   position: fixed;
-	/*z-index: 1;*/
 	top: 0;
 	left: 0;
 	width: 10%;
-  min-width:65px;
+  min-width:75px;
 	backface-visibility: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -354,9 +349,6 @@ main {
   /*padding-right:4%;*/
   margin:0 auto;
   font-size:36px;
-}
-.navigation{
-
 }
 .pallette {
   background-color:#272b2e;

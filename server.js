@@ -24,10 +24,9 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
-    app.get('/', function(res, req){
-      //twiiter login
-      console.log("logging itno twitter");
-    })
+
+    //logging in with twitter
+    console.log("twitter login starts here!!!");
     console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

@@ -1,6 +1,6 @@
 {
-  "short-name": "Expressions",
-  "name": "Expressions",
+  "short-name": "Scribblez",
+  "name": "Scribblez",
   "icons": [
     {
       "src": "images/icon192.png",
@@ -15,6 +15,16 @@
     {
       "src": "images/icon512.png",
       "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon1200.png",
+      "sizes": "1200x1200",
       "type": "image/png"
     }
   ],

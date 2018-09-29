@@ -8,7 +8,7 @@ drawing detioration on rotate -antialiasing and interpolation
 
 FUTURE FUNCTIONALITY
 ====================
-
+add text
 Social media
 ============
 Facebook facebook page
@@ -22,8 +22,7 @@ expand manifest.json
 Logos
 after changing something in menu touching canvas closes menu
 thickness icons on smaller devices - adjust css
-git ignore file - uploads
 clean keys for github upload
 iOS - ipad?
+iOS - looks crap on iphone
 erase on rotate and resize
-'titles' for Icons

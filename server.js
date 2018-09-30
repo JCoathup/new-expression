@@ -10,13 +10,39 @@ var fs = require('fs'),
     connections = [],
     nodemailer = require('nodemailer'),
     passport = require('passport'),
-    TwitterStrategy = require('passport-twitter');
+    TwitterStrategy = require('passport-twitter').Strategy,
+  LocalStrategy = require('passport-local').Strategy,
+  session = require("express-session");
 
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})
 })
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+
+passport.use(new TwitterStrategy({
+    consumerKey : config.consumer_key,
+    consumerSecret: config.consumer_secret,
+    callbackURL: "https://new-expression.herokuapp.com",
+    passReqToCallback: true
+  },  function(token, tokenSecret, profile, cb) {
+      //return cb(err, user);
+      console.log("anything!!")
+    }));
+app.get('/twitter', passport.authenticate('twitter'),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log("authenticated");
+    res.redirect('/');
+
+  });
+
 server.listen(process.env.PORT || 3000);
 console.log("server running");
 var T = new Twit(config);
@@ -27,25 +53,8 @@ io.sockets.on('connection', function(socket) {
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
   socket.on('dispatch', function(data){
+    console.log("logging in with twitter");
 
-    //logging in with twitter
-    passport.use(
-      new TwitterStrategy({
-        consumerKey : config.consumer_key,
-        consumerSecret: config.consumer_secret,
-        callbackURL: "/"
-      },  function(token, tokenSecret, profile, cb) {
-    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-      return cb(err, user);
-      console.log(twitterId);
-    });
-  }
-))
-    passport.authenticate('twitter', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  }
     /*console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

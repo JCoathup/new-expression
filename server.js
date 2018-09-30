@@ -8,7 +8,10 @@ var fs = require('fs'),
     server = http.createServer(app),
     io = require('socket.io').listen(server),
     connections = [],
-    nodemailer = require('nodemailer');
+    nodemailer = require('nodemailer'),
+    passport = require('passport'),
+    TwitterStrategy = require('passport-twitter');
+
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -26,8 +29,24 @@ io.sockets.on('connection', function(socket) {
   socket.on('dispatch', function(data){
 
     //logging in with twitter
-    console.log("twitter login starts here!!!");
-    console.log(socket.id, "tweeted", data.tweetContent);
+    passport.use(
+      new TwitterStrategy({
+        consumerKey : config.consumer_key,
+        consumerSecret: config.consumer_secret,
+        callbackURL: "/"
+      },  function(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+      return cb(err, user);
+      console.log(twitterId);
+    });
+  }
+))
+    passport.authenticate('twitter', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  }
+    /*console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     var buf = new Buffer(image, 'base64');
@@ -55,7 +74,7 @@ io.sockets.on('connection', function(socket) {
         console.log("it worked");
       }
     }
-  });
+  });*/
   });
   socket.on ("facebook", function(data){
     console.log(data);

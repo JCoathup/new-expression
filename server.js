@@ -30,7 +30,7 @@ app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "https://new-expression.herokuapp.com",
+    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
     process.nextTick(function () {
@@ -54,6 +54,12 @@ app.get('/twitter', passport.authenticate('twitter'),
     console.log(profile);
     console.log("authenticated");
     res.redirect('/');
+  });
+  app.get("/", passport.authenticate('twitter'), function(req, res){
+    res.send("you reached the callback uri");
+  });
+  app.get('/twitter/callback', function(req, res){
+    res.send("you reached the callback uri");
   });
 server.listen(process.env.PORT || 3000);
 console.log("server running");

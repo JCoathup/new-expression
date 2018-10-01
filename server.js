@@ -25,22 +25,35 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: true }
 }))
-
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
     callbackURL: "https://new-expression.herokuapp.com",
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
-      //return cb(err, user);
-      console.log("anything!!")
-    }));
+    process.nextTick(function () {
+      console.log("profile");
+      return cb(null, profile);
+    });
+    console.log(profile);
+  }));
+
+  passport.serializeUser(function(user, cb) {
+    cb(null, user);
+  });
+
+  passport.deserializeUser(function(obj, cb) {
+    cb(null, obj);
+  });
+
 app.get('/twitter', passport.authenticate('twitter'),
   function(req, res) {
     // Successful authentication, redirect home.
+    console.log(profile);
     console.log("authenticated");
     res.redirect('/');
-
   });
 
 server.listen(process.env.PORT || 3000);

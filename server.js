@@ -30,14 +30,14 @@ passport.use(new TwitterStrategy({
     consumerSecret: config.consumer_secret,
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     passReqToCallback: true
-  },  function(token, tokenSecret, profile, cb) {
+  },  function(token, tokenSecret, profile, done) {
     if (profile) {
     user = profile;
     console.log(user);
-    return cb(null, user);
+    return done(null, user);
     }
     else {
-    return cb(null, false);
+    return done(null, false);
     }
   }));
 

@@ -33,10 +33,11 @@ passport.use(new TwitterStrategy({
   },  function(token, tokenSecret, profile, cb) {
     if (profile) {
     user = profile;
-    return done(null, user);
+    console.log(user);
+    return cb(null, user);
     }
     else {
-    return done(null, false);
+    return cb(null, false);
     }
   }));
 

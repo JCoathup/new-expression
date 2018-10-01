@@ -11,7 +11,6 @@ var fs = require('fs'),
     nodemailer = require('nodemailer'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
-  LocalStrategy = require('passport-local').Strategy,
   session = require("express-session");
 
 
@@ -30,10 +29,12 @@ app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
+    callbackURL: "/twitter/callback",
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
-    console.log("now authenticated");
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+  return cb(err, user);
+});
   }));
 
   passport.serializeUser(function(user, cb) {

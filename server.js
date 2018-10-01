@@ -29,7 +29,7 @@ app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "/twitter/callback",
+    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
     User.findOrCreate({ twitterId: profile.id }, function (err, user) {

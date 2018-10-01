@@ -30,7 +30,7 @@ app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
+    callbackURL: "https://localhost/twitter/callback",
     passReqToCallback: true
   },  function() {
     console.log("now authenticated");

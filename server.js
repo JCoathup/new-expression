@@ -32,11 +32,8 @@ passport.use(new TwitterStrategy({
     consumerSecret: config.consumer_secret,
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     passReqToCallback: true
-  },  function(token, tokenSecret, profile, cb) {
-    process.nextTick(function () {
-      console.log("profile");
-      return cb(null, profile);
-    });
+  },  function() {
+    console.log("now authenticated");
   }));
 
   passport.serializeUser(function(user, cb) {

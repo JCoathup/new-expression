@@ -21,8 +21,7 @@ app.get('/', function (req, res){
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: true
 }))
 app.use(passport.initialize());
 app.use(passport.session());

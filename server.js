@@ -19,7 +19,14 @@ app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})
 })
-
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
@@ -44,6 +51,7 @@ app.get('/twitter', passport.authenticate('twitter'),
     console.log("authenticated");
     res.redirect('/');
   });
+
   app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
     res.send("you reached the callback uri");
   });

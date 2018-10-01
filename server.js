@@ -32,6 +32,7 @@ passport.use(new TwitterStrategy({
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
 console.log("working???????");
+console.log(profile);
   }));
 
   passport.serializeUser(function(user, cb) {

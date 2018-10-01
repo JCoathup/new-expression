@@ -31,7 +31,9 @@ passport.use(new TwitterStrategy({
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
-console.log(profile.id);
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
   }));
 
   passport.serializeUser(function(user, cb) {

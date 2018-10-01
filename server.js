@@ -37,7 +37,6 @@ passport.use(new TwitterStrategy({
       console.log("profile");
       return cb(null, profile);
     });
-    console.log(profile);
   }));
 
   passport.serializeUser(function(user, cb) {
@@ -58,7 +57,7 @@ app.get('/twitter', passport.authenticate('twitter'),
   app.get("/", passport.authenticate('twitter'), function(req, res){
     res.send("you reached the callback uri");
   });
-  app.get('/twitter/callback', function(req, res){
+  app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
     res.send("you reached the callback uri");
   });
 server.listen(process.env.PORT || 3000);

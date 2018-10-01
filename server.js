@@ -32,7 +32,7 @@ passport.use(new TwitterStrategy({
     passReqToCallback: true
   },  function(token, tokenSecret, profile, cb) {
     User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-      console.log("PROFILE:" twitterId);
+      console.log("PROFILE:" + twitterId);
        return cb(err, user);
      });
   }));

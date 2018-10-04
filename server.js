@@ -99,7 +99,7 @@ app.get('/twitter', passport.authenticate('twitter'),
       else {
         console.log(data);
         res.end("all is well");
-        socket.emit("closeWindow", data);
+        closeWindow();
       }
       //callbacker(error, data);
     })
@@ -178,6 +178,9 @@ io.sockets.on('connection', function(socket) {
     connections.splice(connections.indexOf(socket), 1);
     console.log('Disconnected: %s sockets connected', connections.length);
   });
+  function closeWindow(){
+    socket.emit("closeWindow");
+  }
   socket.on('email', function(data){
     console.log(socket.id, "posted", data.comment);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

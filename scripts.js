@@ -120,7 +120,7 @@ document.addEventListener("click", function(e){
     _shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button title = "email" class='share icofont icofont-email menuItems' id="email" style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems'id="facebook" style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
-                            <li><a href="/twitter"><button class='share icofont icofont-social-twitter menuItems' id="tweet" style='font-size:84px; color:#fff; background-color: #0084B4;'></button></a></li>
+                            <li><a href="/twitter" target="_blank"><button class='share icofont icofont-social-twitter menuItems' id="tweet" style='font-size:84px; color:#fff; background-color: #0084B4;'></button></a></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
     let _menuItems = document.querySelectorAll(".menuItems");
     Animation(_menuItems);

@@ -13,11 +13,11 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-var user ={}, oauth;
+var user ={}, oAuth;
 
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
-  oAuth= new OAuth(
+  oAuth = new OAuth(
   "http://twitter.com/oauth/request_token",
   "http://twitter.com/oauth/access_token",
   config.consumer_key, config.consumer_secret,

@@ -120,7 +120,7 @@ document.addEventListener("click", function(e){
     _shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button title = "email" class='share icofont icofont-email menuItems' id="email" style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems'id="facebook" style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
-                            <li><a href="https://twitter.com/intent/tweet" target="_blank"><button class='share icofont icofont-social-twitter menuItems' id='tweet' style='font-size:84px; color:#fff; background-color: #0084B4;'></button></a></li>
+                            <li><button class='share icofont icofont-social-twitter menuItems' id="tweet" style='font-size:84px; color:#fff; background-color: #0084B4;'></button></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
     let _menuItems = document.querySelectorAll(".menuItems");
     Animation(_menuItems);
@@ -141,7 +141,19 @@ document.addEventListener("click", function(e){
     })
 
     });
-  }
+  }/*
+  if (e.target && e.target.id == "tweet"){
+    console.log("twitter");
+    let twitterData = {};
+    let bgd = _canvas.style.backgroundColor;
+    twitterData.image = canvasToImage(bgd);
+    socket.emit("twitter", twitterData);
+    socket.on("twitterReply", function(data){
+      console.log(data);
+      source = data;
+      uploadTwitter(source);
+    })
+  }*/
   if (e.target && e.target.id == "download"){
     _pallette.classList.remove("pallette--active");
     openMenu();
@@ -199,6 +211,7 @@ document.addEventListener("click", function(e){
     _lightbox.classList.toggle("lightbox-target");
   }
   if (e.target && e.target.id == "tweet"){
+    console.log("here");
     tweet();
   }
   if (e.target && e.target.id == "sendTweet"){
@@ -527,12 +540,11 @@ function OrientationshiftNew(){
 
 //handles tweet functionality
 function tweet () {
+  console.log("there");
   let _lightbox = document.querySelector(".lightbox");
   _lightbox.classList.toggle("lightbox-target");
   _lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
-                        <textarea id="tweetContent" maxlength="140">#Scribblez...</textarea>
-                        <button id="sendTweet">TWEET</button>
-                        <button id="cancelTweet">CANCEL</button>
+                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet" data-size="large">Tweet</a>
                         </aside>`;
 }
 //sending a tweet
@@ -572,13 +584,10 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 }, function(response){
   console.log(response);
 });
-/* FB.ui(
-  {
-    method: 'feed',
-    name: 'Scribblez',
-    href: 'https://new-expression.herokuapp.com',
-    picture: "https://new-expression.herokuapp.com/" + data,
-    caption: "Say something by drawing it"
-  }
-); */
+
+}
+function uploadTwitter(data){
+  console.log ('https://new-expression.herokuapp.com/'+data);
+  var meta = document.createElement('meta');
+window.location.href = "https://twitter.com/intent/tweet";
 }

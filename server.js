@@ -13,7 +13,27 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-var user ={};
+var user ={}, oauth;
+
+function initTwitterPost(){
+  var OAuth= require('oauth').OAuth;
+  oAuth= new OAuth(
+  "http://twitter.com/oauth/request_token",
+  "http://twitter.com/oauth/access_token",
+  config.consumer_key, config.consumer_secret,
+  "1.0A", null, "HMAC-SHA1"
+);
+}
+
+function postTweet(cb){
+  oAuth.post(
+    "https://api.twitter.com/1.1/statuses/update.json",
+    user.token, user.tokenSecret,
+    {"status":"Need somebody to love me!"},
+    cb;
+  );
+}
+
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})
@@ -38,7 +58,6 @@ passport.use(new TwitterStrategy({
     user.tokenSecret = tokenSecret;
     console.log(user);
     console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
-
     return done(null, user);
     }
     else {
@@ -65,6 +84,19 @@ app.get('/twitter', passport.authenticate('twitter'),
   app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
     res.send("you reached the callback uri");
   });
+  app.get('/twitter/tweet', function(req, res(){
+    postTweet(function(error, data) {
+      if{(error) console.log(require('sys').inspect(error));
+        res.end("bad stuff happened");
+      }
+      else {
+        console.log(data);
+        res.end("all is well");
+      }
+      cb(error, data);
+    })
+
+  }))
 server.listen(process.env.PORT || 3000);
 console.log("server running");
 var T = new Twit(config);

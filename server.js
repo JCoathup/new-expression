@@ -26,6 +26,7 @@ function initTwitterPost(){
 }
 
 function postTweet(cb){
+  initTwitterPost();
   if (!user.token) {
       console.error("You didn't have the user log in first");
     }

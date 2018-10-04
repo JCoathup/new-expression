@@ -89,6 +89,9 @@ app.get('/twitter', passport.authenticate('twitter'),
 
   app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
     res.send("you reached the callback uri");
+    response.writeHead(302, {
+  'Location': '/twitter/tweet'
+});
   });
   app.get('/twitter/tweet', function(req, res){
     postTweet(function(error, data) {

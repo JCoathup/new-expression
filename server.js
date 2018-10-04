@@ -30,7 +30,7 @@ function postTweet(cb){
     "https://api.twitter.com/1.1/statuses/update.json",
     user.token, user.tokenSecret,
     {"status":"Need somebody to love me!"},
-    cb;
+    cb
   );
 }
 

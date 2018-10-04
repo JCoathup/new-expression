@@ -13,7 +13,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-
+var user ={};
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})
@@ -31,9 +31,13 @@ passport.use(new TwitterStrategy({
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     //passReqToCallback: true
   },  function(token, tokenSecret, profile, done) {
+    user.token = token;
+    user.tokenSecret = tokenSecret;
     if (profile) {
     user = profile;
     console.log(user);
+    console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
+
     return done(null, user);
     }
     else {

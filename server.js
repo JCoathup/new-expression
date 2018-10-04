@@ -13,11 +13,11 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-var user ={}, oAuth;
+var user ={}, oA;
 
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
-  oAuth = new OAuth(
+  oA = new OAuth(
   "http://twitter.com/oauth/request_token",
   "http://twitter.com/oauth/access_token",
   config.consumer_key, config.consumer_secret,
@@ -26,7 +26,7 @@ function initTwitterPost(){
 }
 
 function postTweet(cb){
-  oAuth.post(
+  oA.post(
     "https://api.twitter.com/1.1/statuses/update.json",
     user.token, user.tokenSecret,
     {"status":"Need somebody to love me!"},

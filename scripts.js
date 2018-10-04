@@ -590,6 +590,3 @@ function uploadTwitter(data){
   console.log ("TWEET GOES HERE "+'https://new-expression.herokuapp.com/'+data);
 
 }
-socket.on("closeWindow", function(){
-  close.window();
-})

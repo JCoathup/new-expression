@@ -35,7 +35,7 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , { "status": "A test", "card_uri": twitterCard }
+    , { "status": "A test for now", "card_uri": twitterCard }
     , callbacker
     );
 }

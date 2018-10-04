@@ -100,7 +100,7 @@ app.get('/twitter', passport.authenticate('twitter'),
         console.log(data);
         res.end("all is well");
       }
-      callbacker(error, data);
+      //callbacker(error, data);
     })
 
   })

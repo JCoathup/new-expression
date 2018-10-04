@@ -13,7 +13,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-var user ={}, oA;
+var user ={}, oA, twitterCard;
 
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
@@ -35,7 +35,7 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , { "status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
+    , { "status": "A test", "card_uri": twitterCard }
     , callbacker
     );
 }
@@ -169,6 +169,7 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     socket.emit("twitterReply", filename);
     console.log(filename);
+    twitterCard = "https://new-expression.herokuapp.com/"+filename;
     });
 
   });

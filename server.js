@@ -29,7 +29,7 @@ function postTweet(cb){
   if (!user.token) {
       console.error("You didn't have the user log in first");
     }
-    oa.post(
+    oA.post(
       "https://api.twitter.com/1.1/statuses/update.json"
     , user.token
     , user.tokenSecret

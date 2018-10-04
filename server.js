@@ -31,10 +31,11 @@ passport.use(new TwitterStrategy({
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     //passReqToCallback: true
   },  function(token, tokenSecret, profile, done) {
-    user.token = token;
-    user.tokenSecret = tokenSecret;
+
     if (profile) {
     user = profile;
+    user.token = token;
+    user.tokenSecret = tokenSecret;
     console.log(user);
     console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
 

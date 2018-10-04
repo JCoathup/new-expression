@@ -99,7 +99,7 @@ app.get('/twitter', passport.authenticate('twitter'),
       else {
         console.log(data);
         res.end("all is well");
-        window.close();
+        socket.emit("closeWindow", data);
       }
       //callbacker(error, data);
     })

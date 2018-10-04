@@ -35,7 +35,7 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , { "status": "A test for now " + twitterCard + " waheey"}
+  //  , { "status": "A test for now " + twitterCard + " waheey"}
     , callbacker
     );
 }
@@ -89,9 +89,7 @@ app.get('/twitter', passport.authenticate('twitter'),
 
   app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
     res.send("you reached the callback uri");
-
-  }
-res.redirect('/twitter/tweet'););
+  });
   app.get('/twitter/tweet', function(req, res){
     postTweet(function(error, data) {
       if(error){

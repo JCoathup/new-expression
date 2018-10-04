@@ -36,7 +36,7 @@ passport.use(new TwitterStrategy({
     user = profile;
     user.token = token;
     user.tokenSecret = tokenSecret;
-    user.email = email;
+    user.profile.emails[0].value;
     console.log(user);
     console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
 

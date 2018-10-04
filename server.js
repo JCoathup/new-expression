@@ -25,7 +25,7 @@ function initTwitterPost(){
 );
 }
 
-function postTweet(cb){
+function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
       console.error("You didn't have the user log in first");
@@ -36,7 +36,7 @@ function postTweet(cb){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     , { "status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
-    , cb
+    , callbacker
     );
 }
 
@@ -100,7 +100,7 @@ app.get('/twitter', passport.authenticate('twitter'),
         console.log(data);
         res.end("all is well");
       }
-      cb(error, data);
+      callbacker(error, data);
     })
 
   })

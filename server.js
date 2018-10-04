@@ -86,7 +86,8 @@ app.get('/twitter', passport.authenticate('twitter'),
   });
   app.get('/twitter/tweet', function(req, res(){
     postTweet(function(error, data) {
-      if{(error) console.log(require('sys').inspect(error));
+      if(error){
+        console.log(require('sys').inspect(error));
         res.end("bad stuff happened");
       }
       else {

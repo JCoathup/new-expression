@@ -26,12 +26,17 @@ function initTwitterPost(){
 }
 
 function postTweet(cb){
-  oA.post(
-    "https://api.twitter.com/1.1/statuses/update.json",
-    user.token, user.tokenSecret,
-    {"status":"Need somebody to love me!"},
-    cb
-  );
+  if (!user.token) {
+      console.error("You didn't have the user log in first");
+    }
+    oa.post(
+      "https://api.twitter.com/1.1/statuses/update.json"
+    , user.token
+    , user.tokenSecret
+    // We just have a hard-coded tweet for now
+    , { "status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
+    , cb
+    );
 }
 
 app.use(express.static(__dirname + '/'));

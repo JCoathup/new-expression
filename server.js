@@ -36,8 +36,15 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     , { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}
-    , callbacker
+    , uploaded
     );
+}
+function uploaded (err, data, response){
+  console.log("Data:", data);
+  var id = data.media_id_string;
+  console.log("Media ID: ", id);
+  var tweet = {status: message, media_ids:[id]}
+  oA.post("statuses/update", tweet, tweeted);
 }
 
 app.use(express.static(__dirname + '/'));

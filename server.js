@@ -44,7 +44,7 @@ function uploaded (err, data, response){
   var id = data.media_id_string;
   console.log("Media ID: ", id);
   var tweet = {status: message, media_ids:[id]}
-  oA.post("statuses/update", tweet, tweeted);
+  oA.post("statuses/update", { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}, tweeted);
 }
 
 app.use(express.static(__dirname + '/'));

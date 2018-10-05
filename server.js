@@ -42,7 +42,7 @@ function postTweet(callbacker){
         throw err;
       }
       data = JSON.parse(data);
-      cb(data.media_id_string);
+      callbacker(data.media_id_string);
 }
     );
 }

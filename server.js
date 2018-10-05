@@ -32,13 +32,13 @@ function postTweet(callbacker){
       console.error("You didn't have the user log in first");
     }
     oA.post(
-      //"https://api.twitter.com/1.1/statuses/update.json"
-      "https://upload.twitter.com/1.1/media/upload.json"
+      "https://api.twitter.com/1.1/statuses/update.json"
+      //"https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    //,{"status": "guess what"}
-    , {"media_data": twitterImage, "media_data_string": twitterImage}
+    ,{"status": "guess what"}
+    //, {"media_data": twitterImage, "media_data_string": twitterImage}
     ,      function(error, data, response){
       console.log("start uploading here");
       console.log(data, user.token, user.tokenSecret);
@@ -52,7 +52,7 @@ function cb(data){
   console.log("first step"+data);
   var status = {
   status: 'I am a tweet...',
-  media_ids: data
+  //media_ids: data
   //media_id_string: data.media_id_string // Pass the media id string
 }
 client.post("statuses/update", status, function (err, data, response){

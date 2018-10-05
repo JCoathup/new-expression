@@ -13,7 +13,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
   session = require("express-session");
 
-var user ={}, oA, twitterCard;
+var user ={}, oA, twitterCard, twitterImage;
 
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
@@ -31,11 +31,11 @@ function postTweet(callbacker){
       console.error("You didn't have the user log in first");
     }
     oA.post(
-      "https://api.twitter.com/1.1/statuses/update.json"
+      "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , { "status": "A test for now " + twitterCard + " waheey"}
+    , { "media_data": twitterImage}
     , callbacker
     );
 }
@@ -166,6 +166,7 @@ io.sockets.on('connection', function(socket) {
     console.log(buf);
     var timestamp = Date.now();
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
+    twitterImage = timestamp+".jpg";
     var filename = "uploads/"+timestamp+".jpg";
     socket.emit("twitterReply", filename);
     console.log(filename);

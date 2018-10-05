@@ -49,6 +49,15 @@ function postTweet(callbacker){
 
 function cb(data){
   console.log("first step");
+  oA.post("statuses/update", {"status": "trial", "media_id_string": data}, function (err, data, response){
+    if (err){
+      console.log("ERROR:", err);
+    }
+    else {
+      console.log(data);
+      console.log("it worked!!!");
+    }
+  })
 }
 
 app.use(express.static(__dirname + '/'));

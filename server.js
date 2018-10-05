@@ -122,7 +122,7 @@ app.get('/twitter', passport.authenticate('twitter'),
       }
       else {
         console.log(data);
-        res.end("all is well");
+        res.end("all is well...");
       }
       //callbacker(error, data);
     })

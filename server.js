@@ -51,7 +51,7 @@ function postTweet(callbacker){
 function cb(data){
   console.log("first step"+data);
   var status = {
-  status: 'I am a tweet',
+  status: 'I am a tweet...',
   media_ids: data.media_id_string,
   //media_id_string: data.media_id_string // Pass the media id string
 }

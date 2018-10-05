@@ -11,6 +11,7 @@ var fs = require('fs'),
     nodemailer = require('nodemailer'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
+    Twitter = require('twitter');
   session = require("express-session");
 
 var user ={}, oA, twitterCard, twitterImage;
@@ -54,7 +55,7 @@ function cb(data){
   media_id: data.media_id_string,
   media_id_string: data.media_id_string // Pass the media id string
 }
-oA.post("statuses/update", status, function (err, data, response){
+client.post("statuses/update", status, function (err, data, response){
     if (!err){
       console.log(data);
       console.log("it worked!!!");
@@ -73,7 +74,15 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
-}))
+}));
+
+var client = new Twitter({
+  consumer_key: config.consumer_key,
+  consumer_secret: config.consumer_secret,
+  access_token_key: config.access_token,
+  access_token_secret: config.access_token_secret
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new TwitterStrategy({

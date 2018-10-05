@@ -18,7 +18,8 @@
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "socket.io": "^2.1.1",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "ws": "3.3.2"

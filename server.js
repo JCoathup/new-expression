@@ -38,7 +38,7 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     ,{"status": "#Scribblez. Look what I just drew "+ twitterCard}
-    , {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
+    //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,      function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+  twitterImage);
       console.log("USR TOKENS!!!!"+  user.token, user.tokenSecret);
@@ -50,6 +50,8 @@ function postTweet(callbacker){
 
 function cb(data){
   console.log("first step"+data);
+  var io = req.app.get('socketio');
+io.emit("message", "hi!");
   var status = {
   status: 'I am a tweet...',
   "media_id": data,

@@ -19,5 +19,8 @@
     "passport-twitter": "^1.0.4",
     "socket.io": "^2.1.1",
     "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
   }
 }

@@ -53,7 +53,7 @@ function cb(data){
   var status = {
   status: 'I am a tweet...',
   //media_ids: data
-  media_data_string: data.media_id_string // Pass the media id string
+  "media_data_string": data.media_id_string // Pass the media id string
 }
 client.post("statuses/update", status, function (err, data, response){
     if (!err){

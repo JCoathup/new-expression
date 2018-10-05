@@ -53,7 +53,7 @@ function cb(data){
   status: 'I am a tweet',
   media_ids: data.media_id_string // Pass the media id string
 }
-  /*oA.post("statuses/update", status, function (err, data, response){
+T.post("statuses/update", status, function (err, data, response){
     if (!err){
       console.log(data);
       console.log("it worked!!!");
@@ -61,7 +61,7 @@ function cb(data){
     else {
   console.log("ERROR:", err);
     }
-  })*/
+  })
 }
 
 app.use(express.static(__dirname + '/'));

@@ -54,12 +54,12 @@ function cb(data){
   media_ids: data.media_id_string // Pass the media id string
 }
   oA.post("statuses/update", status, function (err, data, response){
-    if (err){
-      console.log("ERROR:", err);
-    }
-    else {
+    if (!err){
       console.log(data);
       console.log("it worked!!!");
+    }
+    else {
+  console.log("ERROR:", err);
     }
   })
 }

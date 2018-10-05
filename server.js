@@ -51,9 +51,10 @@ function cb(data){
   console.log("first step"+data);
   var status = {
   status: 'I am a tweet',
-  media_ids: [data.media_id_string] // Pass the media id string
+  media_id: data.media_id_string,
+  media_id_string: data.media_id_string // Pass the media id string
 }
-T.post("statuses/update", status, function (err, data, response){
+oA.post("statuses/update", status, function (err, data, response){
     if (!err){
       console.log(data);
       console.log("it worked!!!");

@@ -31,14 +31,18 @@ function postTweet(callbacker){
       console.error("You didn't have the user log in first");
     }
     oA.post(
-      "https://api.twitter.com/1.1/statuses/update.json"
-      ,"https://upload.twitter.com/1.1/media/upload.json"
+      //"https://api.twitter.com/1.1/statuses/update.json"
+      "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    ,{"status": "guess what", "media_data": twitterImage, "media_data_string": twitterImage}
-    //, {"media_data": twitterImage, "media_data_string": twitterImage}
-    ,      callbacker
+    //,{"status": "guess what"}
+    , {"media_data": twitterImage, "media_data_string": twitterImage}
+    ,      function(error, data, response){
+      console.log("start uploading here...");
+      console.log(data);
+
+    }
 
     );
 }

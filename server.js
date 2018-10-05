@@ -68,11 +68,11 @@ app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})
 })
-app.use(session({
+/*app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
-}))
+}))*/
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new TwitterStrategy({

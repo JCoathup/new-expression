@@ -47,6 +47,16 @@ function uploaded (err, data, response){
   oA.post("statuses/update", { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}, tweeted);
 }
 
+function tweeted(err, data, response){
+  if (err){
+    console.log("ERROR:", err);
+  }
+  else {
+    console.log(data);
+    console.log("it worked");
+  }
+}
+
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})

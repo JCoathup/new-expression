@@ -130,10 +130,7 @@ app.get('/twitter', passport.authenticate('twitter'),
   })
 server.listen(process.env.PORT || 3000);
 console.log("server running");
-req.on('error', function(err)
-{
-    console.log(err);
-});
+
 var T = new Twit(config);
 
 io.sockets.on('connection', function(socket) {

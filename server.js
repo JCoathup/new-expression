@@ -42,7 +42,7 @@ function postTweet(callbacker){
 
 
 function uploaded (err, data, response){
-  oA.post("statuses/update", { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}, tweeted);
+  oA.post("statuses/update", { "status": "yippeeeee"}, tweeted);
 }
 function tweeted(err, data, response){
   if (err){

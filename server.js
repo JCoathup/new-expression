@@ -31,7 +31,7 @@ function postTweet(callbacker){
   if (!user.token) {
       console.error("You didn't have the user log in first");
     }
-    oA.post(
+    client.post(
       //"https://api.twitter.com/1.1/statuses/update.json"
       "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
@@ -79,8 +79,8 @@ app.use(session({
 var client = new Twitter({
   consumer_key: config.consumer_key,
   consumer_secret: config.consumer_secret,
-  access_token_key: user.token,
-  access_token_secret: user.tokenSecret
+  access_token_key: config.access_token,
+  access_token_secret: config.access_token_secret
 });
 
 app.use(passport.initialize());

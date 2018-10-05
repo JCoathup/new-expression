@@ -41,10 +41,14 @@ function postTweet(callbacker){
     ,      function(error, data, response){
       console.log("start uploading here...");
       console.log(data);
-
+      data = JSON.parse(data);
+      cb(data.media_id_string);
     }
-
     );
+}
+
+function cb(data){
+  console.log("first step");
 }
 
 app.use(express.static(__dirname + '/'));

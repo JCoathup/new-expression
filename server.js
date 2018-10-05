@@ -94,8 +94,8 @@ passport.use(new TwitterStrategy({
 
     if (profile) {
     user = profile;
-    user.token = token;
-    user.tokenSecret = tokenSecret;
+    user.token = JSON.stringify(token);
+    user.tokenSecret = JSON.stringify(tokenSecret);
     console.log(user);
     console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
     return done(null, user);

@@ -40,7 +40,7 @@ function postTweet(callbacker){
     //,{"status": "guess what"}
     , {"status": "trying", "media_data": twitterImage, "media_data_string": twitterImage}
     ,      function(error, data, response){
-      console.log("start uploading here. MEDIA DATA: "+  media_id_string);
+      console.log("start uploading here. MEDIA DATA: "+  media_data_string);
       console.log(data, user.token, user.tokenSecret);
       data = JSON.parse(data);
       cb(data.media_id_string);

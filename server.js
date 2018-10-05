@@ -130,7 +130,7 @@ app.get('/twitter', passport.authenticate('twitter'),
   })
 server.listen(process.env.PORT || 3000);
 console.log("server running");
-request.on('error', function(err)
+req.on('error', function(err)
 {
     console.log(err);
 });

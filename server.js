@@ -81,7 +81,7 @@ passport.use(new TwitterStrategy({
       console.log("ERROR:", err);
     }
     else {
-      console.log(data);
+      console.log("IMAGE ID"+data);
       console.log("it worked");
     }
   }

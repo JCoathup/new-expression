@@ -38,7 +38,7 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     //,{"status": "guess what"}
-    , {"status": "trying", "media_ids": twitterImage, "media_data_string": twitterImage}
+    , {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,      function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+  twitterImage);
       console.log(data, user.token, user.tokenSecret);
@@ -52,8 +52,8 @@ function cb(data){
   console.log("first step"+data);
   var status = {
   status: 'I am a tweet...',
-  //media_ids: data
-  "media_data_string": data.media_id_string // Pass the media id string
+  "media_id": data.media_id_string,
+  "media_id_string": data.media_id_string // Pass the media id string
 }
 client.post("statuses/update", status, function (err, data, response){
     if (!err){

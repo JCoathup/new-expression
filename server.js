@@ -42,11 +42,7 @@ function postTweet(callbacker){
 
 
 function uploaded (err, data, response){
-  console.log("Data:", data);
-  var id = data.media_id_string;
-  console.log("Media ID: ", id);
-  var tweet = {status: message, media_ids:[id]}
-  T.post("statuses/update", tweet, tweeted);
+  oA.post("statuses/update", { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}, tweeted);
 }
 function tweeted(err, data, response){
   if (err){

@@ -38,7 +38,7 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     //,{"status": "guess what"}
-    , {"status": "media_data": twitterImage, "media_data_string": twitterImage}
+    , {"status": "trying", "media_data": twitterImage, "media_data_string": twitterImage}
     ,      function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+ media_data, media_id_string);
       console.log(data, user.token, user.tokenSecret);

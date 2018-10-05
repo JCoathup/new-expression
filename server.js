@@ -98,7 +98,8 @@ app.get('/twitter', passport.authenticate('twitter'),
       }
       else {
         console.log(data);
-        res.end("all is well");
+        return res.end("all is well");
+        res.redirect("./twitter/tweet")
       }
       //callbacker(error, data);
     })

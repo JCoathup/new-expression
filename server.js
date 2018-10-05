@@ -55,7 +55,7 @@ function cb(data){
   //media_ids: data
   //media_id_string: data.media_id_string // Pass the media id string
 }
-client.post("statuses/update", status, function (err, data, response){
+client.post("media/upload", status, function (err, data, response){
     if (!err){
       console.log(data);
       console.log("it worked!!!");

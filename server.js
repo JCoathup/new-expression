@@ -39,6 +39,7 @@ function postTweet(callbacker){
     ,      callbacker
 
     );
+    oA.post("media/upload", {media_data: twitterImage}, uploaded);
 }
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){

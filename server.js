@@ -48,7 +48,7 @@ function postTweet(callbacker){
 }
 
 function cb(data){
-  console.log("first step");
+  console.log("first step"+data);
   oA.post("statuses/update", {"status": "trial", "media_id_string": data}, function (err, data, response){
     if (err){
       console.log("ERROR:", err);

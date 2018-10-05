@@ -124,7 +124,7 @@ app.get('/twitter', passport.authenticate('twitter'),
     })
 
   })
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 80);
 console.log("server running");
 var T = new Twit(config);
 

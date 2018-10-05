@@ -70,7 +70,14 @@ passport.use(new TwitterStrategy({
     return done(null, false);
     }
   }));
-
+  function callbacker(err, data, response){
+    if (err){
+      console.log("ERROR:", err);
+    }
+    else {
+      console.log(data);
+      console.log("it worked");
+    }
   passport.serializeUser(function(user, cb) {
     cb(null, user);
   });

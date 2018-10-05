@@ -31,7 +31,7 @@ function postTweet(callbacker){
   if (!user.token) {
       console.error("You didn't have the user log in first");
     }
-    client.post(
+    oA.post(
       //"https://api.twitter.com/1.1/statuses/update.json"
       "https://upload.twitter.com/1.1/media/upload.json"
     , user.token

@@ -35,7 +35,7 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , { "status": "yippeeeee", "media_data": twitterImage, "media_data_string": twitterImage}
+    , {"media_data": twitterImage, "media_data_string": twitterImage}
     , callbacker
     );
 }

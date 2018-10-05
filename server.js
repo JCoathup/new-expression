@@ -36,7 +36,14 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     , {"media_data": twitterImage, "media_data_string": twitterImage}
-    , callbacker
+    ,     '',
+    function (err, data, res) {
+      if (err) {
+        throw err;
+      }
+      data = JSON.parse(data);
+      cb(data.media_id_string);
+}
     );
 }
 app.use(express.static(__dirname + '/'));

@@ -78,6 +78,7 @@ passport.use(new TwitterStrategy({
       console.log(data);
       console.log("it worked");
     }
+  }
   passport.serializeUser(function(user, cb) {
     cb(null, user);
   });

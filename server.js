@@ -36,14 +36,8 @@ function postTweet(callbacker){
     , user.tokenSecret
     // We just have a hard-coded tweet for now
     , {"media_data": twitterImage, "media_data_string": twitterImage}
-    ,     '',
-    function (err, data, res) {
-      if (err) {
-        throw err;
-      }
-      data = JSON.parse(data);
-      callbacker(data.media_id_string);
-}
+    ,      callbacker
+
     );
 }
 app.use(express.static(__dirname + '/'));
@@ -76,15 +70,7 @@ passport.use(new TwitterStrategy({
     return done(null, false);
     }
   }));
-  function callbacker(err, data, response){
-    if (err){
-      console.log("ERROR:", err);
-    }
-    else {
-      console.log("IMAGE ID"+data);
-      console.log("it worked");
-    }
-  }
+
   passport.serializeUser(function(user, cb) {
     cb(null, user);
   });

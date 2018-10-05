@@ -79,8 +79,8 @@ app.use(session({
 var client = new Twitter({
   consumer_key: config.consumer_key,
   consumer_secret: config.consumer_secret,
-  access_token_key: user.token,
-  access_token_secret: user.tokenSecret
+  access_token_key: config.access_token,
+  access_token_secret: config.access_token_secret
 });
 
 app.use(passport.initialize());
@@ -94,8 +94,8 @@ passport.use(new TwitterStrategy({
 
     if (profile) {
     user = profile;
-    user.token = JSON.stringify(token);
-    user.tokenSecret = JSON.stringify(tokenSecret);
+    user.token = token;
+    user.tokenSecret = tokenSecret;
     console.log(user);
     console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
     return done(null, user);

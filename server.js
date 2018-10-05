@@ -162,11 +162,11 @@ io.sockets.on('connection', function(socket) {
   socket.on ("twitter", function(data){
     console.log(data);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
+    twitterImage = image;
     var buf = new Buffer(image, 'base64');
     console.log(buf);
     var timestamp = Date.now();
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
-    twitterImage = timestamp+".jpg";
     var filename = "uploads/"+timestamp+".jpg";
     socket.emit("twitterReply", filename);
     console.log(filename);

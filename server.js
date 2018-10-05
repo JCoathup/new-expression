@@ -32,11 +32,11 @@ function postTweet(callbacker){
     }
     oA.post(
       "https://api.twitter.com/1.1/statuses/update.json"
-      //"https://upload.twitter.com/1.1/media/upload.json"
+      ,"https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    ,{"status": "guess what"}
+    ,{"status": "guess what", "media_data": twitterImage, "media_data_string": twitterImage}
     //, {"media_data": twitterImage, "media_data_string": twitterImage}
     ,      callbacker
 

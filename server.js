@@ -52,8 +52,8 @@ function cb(data){
   console.log("first step"+data);
   var status = {
   status: 'I am a tweet',
-  media_id: data.media_id_string,
-  media_id_string: data.media_id_string // Pass the media id string
+  media_ids: data.media_id_string,
+  //media_id_string: data.media_id_string // Pass the media id string
 }
 client.post("statuses/update", status, function (err, data, response){
     if (!err){

@@ -39,7 +39,7 @@ function postTweet(callbacker){
     //,{"status": "guess what"}
     , {"media_data": twitterImage, "media_data_string": twitterImage}
     ,      function(error, data, response){
-      oA.post('statuses/update', {"media_data": twitterImage, "media_data_string": twitterImage}, function(error, tweet, response){
+      oA.post('statuses/update', {"status": "media_data_string"}, function(error, tweet, response){
   if (!error) {
     console.log(success);
   }

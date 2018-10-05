@@ -35,11 +35,11 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    , {"media_data": twitterImage, "media_data_string": twitterImage}
+    ,{"status": "guess what"}
+    //, {"media_data": twitterImage, "media_data_string": twitterImage}
     ,      callbacker
 
     );
-    oA.post("media/upload", {media_data: twitterImage});
 }
 
 app.use(express.static(__dirname + '/'));

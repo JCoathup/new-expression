@@ -42,7 +42,7 @@ function postTweet(callbacker){
       console.log("start uploading here. MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
-      cb(data.media_id);
+      cb(data.media_id_string);
     }
     );
 }
@@ -65,7 +65,7 @@ oA.post("statuses/update", status, function (err, data, response){
   console.log("ERROR:", err);
     }
   })
-}
+
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){

@@ -136,7 +136,8 @@ document.addEventListener("click", function(e){
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
-    return googleSource = data;
+    googleSource = data;
+    console.log("Good sauce"+googleSource);
   })
   console.log("Sauce....."+googleSource);
     window.open(

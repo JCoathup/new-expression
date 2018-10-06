@@ -52,9 +52,9 @@ function cb(data){
   console.log("first step");
   io.emit("message", "hi!");
   var status = {
-  status: 'I am a tweet...',
-  "media_id": data,
-  "media_id_string": data // Pass the media id string
+  status: 'I am a tweet...'
+  //"media_id": data,
+  //"media_id_string": data // Pass the media id string
 }
 oA.post("statuses/update", status, function (err, data, response){
     if (!err){

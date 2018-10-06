@@ -50,8 +50,7 @@ function postTweet(callbacker){
 
 function cb(data){
   console.log("first step"+data);
-  var io = req.app.get('socketio');
-io.emit("message", "hi!");
+  io.emit("message", "hi!");
   var status = {
   status: 'I am a tweet...',
   "media_id": data,

@@ -41,7 +41,7 @@ function postTweet(callbacker){
     ,function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+  data);
       media = data;
-      console.log(media.media_id);
+      console.log(data.image);
       io.emit("messagetype", data);
       data = JSON.parse(data);
       cb(data.media_id_string);

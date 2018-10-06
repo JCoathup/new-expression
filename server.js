@@ -40,7 +40,6 @@ function postTweet(callbacker){
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+  data);
-      io.emit("messagetype", data);
       data = JSON.parse(data);
       console.log(data.media_id);
       cb(data.media_id_string);
@@ -56,7 +55,7 @@ function cb(data){
   //"media_id": data,
   //"media_id_string": data // Pass the media id string
 }
-oA.post("media/upload", status, function (err, data, response){
+oA.post("statuses/update", {media_ids:[id]}, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");

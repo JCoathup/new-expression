@@ -36,11 +36,10 @@ function postTweet(callbacker){
       "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
-    // We just have a hard-coded tweet for now
     ,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
-      console.log("start uploading here. MEDIA DATA: "+  data.media_id_string);
+      console.log("start uploading here. MEDIA DATA: "+  data);
       data = JSON.parse(data);
       cb(twitterImage);
     }

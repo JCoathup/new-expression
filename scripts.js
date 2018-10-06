@@ -136,16 +136,8 @@ document.addEventListener("click", function(e){
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
-    googleSource = data
+    uploadGoogle(data);
   })
-    console.log("Sauce..."+googleSource);
-    window.open(
-        'https://plus.google.com/share?url='+googleSource,
-        'popupwindow',
-        'scrollbars=yes,width=800,height=400'
-    ).focus();
-    return false;
-
   }
 
   if (e.target && e.target.id == "facebook"){
@@ -614,4 +606,12 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 function uploadTwitter(data){
   console.log ("TWEET GOES HERE "+'https://new-expression.herokuapp.com/'+data);
 
+}
+function uploadGoogle(data){
+  window.open(
+      'https://plus.google.com/share?url='+data,
+      'popupwindow',
+      'scrollbars=yes,width=800,height=400'
+  ).focus();
+  return false;
 }

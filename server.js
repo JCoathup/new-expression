@@ -52,11 +52,11 @@ function cb(data){
   io.emit("messagetype", "hi!");
   var status = {
  status: 'I am a tweet'
-  //"media_id": data,
+  {media_ids:[data]}
   //"media_id_string": data // Pass the media id string
 }
 //media_ids:[data]
-client.post("statuses/update", {media_ids:[data]}, function (err, data, response){
+oA.post("statuses/update", status, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");

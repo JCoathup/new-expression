@@ -46,6 +46,10 @@ function postTweet(callbacker){
     }
   );
 }
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
+
 
 function cb(data){
   console.log("first step" + data);

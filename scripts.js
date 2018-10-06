@@ -140,7 +140,7 @@ document.addEventListener("click", function(e){
     window.open(
       'https://plus.google.com/share?url='+googleSource,
       'popupwindow',
-      'scrollbars=yes,width=100%,height=100%'
+      'scrollbars=yes,width=auto,height=auto'
     ).focus();
     return false;
   })

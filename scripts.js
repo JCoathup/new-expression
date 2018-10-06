@@ -134,7 +134,7 @@ document.addEventListener("click", function(e){
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
-    source = ""+data;
+    source = "'"+data+"'"
   })
     window.open(
         'https://plus.google.com/share?url='+source,

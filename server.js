@@ -67,7 +67,7 @@ function cb(data){
       console.log("it worked!!");
     }
     else {
-      console.log("ERROR:", err);
+      console.log("ERROR: ", err);
     }
     console.log(err);
   })

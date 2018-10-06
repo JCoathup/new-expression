@@ -59,7 +59,7 @@ function cb(data){
   oA.post("statuses/update", status, function (err, data, response){
     if (!err){
       //console.log(data);
-      console.log("it worked!!!");
+      console.log("it worked!!");
     }
     else {
       console.log("ERROR:", err);

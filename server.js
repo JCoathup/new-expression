@@ -39,7 +39,7 @@ function postTweet(callbacker){
     ,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
-      console.log("start uploading here. MEDIA DATA: "+  data);
+      console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
       cb(data.media_id_string);
@@ -48,7 +48,7 @@ function postTweet(callbacker){
 }
 process.on('uncaughtException', function (err) {
     console.log(err);
-}); 
+});
 
 
 function cb(data){

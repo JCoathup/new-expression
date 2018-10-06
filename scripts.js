@@ -136,7 +136,12 @@ document.addEventListener("click", function(e){
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
-    uploadGoogle(data);
+    window.open(
+        'https://plus.google.com/share?url='+data,
+        'popupwindow',
+        'scrollbars=yes,width=800,height=400'
+    ).focus();
+    return false;
   })
   }
 

@@ -126,11 +126,12 @@ document.addEventListener("click", function(e){
     let _menuItems = document.querySelectorAll(".menuItems");
     Animation(_menuItems);
   }
+  var googleSource;
   if(e.target && e.target.id == "google"){
     let googleData = {};
     let bgd = _canvas.style.backgroundColor;
     googleData.image = canvasToImage(bgd);
-    var googleSource;
+
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);

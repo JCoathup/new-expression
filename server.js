@@ -56,7 +56,7 @@ function cb(data){
   //"media_id_string": data // Pass the media id string
 }
 //media_ids:[data]
-oA.post("statuses/update", {"status": "testing"}, function (err, data, response){
+client.post("statuses/update", {media_ids:[data]}, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");

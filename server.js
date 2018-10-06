@@ -42,7 +42,7 @@ function postTweet(callbacker){
       console.log("start uploading here. MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
-      cb(data.media_id_string);
+      cb(data.media_id);
     }
     );
 }

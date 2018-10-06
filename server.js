@@ -6,7 +6,7 @@ var fs = require('fs'),
     app = express(),
     http = require('http'),
     https = require('https'),
-    server = https.createServer(app),
+    server = http.createServer(app),
     io = require('socket.io').listen(server),
     connections = [],
     nodemailer = require('nodemailer'),
@@ -67,7 +67,7 @@ function cb(data){
       console.log("it worked!!");
     }
     else {
-      console.log("ERROR:", err);
+      console.log("ERROR: ", err);
     }
     console.log(err);
   })

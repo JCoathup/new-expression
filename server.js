@@ -48,14 +48,15 @@ function postTweet(callbacker){
 }
 
 function cb(data){
-  console.log("first step");
+  console.log("first step" + data);
   io.emit("messagetype", "hi!");
   var status = {
  status: 'I am a tweet'
   //"media_id": data,
   //"media_id_string": data // Pass the media id string
 }
-oA.post("statuses/update", {media_ids:[data]}, function (err, data, response){
+//media_ids:[data]
+oA.post("statuses/update", {status: "testing"}, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");

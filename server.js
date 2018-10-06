@@ -49,7 +49,7 @@ function postTweet(callbacker){
 }
 
 function cb(data){
-  console.log("first step"+data);
+  console.log("first step");
   io.emit("message", "hi!");
   var status = {
   status: 'I am a tweet...',
@@ -58,7 +58,7 @@ function cb(data){
 }
 client.post("statuses/update", status, function (err, data, response){
     if (!err){
-      console.log(data);
+      //console.log(data);
       console.log("it worked!!!");
     }
     else {

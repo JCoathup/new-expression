@@ -137,16 +137,13 @@ document.addEventListener("click", function(e){
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
     googleSource = data;
-    console.log("Good sauce"+googleSource);
-  })
-  console.log("Sauce....."+googleSource);
     window.open(
-        'https://plus.google.com/share?url='+googleSource,
-        'popupwindow',
-        'scrollbars=yes,width=800,height=400'
+      'https://plus.google.com/share?url='+googleSource,
+      'popupwindow',
+      'scrollbars=yes,width=800,height=400'
     ).focus();
     return false;
-
+  })
   }
 
   if (e.target && e.target.id == "facebook"){

@@ -11,10 +11,10 @@ var fs = require('fs'),
     nodemailer = require('nodemailer'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
-    Twitter = require('twitter');
-  session = require("express-session");
+    Twitter = require('twitter'),
+    session = require("express-session");
 
-var user ={}, oA, twitterCard, twitterImage;
+var user = {}, oA, twitterCard, twitterImage;
 
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
@@ -23,17 +23,17 @@ function initTwitterPost(){
   "http://twitter.com/oauth/access_token",
   config.consumer_key, config.consumer_secret,
   "1.0A", null, "HMAC-SHA1"
-);
+  );
 }
 
 function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
-      console.error("You didn't have the user log in first");
-    }
-    oA.post(
-      //"https://api.twitter.com/1.1/statuses/update.json"
-      "https://upload.twitter.com/1.1/media/upload.json"
+    console.error("You didn't have the user log in first");
+  }
+  oA.post(
+    //"https://api.twitter.com/1.1/statuses/update.json"
+    "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     ,{media_data: twitterImage}
@@ -44,28 +44,28 @@ function postTweet(callbacker){
       console.log(data.media_id);
       cb(data.media_id_string);
     }
-    );
+  );
 }
 
 function cb(data){
   console.log("first step" + data);
   io.emit("messagetype", "hi!");
   var status = {
- status: 'I am a tweet',
- media_ids:[data]
-  //"media_id_string": data // Pass the media id string
-}
-//media_ids:[data]
-oA.post("statuses/update", status, function (err, data, response){
+      status: 'I am a tweet',
+      media_ids:[data]
+      //"media_id_string": data // Pass the media id string
+      }
+
+  oA.post("statuses/update", status, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");
     }
     else {
-  console.log("ERROR:", err);
+      console.log("ERROR:", err);
     }
   })
-
+}
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -91,28 +91,26 @@ passport.use(new TwitterStrategy({
     consumerSecret: config.consumer_secret,
     callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     //passReqToCallback: true
-  },  function(token, tokenSecret, profile, done) {
-
+  }, function(token, tokenSecret, profile, done) {
     if (profile) {
-    user = profile;
-    user.token = token;
-    user.tokenSecret = tokenSecret;
-    console.log(user);
-    //console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
-    return done(null, user);
+      user = profile;
+      user.token = token;
+      user.tokenSecret = tokenSecret;
+      console.log(user);
+      return done(null, user);
     }
     else {
-    return done(null, false);
+      return done(null, false);
     }
-  }));
+}));
 
-  passport.serializeUser(function(user, cb) {
-    cb(null, user);
-  });
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
 
-  passport.deserializeUser(function(obj, cb) {
-    cb(null, obj);
-  });
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
 
 app.get('/twitter', passport.authenticate('twitter'),
   function(req, res) {
@@ -120,26 +118,25 @@ app.get('/twitter', passport.authenticate('twitter'),
     console.log(profile);
     console.log("authenticated");
     res.redirect('/');
-  });
+});
 
-  app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
-    res.send("you reached the callback uri");
-    io.emit("messagetype", " first hi!");
-  });
-  app.get('/twitter/tweet', function(req, res){
-    postTweet(function(error, data) {
-      if(error){
-        console.log(require('sys').inspect(error));
-        res.end("bad stuff happened");
-      }
-      else {
-        console.log(data);
-        res.end("all is well");
-      }
-      //callbacker(error, data);
-    })
-
+app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
+  res.send("you reached the callback uri");
+  io.emit("messagetype", " first hi!");
+});
+app.get('/twitter/tweet', function(req, res){
+  postTweet(function(error, data) {
+    if(error){
+      console.log(require('sys').inspect(error));
+      res.end("bad stuff happened");
+    }
+    else {
+      console.log(data);
+      res.end("all is well");
+    }
   })
+})
+
 server.listen(process.env.PORT || 3000);
 console.log("server running");
 
@@ -215,9 +212,6 @@ io.sockets.on('connection', function(socket) {
     connections.splice(connections.indexOf(socket), 1);
     console.log('Disconnected: %s sockets connected', connections.length);
   });
-  function closeWindow(){
-    socket.emit("closeWindow");
-  }
   socket.on('email', function(data){
     console.log(socket.id, "posted", data.comment);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");

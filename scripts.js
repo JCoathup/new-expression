@@ -137,7 +137,7 @@ document.addEventListener("click", function(e){
     source = "'"+data+"'"
   })
     window.open(
-        'https://plus.google.com/share?url='+source,
+        'https://plus.google.com/share?url='+data,
         'popupwindow',
         'scrollbars=yes,width=800,height=400'
     ).focus();

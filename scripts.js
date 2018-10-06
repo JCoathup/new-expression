@@ -120,16 +120,36 @@ document.addEventListener("click", function(e){
     _shareList.innerHTML += `<li><button class='share icofont icofont-download menuItems' title="download" id="download" style='font-size:84px; color: #fff; background-color: #e6d068;'></button></li>
                             <li><button title = "email" class='share icofont icofont-email menuItems' id="email" style='font-size:84px; color: #fff; background-color: #ff802c;'></button></li>
                             <li><button class='share icofont icofont-social-facebook menuItems'id="facebook" style='font-size:84px; color:#fff; background-color: #3b5998;'></button></li>
+                            <li><button class='share icofont icofont-google-plus menuItems' id="google" style='font-size:84px; color:#fff; background-color: #d34836;'></button></li>
                             <li><a href="/twitter" target="_blank"><button class='share icofont icofont-social-twitter menuItems' id="tweet" style='font-size:84px; color:#fff; background-color: #0084B4;'></button></a></li>
                             <li><button class='share icofont icofont-social-whatsapp menuItems' style='font-size:84px; color:#fff; background-color: #1ebea5;'></button></li>`;
     let _menuItems = document.querySelectorAll(".menuItems");
     Animation(_menuItems);
   }
+  if(e.target && e.target.id == "google"){
+    let googleData = {};
+    let bgd = _canvas.style.backgroundColor;
+    googleData.image = canvasToImage(bgd);
+    let source;
+    socket.emit("google", googleData);
+    socket.on("googleReply", function(data){
+    console.log("link is: "+ data);
+    source = data;
+  })
+    window.open(
+        'https://plus.google.com/share?url='+source,
+        'popupwindow',
+        'scrollbars=yes,width=800,height=400'
+    ).focus();
+    return false;
+
+  }
+
   if (e.target && e.target.id == "facebook"){
     let facebookData = {};
     let bgd = _canvas.style.backgroundColor;
     facebookData.image = canvasToImage(bgd);
-    var source;
+    let source;
     FB.login(function(response){
     console.log(response);
     console.log("now we are connected");

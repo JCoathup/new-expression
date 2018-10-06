@@ -93,6 +93,10 @@
   margin:0 auto;
 	content: "\ee08";
 }
+.icofont-google-plus:before {
+  margin:0 auto;
+	content: "\ee11";
+}
 .icofont-social-twitter:before {
   margin:0 auto;
 	content: "\ee34";

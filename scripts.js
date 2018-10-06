@@ -130,14 +130,14 @@ document.addEventListener("click", function(e){
     let googleData = {};
     let bgd = _canvas.style.backgroundColor;
     googleData.image = canvasToImage(bgd);
-    let source;
+    var googleSource;
     socket.emit("google", googleData);
     socket.on("googleReply", function(data){
     console.log("link is: "+ data);
-    source = "'"+data+"'"
+    googleSource = data
   })
     window.open(
-        'https://plus.google.com/share?url='+data,
+        'https://plus.google.com/share?url='+googleSource,
         'popupwindow',
         'scrollbars=yes,width=800,height=400'
     ).focus();
@@ -149,7 +149,7 @@ document.addEventListener("click", function(e){
     let facebookData = {};
     let bgd = _canvas.style.backgroundColor;
     facebookData.image = canvasToImage(bgd);
-    let source;
+    var source;
     FB.login(function(response){
     console.log(response);
     console.log("now we are connected");

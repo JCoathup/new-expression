@@ -52,7 +52,7 @@ process.on('uncaughtException', function (err) {
 
 
 function cb(data){
-  console.log("first step" + data);
+  console.log("first step " + data);
   io.emit("messagetype", "hi!");
   var status = {
       status: 'I am a tweet',

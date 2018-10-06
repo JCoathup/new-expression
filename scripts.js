@@ -6,6 +6,7 @@ let lastColour;
 var socket = io.connect();
 let timer = 0;
 let screen = window.orientation;
+var googleSource;
 //opens or closes main menu
 function openMenu () {
   let _subMenu = document.querySelectorAll(".subMenu");
@@ -126,7 +127,7 @@ document.addEventListener("click", function(e){
     let _menuItems = document.querySelectorAll(".menuItems");
     Animation(_menuItems);
   }
-  var googleSource;
+
   if(e.target && e.target.id == "google"){
     let googleData = {};
     let bgd = _canvas.style.backgroundColor;

@@ -39,9 +39,9 @@ function postTweet(callbacker){
     ,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
-      console.log("start uploading here. MEDIA DATA: "+  data);
+      console.log("start uploading here. MEDIA DATA: "+  data.media_id_string);
       data = JSON.parse(data);
-      cb(twitterImage);
+      cb(data.media_id_string);
     }
     );
 }
@@ -54,7 +54,7 @@ function cb(data){
   //"media_id": data,
   //"media_id_string": data // Pass the media id string
 }
-oA.post("statuses/update", status, function (err, data, response){
+oA.post("media/upload", status, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!!");

@@ -139,8 +139,8 @@ document.addEventListener("click", function(e){
     googleSource = data;
     window.open(
       'https://plus.google.com/share?url='+googleSource,
-      'popupwindow',
-      'scrollbars=yes,width=auto,height=auto'
+      '',
+      'scrollbars=yes,width=800,height=400'
     ).focus();
     return false;
   })

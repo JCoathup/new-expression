@@ -138,6 +138,7 @@ document.addEventListener("click", function(e){
     console.log("link is: "+ data);
     return googleSource = data;
   })
+  console.log("Sauce....."+googleSource);
     window.open(
         'https://plus.google.com/share?url='+googleSource,
         'popupwindow',

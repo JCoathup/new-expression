@@ -556,7 +556,9 @@ function sendingTweet () {
   tweetData.image = canvasToImage(bgd);
   socket.emit('dispatch', tweetData);
 }
-
+socket.on("messagetype", function(data){
+  console.log(data);
+});
 function uploadFacebook (data){
   var meta = document.createElement('meta');
 meta.property = "og:image:width";

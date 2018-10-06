@@ -608,6 +608,7 @@ function uploadTwitter(data){
 
 }
 function uploadGoogle(data){
+  console.log("URL is...."+data)
   window.open(
       'https://plus.google.com/share?url='+data,
       'popupwindow',

@@ -37,7 +37,7 @@ function postTweet(callbacker){
     , user.token
     , user.tokenSecret
     // We just have a hard-coded tweet for now
-    ,"media/upload", {media_data: twitterImage}
+    ,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
       console.log("start uploading here. MEDIA DATA: "+  data.media_id_string);
@@ -97,7 +97,7 @@ passport.use(new TwitterStrategy({
     user.token = token;
     user.tokenSecret = tokenSecret;
     console.log(user);
-    console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
+    //console.log("TOKENS ARE HERE: " + user.token + user.tokenSecret);
     return done(null, user);
     }
     else {

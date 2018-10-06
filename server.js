@@ -51,7 +51,7 @@ function cb(data){
   console.log("first step" + data);
   io.emit("messagetype", "hi!");
   var status = {
- status: 'I am a tweet'
+ status: 'I am a tweet',
   {media_ids:[data]}
   //"media_id_string": data // Pass the media id string
 }

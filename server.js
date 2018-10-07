@@ -39,7 +39,7 @@ function postTweet(callbacker){
     , user.tokenSecret
     //,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
-    ,/*function(error, data, response){
+    /*,function(error, data, response){
       console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);

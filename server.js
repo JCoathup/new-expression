@@ -32,7 +32,7 @@ function postTweet(callbacker){
   if (!user.token) {
     console.error("You didn't have the user log in first");
   }
-  client.post(
+  T.post(
     //"https://api.twitter.com/1.1/statuses/update.json"
     "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
@@ -61,7 +61,7 @@ function cb(data){
       //"media_id_string": data // Pass the media id string
       }
 
-  client.post("statuses/update", status, function (err, data, response){
+  T.post("statuses/update", status, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!");

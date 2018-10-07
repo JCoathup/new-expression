@@ -17,61 +17,15 @@ var fs = require('fs'),
 
 var user = {}, oA, twitterCard, twitterImage;
 
-function initTwitterPost(){
-  var OAuth= require('oauth').OAuth;
-  oA = new OAuth(
-  "http://twitter.com/oauth/request_token",
-  "http://twitter.com/oauth/access_token",
-  config.consumer_key, config.consumer_secret,
-  "1.0A", null, "HMAC-SHA1"
-  );
-}
 
-function postTweet(callbacker){
-  initTwitterPost();
-  if (!user.token) {
-    console.error("You didn't have the user log in first");
-  }
-  oA.post(
-    //"https://api.twitter.com/1.1/statuses/update.json"
-    "https://upload.twitter.com/1.1/media/upload.json"
-    , user.token
-    , user.tokenSecret
-    ,{media_data: twitterImage}
-    //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
-    ,function(error, data, response){
-      console.log("start uploading here -> MEDIA DATA: "+  data);
-      data = JSON.parse(data);
-      console.log(data.media_id);
-      cb(data.media_id_string);
-    }
-  );
-}
+
+
 process.on('uncaughtException', function (err) {
     console.log(err);
 });
 
 
-function cb(data){
-  console.log("first step " + data);
-  io.emit("messagetype", "hi!");
-  var params = {
-      status: 'I am a tweet',
-      media_ids:[data]
-      }
 
-  oA.post("statuses/update", params, function (err, data, response){
-    console.log(err, data, response);
-    if (!err){
-      //console.log(data);
-      console.log("it worked!!");
-    }
-    else {
-      console.log("ERROR: ", err);
-    }
-    console.log(err);
-  })
-}
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -82,16 +36,38 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
+app.use(passport.initialize());
+app.use(passport.session());
 var client = new Twitter({
   consumer_key: config.consumer_key,
   consumer_secret: config.consumer_secret,
   access_token_key: config.access_token,
   access_token_secret: config.access_token_secret
 });
+app.get('/twitter', passport.authenticate('twitter'),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    console.log(profile);
+    console.log("authenticated");
+    res.redirect('/');
+});
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
+  res.send("you reached the callback uri");
+  io.emit("messagetype", " first hi!");
+});
+app.get('/twitter/tweet', function(req, res){
+  postTweet(function(error, data) {
+    if(error){
+      console.log(require('sys').inspect(error));
+      res.end("bad stuff happened");
+    }
+    else {
+      console.log(data);
+      res.end("all is well");
+    }
+  })
+})
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
@@ -118,31 +94,55 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
-app.get('/twitter', passport.authenticate('twitter'),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    console.log(profile);
-    console.log("authenticated");
-    res.redirect('/');
-});
+function cb(data){
+  console.log("first step " + data);
+  io.emit("messagetype", "hi!");
+  var params = {
+      status: 'I am a tweet',
+      media_ids:[data]
+      }
 
-app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
-  res.send("you reached the callback uri");
-  io.emit("messagetype", " first hi!");
-});
-app.get('/twitter/tweet', function(req, res){
-  postTweet(function(error, data) {
-    if(error){
-      console.log(require('sys').inspect(error));
-      res.end("bad stuff happened");
+  oA.post("statuses/update", params, function (err, data, response){
+    console.log(err, data, response);
+    if (!err){
+      //console.log(data);
+      console.log("it worked!!");
     }
     else {
-      console.log(data);
-      res.end("all is well");
+      console.log("ERROR: ", err);
     }
+    console.log(err);
   })
-})
-
+}
+function postTweet(callbacker){
+  initTwitterPost();
+  if (!user.token) {
+    console.error("You didn't have the user log in first");
+  }
+  oA.post(
+    //"https://api.twitter.com/1.1/statuses/update.json"
+    "https://upload.twitter.com/1.1/media/upload.json"
+    , user.token
+    , user.tokenSecret
+    ,{media_data: twitterImage}
+    //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
+    ,function(error, data, response){
+      console.log("start uploading here -> MEDIA DATA: "+  data);
+      data = JSON.parse(data);
+      console.log(data.media_id);
+      cb(data.media_id_string);
+    }
+  );
+}
+function initTwitterPost(){
+  var OAuth= require('oauth').OAuth;
+  oA = new OAuth(
+  "http://twitter.com/oauth/request_token",
+  "http://twitter.com/oauth/access_token",
+  config.consumer_key, config.consumer_secret,
+  "1.0A", null, "HMAC-SHA1"
+  );
+}
 server.listen(process.env.PORT || 3000);
 console.log("server running");
 

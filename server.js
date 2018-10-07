@@ -13,7 +13,8 @@ var fs = require('fs'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
     Twitter = require('twitter'),
-    session = require("express-session");
+    session = require("express-session"),
+    var secure = require('ssl-express-www');
 
 var user = {}, oA, twitterCard, twitterImage;
 
@@ -25,7 +26,7 @@ process.on('uncaughtException', function (err) {
 });
 
 
-
+app.use(secure);
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -121,7 +122,7 @@ function postTweet(callbacker){
   }
   oA.post(
     //"https://api.twitter.com/1.1/statuses/update.json"
-    "http://upload.twitter.com/1.1/media/upload.json"
+    "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     ,{media_data: twitterImage}

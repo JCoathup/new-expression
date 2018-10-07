@@ -57,8 +57,7 @@ function cb(data){
   io.emit("messagetype", "hi!");
   var status = {
       status: 'I am a tweet',
-      media_ids:data
-      //"media_id_string": data // Pass the media id string
+      //media_ids:[data]
       }
 
   oA.post("statuses/update", status, function (err, data, response){

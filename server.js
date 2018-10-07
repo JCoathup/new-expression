@@ -33,18 +33,18 @@ function postTweet(callbacker){
     console.error("You didn't have the user log in first");
   }
   oA.post(
-    "https://api.twitter.com/1.1/statuses/update.json"
-    //"https://upload.twitter.com/1.1/media/upload.json"
+    //"https://api.twitter.com/1.1/statuses/update.json"
+    "https://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
-    //,{media_data: twitterImage}
+    ,{media_data: twitterImage}
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
-    /*,function(error, data, response){
+    ,function(error, data, response){
       console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
       cb(data.media_id_string);
-    }*/
+    }
   );
 }
 process.on('uncaughtException', function (err) {
@@ -57,7 +57,7 @@ function cb(data){
   io.emit("messagetype", "hi!");
   var status = {
       status: 'I am a tweet',
-      //media_ids:[data]
+      media_ids:[data]
       }
 
   oA.post("statuses/update", status, function (err, data, response){

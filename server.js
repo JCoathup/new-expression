@@ -121,7 +121,7 @@ function postTweet(callbacker){
   }
   oA.post(
     //"https://api.twitter.com/1.1/statuses/update.json"
-    "https://upload.twitter.com/1.1/media/upload.json"
+    "http://upload.twitter.com/1.1/media/upload.json"
     , user.token
     , user.tokenSecret
     ,{media_data: twitterImage}

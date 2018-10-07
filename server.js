@@ -55,12 +55,12 @@ process.on('uncaughtException', function (err) {
 function cb(data){
   console.log("first step " + data);
   io.emit("messagetype", "hi!");
-  var status = {
+  var params = {
       status: 'I am a tweet',
       media_ids:[data]
       }
 
-  oA.post("statuses/update", status, function (err, data, response){
+  oA.post("statuses/update", params, function (err, data, response){
     if (!err){
       //console.log(data);
       console.log("it worked!!");

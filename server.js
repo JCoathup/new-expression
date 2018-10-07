@@ -14,7 +14,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
     Twitter = require('twitter'),
     session = require("express-session"),
-    var secure = require('ssl-express-www');
+    secure = require('ssl-express-www');
 
 var user = {}, oA, twitterCard, twitterImage;
 

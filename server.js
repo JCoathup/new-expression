@@ -134,7 +134,7 @@ function cb(data){
   , function(err, response, body) {
     return console.log(err, body);
   });
-  )
+  
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;

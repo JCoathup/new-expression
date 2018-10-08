@@ -115,8 +115,8 @@ function postTweet(callbacker){
       console.log(data.media_id);
       oA.post(
         "https://api.twitter.com/1.1/statuses/update.json"
-      , user.token
-      , user.tokenSecret
+      //, user.token
+      //, user.tokenSecret
       // We just have a hard-coded tweet for now
       , { status: "testing!", media_ids:[data] }
       , function(err, data, response){

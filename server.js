@@ -54,7 +54,7 @@ app.get('/twitter', passport.authenticate('twitter'),
     res.redirect('/');
 });
 
-app.get('/twitter/callback', passport.authenticate("twitter", function(req, res){
+app.get('/twitter/callback', passport.authenticate("twitter"), function(req, res){
   res.send("you reached the callback uri");
 
   io.emit("messagetype", " first hi!");

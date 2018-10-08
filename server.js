@@ -72,7 +72,7 @@ app.get('/twitter/tweet', function(req, res){
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
+    callbackURL: "http://new-expression.herokuapp.com/twitter/callback",
     //passReqToCallback: true
   }, function(token, tokenSecret, profile, done) {
     if (profile) {

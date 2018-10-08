@@ -114,9 +114,8 @@ function postTweet(callbacker){
       data = JSON.parse(data);
       oA.post(
         "https://api.twitter.com/1.1/statuses/update.json"
-      //, user.token
-      //, user.tokenSecret
-      // We just have a hard-coded tweet for now
+      , user.token
+      , user.tokenSecret
       , { status: "testing!"}
       , function(err, data, response){
         if (err){

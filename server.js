@@ -125,7 +125,7 @@ function cb(data){
       media_ids:[data]
       }
 
-  oA.post  oa.post(
+  oA.post(
     "https://api.twitter.com/1.1/statuses/update.json"
   , user.token
   , user.tokenSecret

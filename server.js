@@ -95,26 +95,6 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
-function cb(data){
-  console.log("first step " + data);
-  io.emit("messagetype", "hi!");
-  var params = {
-      status: 'I am a tweet',
-      media_ids:[data]
-      }
-
-  oA.post("statuses/update", params, function (err, data, response){
-    console.log(err, data, response);
-    if (!err){
-      //console.log(data);
-      console.log("it worked!!");
-    }
-    else {
-      console.log("ERROR: ", err);
-    }
-    console.log(err);
-  })
-}
 function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
@@ -134,6 +114,26 @@ function postTweet(callbacker){
       cb(data.media_id_string);
     }
   );
+}
+function cb(data){
+  console.log("first step " + data);
+  io.emit("messagetype", "hi!");
+  var params = {
+      status: 'I am a tweet',
+      media_ids:[data]
+      }
+
+  oA.post("statuses/update", params, function (err, data, response){
+    console.log(err, data, response);
+    if (!err){
+      //console.log(data);
+      console.log("it worked!!");
+    }
+    else {
+      console.log("ERROR: ", err);
+    }
+    console.log(err);
+  })
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;

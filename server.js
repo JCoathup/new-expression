@@ -113,7 +113,15 @@ function postTweet(callbacker){
       console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
-      cb(data.media_id_string);
+      oA.post(
+        "https://api.twitter.com/1.1/statuses/update.json"
+      , user.token
+      , user.tokenSecret
+      // We just have a hard-coded tweet for now
+      , { "status": "testing" }
+      , function(err, response, body) {
+        return console.log(err, body);
+      });
     }
   );
 }
@@ -125,16 +133,8 @@ function cb(data){
       media_ids:[data]
       }
 
-  oA.post(
-    "https://api.twitter.com/1.1/statuses/update.json"
-  , user.token
-  , user.tokenSecret
-  // We just have a hard-coded tweet for now
-  , { "status": "testing" }
-  , function(err, response, body) {
-    return console.log(err, body);
-  });
-  
+
+
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;

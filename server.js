@@ -72,7 +72,7 @@ app.get('/twitter/tweet', function(req, res){
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "http://new-expression.herokuapp.com/twitter/callback",
+    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
     //passReqToCallback: true
   }, function(token, tokenSecret, profile, done) {
     if (profile) {
@@ -225,7 +225,7 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     socket.emit("twitterReply", filename);
     console.log(filename);
-    twitterCard = "http://new-expression.herokuapp.com/"+filename;
+    twitterCard = "https://new-expression.herokuapp.com/"+filename;
     });
 
   });

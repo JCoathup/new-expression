@@ -125,7 +125,7 @@ function cb(data){
       media_ids:[data]
       }
 
-  oA.post("statuses/update", params, function (err, data, response){
+  oA.post("statuses/update", {status, "hiiii!!"}, function (err, data, response){
     console.log(err, data, response);
     if (!err){
       //console.log(data);

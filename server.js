@@ -14,6 +14,7 @@ var fs = require('fs'),
     TwitterStrategy = require('passport-twitter').Strategy,
     Twitter = require('twitter'),
     session = require("express-session"),
+    sslRedirect = require('heroku-ssl-redirect'),
     secure = require('ssl-express-www');
 
 var user = {}, oA, twitterCard, twitterImage;
@@ -26,7 +27,7 @@ process.on('uncaughtException', function (err) {
 });
 
 
-app.use(secure);
+app.use(sslRedirect());
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){

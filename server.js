@@ -113,7 +113,14 @@ function postTweet(callbacker){
       console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
       console.log(data.media_id);
-      cb(data.media_id_string);
+      oA.post(
+    "statuses/update"
+      // We just have a hard-coded tweet for now
+      , {media_ids:[data]}
+      , function(){
+        console.log("DONE IT??");
+      }
+      )
     }
   );
 }
@@ -125,14 +132,7 @@ function cb(data){
       media_ids:[data]
       }
 
-  oA.post(
-"statuses/update"
-  // We just have a hard-coded tweet for now
-  , {media_ids:[data]}
-  , function(){
-    console.log("DONE IT??");
-  }
-  )
+
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;

@@ -225,7 +225,7 @@ io.sockets.on('connection', function(socket) {
     var filename = "uploads/"+timestamp+".jpg";
     socket.emit("twitterReply", filename);
     console.log(filename);
-    twitterCard = "https://new-expression.herokuapp.com/"+filename;
+    twitterCard = "http://new-expression.herokuapp.com/"+filename;
     });
 
   });

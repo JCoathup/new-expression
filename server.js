@@ -125,17 +125,14 @@ function cb(data){
       media_ids:[data]
       }
 
-  oA.post("statuses/update", function (err, data, response){
-    console.log(err, data, response);
-    if (!err){
-      //console.log(data);
-      console.log("it worked!!");
-    }
-    else {
-      console.log("ERROR: ", err);
-    }
-    console.log(err);
-  })
+  oA.post  oa.post(
+    "https://api.twitter.com/1.1/statuses/update.json"
+  , user.token
+  , user.tokenSecret
+  // We just have a hard-coded tweet for now
+  , { "status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
+  , cb
+  )
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;

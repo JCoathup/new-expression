@@ -119,8 +119,14 @@ function postTweet(callbacker){
       , user.tokenSecret
       // We just have a hard-coded tweet for now
       , { "status": "testing" }
-      , function(err, response, body) {
-        return console.log(err, body);
+      , (err, data, response){
+        if (err){
+          console.log("ERROR:", err);
+        }
+        else {
+          console.log(data);
+          console.log("it worked");
+        }
       });
     }
   );

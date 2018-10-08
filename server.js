@@ -126,15 +126,14 @@ function cb(data){
       }
 
   oA.post(
-    //"https://upload.twitter.com/1.1/media/upload.json"
     "https://api.twitter.com/1.1/statuses/update.json"
   , user.token
   , user.tokenSecret
   // We just have a hard-coded tweet for now
-  , {status: "testing"}
-  , function(){
-    console.log("DONE IT??");
-  }
+  , { "status": "testing" }
+  , function(err, response, body) {
+    return console.log(err, body);
+  });
   )
 }
 function initTwitterPost(){

@@ -130,7 +130,7 @@ function cb(data){
   , user.token
   , user.tokenSecret
   // We just have a hard-coded tweet for now
-  , media_ids:[data]
+  , {media_ids:[data]}
   , function(){
     console.log("DONE IT??");
   }

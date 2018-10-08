@@ -112,7 +112,6 @@ function postTweet(callbacker){
     ,function(error, data, response){
       console.log("start uploading here -> MEDIA DATA: "+  data);
       data = JSON.parse(data);
-      console.log(data.media_id);
       oA.post(
         "https://api.twitter.com/1.1/statuses/update.json"
       //, user.token

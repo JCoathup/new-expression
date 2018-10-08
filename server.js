@@ -130,8 +130,10 @@ function cb(data){
   , user.token
   , user.tokenSecret
   // We just have a hard-coded tweet for now
-  , { "status": "How to Tweet & Direct Message using NodeJS http://blog.coolaj86.com/articles/how-to-tweet-from-nodejs.html via @coolaj86" }
-  , cb
+  , params
+  , function(){
+    console.log("DONE IT??");
+  }
   )
 }
 function initTwitterPost(){

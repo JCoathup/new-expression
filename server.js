@@ -117,7 +117,7 @@ function postTweet(callbacker){
       //, user.token
       //, user.tokenSecret
       // We just have a hard-coded tweet for now
-      , { status: "testing!", media_ids:[data] }
+      , { status: "testing!"}
       , function(err, data, response){
         if (err){
           console.log("ERROR:", err);

@@ -116,7 +116,7 @@ function postTweet(callbacker){
         "https://api.twitter.com/1.1/statuses/update.json"
       , user.token
       , user.tokenSecret
-      , { status: "testing again!", media_ids: data.nedia_id_string}
+      , { status: "image test", media_ids: data.nedia_id_string}
       , function(err, data, response){
         if (err){
           console.log("ERROR:", err);

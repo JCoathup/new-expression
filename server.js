@@ -111,7 +111,7 @@ function postTweet(callbacker){
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
       console.log("start uploading here -> MEDIA DATA: "+  data);
-      data = JSON.parse(data.media_id_string);
+      data = JSON.parse(data);
       oA.post(
         "https://api.twitter.com/1.1/statuses/update.json"
       , user.token

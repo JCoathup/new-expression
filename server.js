@@ -111,12 +111,12 @@ function postTweet(callbacker){
     //, {"status": "trying", "media_id": twitterImage, "media_id_string": twitterImage}
     ,function(error, data, response){
       console.log("start uploading here -> MEDIA DATA: "+  data);
-      data = JSON.parse(data);
+      data = JSON.parse(data.media_id_string);
       oA.post(
         "https://api.twitter.com/1.1/statuses/update.json"
       , user.token
       , user.tokenSecret
-      , { status: "image test again", media_ids: data.nedia_id}
+      , { status: "image test saturday", media_ids: data.nedia_id_string}
       , function(err, data, response){
         if (err){
           console.log("ERROR:", err);

@@ -116,7 +116,7 @@ function postTweet(callbacker){
         "https://api.twitter.com/1.1/statuses/update.json"
       , user.token
       , user.tokenSecret
-      , { status: "image", media_ids: data.media_id_string}
+      , { status: "Scribblez: https://new-expression.herokuapp.com", media_ids: data.media_id_string}
       , function(err, data, response){
         if (err){
           console.log("ERROR:", err);

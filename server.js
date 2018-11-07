@@ -80,12 +80,12 @@ passport.use(new TwitterStrategy({
       return done(null, false);
     }
 }));
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
+//passport.serializeUser(function(user, cb) {
+//  cb(null, user);
+//});
+//passport.deserializeUser(function(obj, cb) {
+//  cb(null, obj);
+//});
 function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
@@ -118,14 +118,14 @@ function postTweet(callbacker){
     }
   );
 }
-function cb(data){
-  console.log("first step " + data);
-  io.emit("messagetype", "hi!");
-  var params = {
-      status: 'I am a tweet',
-      media_ids:[data]
-      }
-}
+//function cb(data){
+//  console.log("first step " + data);
+//  io.emit("messagetype", "hi!");
+//  var params = {
+//      status: 'I am a tweet',
+//      media_ids:[data]
+//      }
+//}
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
   oA = new OAuth(
@@ -201,11 +201,11 @@ io.sockets.on('connection', function(socket) {
     });
   });
   socket.on ("twitter", function(data){
-    console.log(data);
+    //console.log(data);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
     twitterImage = image;
     var buf = new Buffer(image, 'base64');
-    console.log(buf);
+    //console.log(buf);
     var timestamp = Date.now();
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
     var filename = "uploads/"+timestamp+".jpg";

@@ -80,12 +80,12 @@ passport.use(new TwitterStrategy({
       return done(null, false);
     }
 }));
-//passport.serializeUser(function(user, cb) {
-//  cb(null, user);
-//});
-//passport.deserializeUser(function(obj, cb) {
-//  cb(null, obj);
-//});
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
 function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
@@ -118,14 +118,14 @@ function postTweet(callbacker){
     }
   );
 }
-//function cb(data){
-//  console.log("first step " + data);
-//  io.emit("messagetype", "hi!");
-//  var params = {
-//      status: 'I am a tweet',
-//      media_ids:[data]
-//      }
-//}
+function cb(data){
+  console.log("first step " + data);
+  io.emit("messagetype", "hi!");
+  var params = {
+     status: 'I am a tweet',
+     media_ids:[data]
+  }
+}
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
   oA = new OAuth(

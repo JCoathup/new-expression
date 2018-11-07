@@ -17,7 +17,7 @@ var fs = require('fs'),
     //sslRedirect = require('heroku-ssl-redirect'),
     //secure = require('ssl-express-www');
 
-var user = {}, oA, twitterCard, twitterImage;
+var user = {}, oA, twitterImage;
 
 process.on('uncaughtException', function (err) {
     console.log(err);

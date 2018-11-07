@@ -17,18 +17,12 @@ var fs = require('fs'),
     //sslRedirect = require('heroku-ssl-redirect'),
     //secure = require('ssl-express-www');
 
-var user = {}, oA, twitterImage;
-
-
-
+var user = {}, oA, twitterCard, twitterImage;
 
 process.on('uncaughtException', function (err) {
     console.log(err);
 });
-
-
 //app.use(sslRedirect());
-
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
   res.render('index.html', {})

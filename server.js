@@ -1,23 +1,23 @@
 var fs = require('fs'),
     path = require('path'),
-    Twit = require('twit'),
+    //Twit = require('twit'),
     config = require(path.join(__dirname, 'twitter_config.js')),
     express = require('express'),
     app = express(),
     http = require('http'),
-    https = require('https'),
+    //https = require('https'),
     server = http.createServer(app),
     io = require('socket.io').listen(server),
     connections = [],
     nodemailer = require('nodemailer'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
-    Twitter = require('twitter'),
+    //Twitter = require('twitter'),
     session = require("express-session"),
-    sslRedirect = require('heroku-ssl-redirect'),
-    secure = require('ssl-express-www');
+    //sslRedirect = require('heroku-ssl-redirect'),
+    //secure = require('ssl-express-www');
 
-var user = {}, oA, twitterCard, twitterImage;
+var user = {}, oA, twitterImage;
 
 
 
@@ -27,7 +27,7 @@ process.on('uncaughtException', function (err) {
 });
 
 
-app.use(sslRedirect());
+//app.use(sslRedirect());
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res){
@@ -40,12 +40,12 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-var client = new Twitter({
-  consumer_key: config.consumer_key,
-  consumer_secret: config.consumer_secret,
-  access_token_key: config.access_token,
-  access_token_secret: config.access_token_secret
-});
+//var client = new Twitter({
+//  consumer_key: config.consumer_key,
+//  consumer_secret: config.consumer_secret,
+//  access_token_key: config.access_token,
+//  access_token_secret: config.access_token_secret
+//});
 app.get('/twitter', passport.authenticate('twitter'),
   function(req, res) {
     // Successful authentication, redirect home.
@@ -53,10 +53,8 @@ app.get('/twitter', passport.authenticate('twitter'),
     console.log("authenticated");
     res.redirect('/');
 });
-
 app.get('/twitter/callback', passport.authenticate("twitter", { successRedirect: '/twitter/tweet'}), function(req, res){
   res.send("you reached the callback uri");
-
   io.emit("messagetype", " first hi!");
 });
 app.get('/twitter/tweet', function(req, res){
@@ -74,7 +72,7 @@ app.get('/twitter/tweet', function(req, res){
 passport.use(new TwitterStrategy({
     consumerKey : config.consumer_key,
     consumerSecret: config.consumer_secret,
-    callbackURL: "https://new-expression.herokuapp.com/twitter/callback",
+    callbackURL: "https://new-expression.herokuapp.com/twitter/callback"
     //passReqToCallback: true
   }, function(token, tokenSecret, profile, done) {
     if (profile) {
@@ -88,15 +86,12 @@ passport.use(new TwitterStrategy({
       return done(null, false);
     }
 }));
-
 passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
-
 passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
-
 function postTweet(callbacker){
   initTwitterPost();
   if (!user.token) {
@@ -136,9 +131,6 @@ function cb(data){
       status: 'I am a tweet',
       media_ids:[data]
       }
-
-
-
 }
 function initTwitterPost(){
   var OAuth= require('oauth').OAuth;
@@ -152,16 +144,15 @@ function initTwitterPost(){
 server.listen(process.env.PORT || 3000);
 console.log("server running");
 
-var T = new Twit(config);
+//var T = new Twit(config);
 
 io.sockets.on('connection', function(socket) {
   console.log('socket.io connected', socket.id);
   connections.push(socket);
   console.log('Connected: %s sockets connected', connections.length);
   //on user disconnections
-  socket.on('dispatch', function(data){
-    console.log("logging in with twitter");
-
+  //socket.on('dispatch', function(data){
+  //  console.log("logging in with twitter");
     /*console.log(socket.id, "tweeted", data.tweetContent);
     var message = data.tweetContent;
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
@@ -173,7 +164,6 @@ io.sockets.on('connection', function(socket) {
     var params = {encoding: "base64"};
     var b64 = fs.readFileSync(filename);
     T.post("media/upload", {media_data: image}, uploaded);
-
     function uploaded (err, data, response){
       console.log("Data:", data);
       var id = data.media_id_string;
@@ -191,7 +181,7 @@ io.sockets.on('connection', function(socket) {
       }
     }
   });*/
-  });
+  //});
   socket.on ("google", function(data){
     console.log(data);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
@@ -203,9 +193,7 @@ io.sockets.on('connection', function(socket) {
     socket.emit("googleReply", filename);
     console.log(filename);
     });
-
   });
-
   socket.on ("facebook", function(data){
     console.log(data);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
@@ -217,7 +205,6 @@ io.sockets.on('connection', function(socket) {
     socket.emit("facebookReply", filename);
     console.log(filename);
     });
-
   });
   socket.on ("twitter", function(data){
     console.log(data);
@@ -228,11 +215,10 @@ io.sockets.on('connection', function(socket) {
     var timestamp = Date.now();
     img = fs.writeFile(__dirname + '/uploads/'+timestamp+'.jpg', buf, function(){console.log("done");
     var filename = "uploads/"+timestamp+".jpg";
-    socket.emit("twitterReply", filename);
+    //socket.emit("twitterReply", filename);
     console.log(filename);
-    twitterCard = "https://new-expression.herokuapp.com/"+filename;
+    //twitterCard = "https://new-expression.herokuapp.com/"+filename;
     });
-
   });
   socket.on ('disconnect', function(socket){
     connections.splice(connections.indexOf(socket), 1);
@@ -251,7 +237,6 @@ io.sockets.on('connection', function(socket) {
         pass: '2fARNz6h'
       }
     });
-
     var mailOptions = {
       from: 'jeremycoathup@gmail.com',
       to: data.emailAddress,
@@ -265,7 +250,6 @@ io.sockets.on('connection', function(socket) {
     cid: socket.id
 }]
     };
-
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);

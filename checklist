@@ -1,28 +1,32 @@
 
 ISSUES
 ======
-
+persistent images on heroku
 Firefox resize - SMALLER
 slight offset on rotate and scrollbars - ON MOBILE BROWSER- menu height in mobile browser
 drawing detioration on rotate -antialiasing and interpolation
+dynamic text for statuses update - twitter
+iron out issues for iOS (animation / canvas offset / pencil thickness)
+clean up unused packages and code
+ensure ES6 used throughout
+add readme
+push to GitHub without developer keys
+auto close menu after touching canvas
+erase on rotate and resize
+thickness icons on smaller devices - adjust css
+create custom email address
 
 FUTURE FUNCTIONALITY
 ====================
 add text
-Social media
+upload custom images
+service workers (for PWA completion)
+expand manifest.json
+direct messages (twitter)
+facebook messenger
+
+SOCIAL MEDIA
 ============
-Facebook facebook page
-Twitter oauth
+create facebook page
 Instagram
 Whatsapp
-Google+
-
-service workers
-expand manifest.json
-Logos
-after changing something in menu touching canvas closes menu
-thickness icons on smaller devices - adjust css
-clean keys for github upload
-iOS - ipad?
-iOS - looks crap on iphone
-erase on rotate and resize

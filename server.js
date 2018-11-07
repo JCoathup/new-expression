@@ -13,7 +13,7 @@ var fs = require('fs'),
     passport = require('passport'),
     TwitterStrategy = require('passport-twitter').Strategy,
     //Twitter = require('twitter'),
-    session = require("express-session"),
+    session = require("express-session");
     //sslRedirect = require('heroku-ssl-redirect'),
     //secure = require('ssl-express-www');
 

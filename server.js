@@ -183,7 +183,7 @@ io.sockets.on('connection', function(socket) {
     connections.splice(connections.indexOf(socket), 1);
     console.log('Disconnected: %s sockets connected', connections.length);
   });
-  
+
   socket.on('email', function(data){
     console.log(socket.id, "posted", data.comment);
     var image = data.image.replace(/^data:image\/\w+;base64,/, "");
@@ -193,8 +193,8 @@ io.sockets.on('connection', function(socket) {
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'jeremycoathup@gmail.com',
-        pass: '2fARNz6h'
+        user: '...',
+        pass: '...'
       }
     });
     var mailOptions = {

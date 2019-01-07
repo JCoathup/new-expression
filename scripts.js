@@ -231,10 +231,6 @@ document.addEventListener("click", function(e){
     let _lightbox = document.querySelector(".lightbox");
     _lightbox.classList.toggle("lightbox-target");
   }
-  /* if (e.target && e.target.id == "tweet"){
-    console.log("here");
-    tweet();
-  } */
   if (e.target && e.target.id == "sendTweet"){
     sendingTweet();
   }
@@ -460,9 +456,6 @@ function drawRotated180(degrees){
   console.log(degrees);
   context.clearRect(0,0,_canvas.width,_canvas.height);
   context.save();
-  //canvas.setAttribute("width", window.innerHeight*window.devicePixelRatio);
-  //canvas.setAttribute("height", window.innerWidth*window.devicePixelRatio);
-  //context.translate(-canvas.width/2,-canvas.height/2);
   context.rotate(degrees*Math.PI/180);
   context.drawImage(tempCanvas,-tempCanvas.width,-tempCanvas.height);
   context.restore();
@@ -559,15 +552,6 @@ function OrientationshiftNew(){
   context.strokeStyle = ink;
 }
 
-//handles tweet functionality
-/*function tweet () {
-  console.log("there");
-  let _lightbox = document.querySelector(".lightbox");
-  _lightbox.classList.toggle("lightbox-target");
-  _lightbox.innerHTML = `<aside class = "lightbox-inner" style="padding:1%;">
-                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet" data-size="large">Tweet</a>
-                        </aside>`;
-}*/
 //sending a tweet
 function sendingTweet () {
   let tweetData = {};
@@ -597,7 +581,7 @@ document.getElementsByTagName('head')[0].appendChild(meta);
         'og:site_name': 'https://new-expression.herokuapp.com',
         'og:url': 'https://new-expression.herokuapp.com/'+data,
         'og:description': 'Say something, by drawing something',
-        'fb:app_id': '519899595123870',
+        'fb:app_id': '...',
         'og:image': 'https://new-expression.herokuapp.com/'+data,
         'og:image:type': 'image/jpeg',
         'og:image:width': window.innerWidth,

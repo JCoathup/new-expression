@@ -1,5 +1,7 @@
 # Scribblez
 
+### Author: Jeremy Coathup
+
 [![N|Solid](images/icon256.png)](https://new-expression.herokuapp.com)
 
 Scribblez is essentially an HTML5 canvas drawing progressive web app. However, it runs on a nodeJS backend and also allows the user to post their images drawn to Facebook, Twitter and Google+. The app also permits the user to send drawings as email email or download them to their devices. It is quite versatile in the sense of working across platforms and devices and browser windows can be resized or device orientation changed on the fly.
